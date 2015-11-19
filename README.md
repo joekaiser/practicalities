@@ -39,4 +39,4 @@ Essentially, take this and learn from it! Create addon mods that depend on it! I
 
 Don't be a jerk.
 
-(adapted from [CoFH](https://github.com/CoFH/CoFHCore/commit/4db672b1088f753de41b5b617e8131c7e9794d3f#diff-04c6e90faac2675aa89e2176d2eec7d8))
+(adapted from [CoFH](https://raw.githubusercontent.com/CoFH/CoFHCore/4db672b1088f753de41b5b617e8131c7e9794d3f/README.md))
