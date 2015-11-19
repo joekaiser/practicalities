@@ -1,0 +1,11 @@
+itemGroup.tabPracticalities=Practicalities
+
+item.voidBucket.name=Void Bucket
+item.matterTransporter.name=Matter Transporter
+item.magnet.name=Item Magnet
+item.machineCore.name=Machine Core
+item.filtercard.name=Filter Card
+
+tile.shippingcrate.name=Shipping Crate
+tile.stonewall.name=Stone Wall
+tile.vampiricgenerator.name=Vampiric Generator

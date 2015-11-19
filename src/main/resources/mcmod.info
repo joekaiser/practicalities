@@ -1,0 +1,16 @@
+[
+{
+  "modid": "practicalities",
+  "name": "Practicalities",
+  "description": "Making your Minecraft life easier since 1984",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://www.curse.com/mc-mods/minecraft/231935-practicalities",
+  "updateUrl": "",
+  "authorList": ["Jotato"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": [CoFHCore]
+}
+]
