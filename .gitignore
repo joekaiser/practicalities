@@ -30,6 +30,25 @@ local.properties
 .classpath
 /ref-src
 .project
+
+#minecraft stuff
+/asm
+/config
+/logs
+/options.txt
+/saves
+/usernamecache.json
+
+#minecraft server stuff
+/banned-ips.json
+/banned-players.json
+/eula.txt
+/ops.json
+/server.properties
+/usercache.json
+/whitelist.json
+/world
+
 # External tool builders
 .externalToolBuilders/
 
