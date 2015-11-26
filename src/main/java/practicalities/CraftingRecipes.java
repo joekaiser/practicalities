@@ -19,6 +19,8 @@ public class CraftingRecipes {
 	ItemStack cobblestone = new ItemStack(Blocks.cobblestone);
 	ItemStack web = new ItemStack(Blocks.web);
 	ItemStack string = new ItemStack(Items.string);
+	ItemStack diamondRod = new ItemStack(ModItems.diamondRod);
+	ItemStack blazeRod = new ItemStack(Items.blaze_rod);
 
 	String stick = "stickWood";
 	String log = "logWood";
@@ -40,5 +42,6 @@ public class CraftingRecipes {
 		ItemHelper.addShapedOreRecipe(new ItemStack(ModBlocks.stoneWall,3), "ppp","ccc",'p', woodSlab,'c',cobblestone);
 		ItemHelper.addShapedOreRecipe(ModItems.filterCard, "www"," r ","sss",'s',stick,'w',web, 'r', redstone);
 		ItemHelper.addShapedOreRecipe(Blocks.web, "s s"," s ","s s",'s',string);
+		ItemHelper.addShapedOreRecipe(ModItems.diamondRod, "d","b","d",'d',diamond,'b',blazeRod);
 	}
 }

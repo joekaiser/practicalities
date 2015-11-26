@@ -5,6 +5,7 @@ item.matterTransporter.name=Matter Transporter
 item.magnet.name=Item Magnet
 item.machineCore.name=Machine Core
 item.filtercard.name=Filter Card
+item.diamondRod.name=Diamond Rod
 
 tile.shippingcrate.name=Shipping Crate
 tile.stonewall.name=Stone Wall
