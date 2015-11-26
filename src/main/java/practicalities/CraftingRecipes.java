@@ -73,7 +73,7 @@ public class CraftingRecipes {
 				"s s",    's', string);
 		ItemHelper.addShapedOreRecipe(new ItemStack(ModItems.sitisStick),
 				"  d",
-				" c",
+				" c ",
 				"r  ",    'd', diamond, 'c', machineCore, 'r', diamondRod);
 
 		ItemHelper.addShapedOreRecipe(ModItems.diamondRod, 

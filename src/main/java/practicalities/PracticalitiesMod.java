@@ -1,5 +1,14 @@
 package practicalities;
 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Configuration;
+import practicalities.gui.GuiHandler;
+import practicalities.items.ModItems;
+import practicalities.machine.shippingcrate.TileShippingCrate;
+import practicalities.machine.vampiricgenerator.TileVampiricGenerator;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -10,14 +19,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Configuration;
-import practicalities.gui.GuiHandler;
-import practicalities.items.ModItems;
-import practicalities.machine.shippingcrate.TileShippingCrate;
-import practicalities.machine.vampiricgenerator.TileVampiricGenerator;
 
 @Mod(modid = PracticalitiesMod.MODID, version = PracticalitiesMod.VERSION)
 public class PracticalitiesMod {
@@ -37,9 +38,9 @@ public class PracticalitiesMod {
 	public void preInit(FMLPreInitializationEvent event) {
 		ConfigMan.init(new Configuration(event.getSuggestedConfigurationFile()));
 		MinecraftForge.EVENT_BUS.register(proxy);
+		FMLCommonHandler.instance().bus().register(proxy);
 		proxy.preInit();
 		initMachines();
-
 	}
 
 	@EventHandler
