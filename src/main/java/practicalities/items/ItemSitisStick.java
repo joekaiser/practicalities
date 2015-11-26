@@ -47,6 +47,7 @@ public class ItemSitisStick extends Item {
 			if(!world.isRemote && world.isRaining() && sky) {
 				world.provider.resetRainAndThunder();
 				world.playSoundAtEntity(player, "random.orb", 1, 1);
+				player.addChatMessage(new ChatComponentTranslation("chat.sitis.clear"));
 	            if(!player.capabilities.isCreativeMode)
 	            	stack.damageItem(1, player);
 			} else {
@@ -80,14 +81,14 @@ public class ItemSitisStick extends Item {
 	}
 	
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister p_94581_1_)
+    public void registerIcons(IIconRegister ir)
     {
-        this.itemIcon = p_94581_1_.registerIcon(this.getIconString());
+        this.itemIcon = ir.registerIcon(this.getIconString());
         this.iconArray = new IIcon[iconCount];
 
         for (int i = 0; i < iconArray.length; ++i)
         {
-            this.iconArray[i] = p_94581_1_.registerIcon(this.getIconString() + (i == 0 ? "" : "_" + i ) );
+            this.iconArray[i] = ir.registerIcon(this.getIconString() + (i == 0 ? "" : "_" + i ) );
         }
     }
 	
