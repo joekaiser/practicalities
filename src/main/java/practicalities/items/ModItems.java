@@ -1,6 +1,9 @@
 package practicalities.items;
 
+import cofh.core.item.ItemBase;
+import cofh.core.item.ItemBase.ItemEntry;
 import net.minecraft.item.Item;
+import practicalities.PracticalitiesMod;
 import practicalities.items.filtercard.ItemFilterCard;
 
 public class ModItems {
@@ -14,6 +17,7 @@ public class ModItems {
 	// crafting components
 	public static Item diamondRod;
 	public static Item machineCore;
+	public static Item imbuedCore;
 
 	// other
 	public static Item filterCard;
@@ -28,6 +32,7 @@ public class ModItems {
 		// crafting components
 		machineCore = new ItemCraftingBase("machineCore");
 		diamondRod = new ItemCraftingBase("diamondRod");
+		imbuedCore = new ItemCraftingBase("imbuedCore");
 
 		// other
 		filterCard = new ItemFilterCard();

@@ -26,6 +26,7 @@ public class CraftingRecipes {
 	ItemStack chest = new ItemStack(Blocks.chest);
 	ItemStack web = new ItemStack(Blocks.web);
 	String stick = "stickWood";
+	ItemStack netherStar = new ItemStack(Items.nether_star);
 
 	// vanilla - mob drops
 	ItemStack string = new ItemStack(Items.string);
@@ -35,6 +36,7 @@ public class CraftingRecipes {
 	ItemStack machineCore = new ItemStack(ModItems.machineCore);
 	ItemStack voidBucket = new ItemStack(ModItems.voidBucket);
 	ItemStack diamondRod = new ItemStack(ModItems.diamondRod);
+	ItemStack imbuedCore = new ItemStack(ModItems.imbuedCore);
 
 	public void init() {
 		shapedRecipes();
@@ -80,6 +82,11 @@ public class CraftingRecipes {
 				"d",
 				"b",
 				"d",	'd',diamond,'b',blazeRod);
+		
+		ItemHelper.addShapedOreRecipe(ModItems.imbuedCore,
+				"nnn",
+				"ndn",
+				"nnn", 	'd', diamond, 'n', netherStar);
 
 	}
 }
