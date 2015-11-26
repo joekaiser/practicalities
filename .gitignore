@@ -38,6 +38,7 @@ local.properties
 /options.txt
 /saves
 /usernamecache.json
+/crash-reports
 
 #minecraft server stuff
 /banned-ips.json
