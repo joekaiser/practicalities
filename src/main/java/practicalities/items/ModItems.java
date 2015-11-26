@@ -10,6 +10,7 @@ public class ModItems {
 	public static Item magnet;
 	public static Item machineCore;
 	public static Item filterCard;
+	public static Item sitisStick;
 	public static Item diamondRod;
 	
 	public static void init(){
@@ -18,6 +19,7 @@ public class ModItems {
 		magnet = new ItemMagnet();
 		machineCore = new ItemCraftingBase("machineCore");
 		filterCard = new ItemFilterCard();
+		sitisStick = new ItemSitisStick();
 		diamondRod = new ItemCraftingBase("diamondRod");
 	}
 }
