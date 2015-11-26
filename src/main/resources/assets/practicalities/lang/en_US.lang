@@ -5,11 +5,8 @@ item.matterTransporter.name=Matter Transporter
 item.magnet.name=Item Magnet
 item.machineCore.name=Machine Core
 item.filtercard.name=Filter Card
-<<<<<<< HEAD
 item.sitisStick.name=Sitis Stick
-=======
 item.diamondRod.name=Diamond Rod
->>>>>>> origin/master
 
 tile.shippingcrate.name=Shipping Crate
 tile.stonewall.name=Stone Wall
@@ -18,3 +15,5 @@ tile.vampiricgenerator.name=Vampiric Generator
 chat.sitis.noSky=The stick might work better out in the open
 chat.sitis.noRain=The stick doesn't really have much to do right now
 chat.sitis.clear=Rain, Rain, go away; come again another day
+
+key.practicalities.magnet_toggle=Toggle magnet

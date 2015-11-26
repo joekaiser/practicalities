@@ -5,21 +5,31 @@ import practicalities.items.filtercard.ItemFilterCard;
 
 public class ModItems {
 
+	// tools
 	public static Item voidBucket;
 	public static Item matterTransporter;
 	public static Item magnet;
-	public static Item machineCore;
-	public static Item filterCard;
 	public static Item sitisStick;
+	
+	// crafting components
 	public static Item diamondRod;
+	public static Item machineCore;
+
+	// other
+	public static Item filterCard;
 	
 	public static void init(){
+		// tools
 		voidBucket = new ItemVoidBucket();
 		matterTransporter = new ItemMatterTransporter();
 		magnet = new ItemMagnet();
-		machineCore = new ItemCraftingBase("machineCore");
-		filterCard = new ItemFilterCard();
 		sitisStick = new ItemSitisStick();
+				
+		// crafting components
+		machineCore = new ItemCraftingBase("machineCore");
 		diamondRod = new ItemCraftingBase("diamondRod");
+
+		// other
+		filterCard = new ItemFilterCard();
 	}
 }
