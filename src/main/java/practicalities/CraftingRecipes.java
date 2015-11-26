@@ -34,6 +34,7 @@ public class CraftingRecipes {
 	// mod items
 	ItemStack machineCore = new ItemStack(ModItems.machineCore);
 	ItemStack voidBucket = new ItemStack(ModItems.voidBucket);
+	ItemStack diamondRod = new ItemStack(ModItems.diamondRod);
 
 	public void init() {
 		shapedRecipes();
@@ -74,5 +75,11 @@ public class CraftingRecipes {
 				" rv",
 				" cr",
 				"r  ",    'r', blazeRod, 'v', voidBucket, 'c', machineCore);
+
+		ItemHelper.addShapedOreRecipe(ModItems.diamondRod, 
+				"d",
+				"b",
+				"d",	'd',diamond,'b',blazeRod);
+
 	}
 }
