@@ -7,13 +7,17 @@ item.machineCore.name=Machine Core
 item.filtercard.name=Filter Card
 item.sitisStick.name=Sitis Stick
 item.diamondRod.name=Diamond Rod
+item.imbuedCore.name=Imbued Core
 
 tile.shippingcrate.name=Shipping Crate
 tile.stonewall.name=Stone Wall
 tile.vampiricgenerator.name=Vampiric Generator
+tile.polarityNegator.name=Polarity Negator
 
 chat.sitis.noSky=The stick might work better out in the open
 chat.sitis.noRain=The stick doesn't really have much to do right now
 chat.sitis.clear=Rain, Rain, go away; come again another day
 
-key.practicalities.magnet_toggle=Toggle magnet
+key.practicalities.magnet_toggle=Toggle Practicalities magnet
+
+tooltip.itemMagnet.flair=Suck it!

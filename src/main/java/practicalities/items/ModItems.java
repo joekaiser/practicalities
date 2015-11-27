@@ -14,6 +14,7 @@ public class ModItems {
 	// crafting components
 	public static Item diamondRod;
 	public static Item machineCore;
+	public static Item imbuedCore;
 
 	// other
 	public static Item filterCard;
@@ -28,6 +29,7 @@ public class ModItems {
 		// crafting components
 		machineCore = new ItemCraftingBase("machineCore");
 		diamondRod = new ItemCraftingBase("diamondRod");
+		imbuedCore = new ItemCraftingBase("imbuedCore");
 
 		// other
 		filterCard = new ItemFilterCard();
