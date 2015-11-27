@@ -19,9 +19,9 @@ import practicalities.gui.TileSimpleInventory;
 
 public class TileVampiricGenerator extends TileSimpleInventory implements IEnergyProvider {
 
-	private static final int generateBase = 30;
+	private static final int generateBase = 40;
 	private static final int storageBase = 10000;
-	private static final int maxTransfer = 100;
+	private static final int transferBase = 100;
 	private static final float maxLifeSuckPerOperation = 2;
 	private static final float maxFuelReserve = 1000;
 	private static final float fuelUsedPerTick = .1f;
@@ -34,7 +34,7 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 
 	public TileVampiricGenerator() {
 		super(1);
-		energy = new EnergyStorage(storageBase, maxTransfer);
+		energy = new EnergyStorage(storageBase, 1000);
 		timer = new TimeTracker();
 
 	}
@@ -68,6 +68,7 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 
 	@Override
 	public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate) {
+		maxExtract = Math.min(maxExtract, getTransferRate());
 		return energy.extractEnergy(maxExtract, simulate);
 	}
 
@@ -83,6 +84,10 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 
 	private int getProductionRate() {
 		return generateBase;
+	}
+	
+	private int getTransferRate(){
+		return transferBase;
 	}
 
 	@Override
@@ -147,12 +152,12 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 				IEnergyReceiver receiver = (IEnergyReceiver) tile;
 
 				if (receiver.canConnectEnergy(dir.getOpposite())) {
-					int tosend = energy.extractEnergy(maxTransfer, true);
+					int tosend = extractEnergy(dir, getTransferRate(), true);
 					int used = ((IEnergyReceiver) tile).receiveEnergy(dir.getOpposite(), tosend, false);
 					if (used > 0) {
 						this.markDirty();
 					}
-					energy.extractEnergy(used, false);
+					extractEnergy(dir,used, false);
 				}
 
 			}
