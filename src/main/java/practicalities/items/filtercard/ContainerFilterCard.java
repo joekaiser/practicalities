@@ -1,19 +1,24 @@
 package practicalities.items.filtercard;
 
-import cofh.lib.gui.container.ContainerInventoryItem;
-import cofh.lib.gui.slot.SlotFalseCopy;
-import cofh.lib.gui.slot.SlotViewOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import practicalities.gui.IContainerButtons;
+import cofh.lib.gui.container.ContainerInventoryItem;
+import cofh.lib.gui.slot.SlotFalseCopy;
+import cofh.lib.gui.slot.SlotViewOnly;
 
-public class ContainerFilterCard extends ContainerInventoryItem {
+public class ContainerFilterCard extends ContainerInventoryItem implements IContainerButtons {
 
+	boolean[] fuzzy = new boolean[9];
+	NBTTagCompound tag;
 	
 	public ContainerFilterCard(ItemStack item, InventoryPlayer inventory) {
 		super(item, inventory);
-
+		tag = item.getTagCompound();
+		fuzzyRead();
 		int numRows = containerWrapper.getSizeInventory() / 9;
 
 		for (int row = 0; row < numRows; ++row) {
@@ -26,6 +31,27 @@ public class ContainerFilterCard extends ContainerInventoryItem {
 		addPlayerSlotsToContainer(inventory, 8, 50);
 	}
 
+	public void fuzzyUpdate() {
+		for (int i = 0; i < fuzzy.length; i++) {
+			tag.setBoolean("fuzzy_"+i, fuzzy[i]);
+		}
+		this.containerWrapper.markDirty();
+	}
+	
+	public void fuzzyRead() {
+		for (int i = 0; i < fuzzy.length; i++) {
+			fuzzy[i] = tag.getBoolean("fuzzy_"+i);
+		}
+	}
+	
+	@Override
+	public void buttonClick(int button, int action) {
+		if(button == 0) {
+			fuzzy[action] = !fuzzy[action];
+			fuzzyUpdate();
+		}
+	}
+	
 	private void addPlayerSlotsToContainer(InventoryPlayer inventory, int xOff, int yOff) {
 
 		for (int i = 0; i < 3; i++) {

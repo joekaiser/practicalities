@@ -9,12 +9,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import practicalities.IItemFilter;
 import practicalities.PracticalitiesMod;
 import practicalities.gui.GuiHandler;
 import practicalities.items.IItemGui;
 
-public class ItemFilterCard extends Item implements IItemGui, IInventoryContainerItem {
+public class ItemFilterCard extends Item implements IItemFilter<ItemStack>, IItemGui, IInventoryContainerItem {
 
 	public ItemFilterCard() {
 		super();
@@ -26,6 +28,49 @@ public class ItemFilterCard extends Item implements IItemGui, IInventoryContaine
 		setMaxStackSize(1);
 	}
 
+
+	@Override
+	public boolean filter(ItemStack testOn, ItemStack stack) {
+		NBTTagCompound tag = testOn.getTagCompound();
+		if(tag == null)
+			return false;
+		for (int i = 0; i < filterCount(testOn); i++) {
+			if(filter(testOn, stack, i))
+				return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean filter(ItemStack testOn, ItemStack stack, int filterNum) {
+		ItemStack filter = getStackInSlot(testOn, filterNum);
+		if(filter == null || testOn.stackTagCompound == null) {
+			return true;
+		}
+		boolean fuzzy = testOn.stackTagCompound.getBoolean("fuzzy_"+filterNum);
+		boolean match = true;
+		match = match && ItemHelper.itemsEqualWithoutMetadata(stack, filter);
+		if(!fuzzy) {
+			match = match && (stack.getHasSubtypes() || ItemHelper.getItemDamage(stack) == ItemHelper.getItemDamage(filter) );
+			match = match && ItemHelper.doNBTsMatch(stack.stackTagCompound, filter.stackTagCompound);
+		}
+		return match;
+	}
+
+
+	@Override
+	public int filterCount(ItemStack testOn) {
+		return 9;
+	}
+	
+	private ItemStack getStackInSlot(ItemStack stack, int slot) {
+		NBTTagCompound tag = stack.stackTagCompound.getCompoundTag("Slot" + slot);
+		if (tag == null || tag.hasNoTags()) {
+			return null;
+		}
+		return ItemStack.loadItemStackFromNBT(tag);
+	}
+	
 	@Override
 	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
 		openGui(world, player);
