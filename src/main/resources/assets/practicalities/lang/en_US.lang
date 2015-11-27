@@ -11,6 +11,7 @@ item.diamondRod.name=Diamond Rod
 tile.shippingcrate.name=Shipping Crate
 tile.stonewall.name=Stone Wall
 tile.vampiricgenerator.name=Vampiric Generator
+tile.polarityNegator.name=Polarity Negator
 
 chat.sitis.noSky=The stick might work better out in the open
 chat.sitis.noRain=The stick doesn't really have much to do right now
