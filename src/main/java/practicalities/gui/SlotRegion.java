@@ -198,7 +198,14 @@ public class SlotRegion {
 					for (SlotRegion target : region.getShiftTargets()) {
 						if( target.shiftClickInto(container, stackInSlot) ) {
 							moved = true;
-							break;
+							for(int i = 0; i < 64; i++) {
+								if(stackInSlot.stackSize <= 0) {
+									break;
+								}
+								target.shiftClickInto(container, stackInSlot);
+							}
+							if(moved)
+								break;
 						}
 					}
 					if(moved)
@@ -219,7 +226,7 @@ public class SlotRegion {
 			slot.onPickupFromSlot(player, stackInSlot);
 		}
 		
-		return stack;
+		return null;
 	}
 	
 	/**
