@@ -35,6 +35,7 @@ public class CraftingRecipes {
 	ItemStack machineCore = new ItemStack(ModItems.machineCore);
 	ItemStack voidBucket = new ItemStack(ModItems.voidBucket);
 	ItemStack diamondRod = new ItemStack(ModItems.diamondRod);
+	ItemStack magnet = new ItemStack(ModItems.magnet);
 
 	public void init() {
 		shapedRecipes();
@@ -80,6 +81,10 @@ public class CraftingRecipes {
 				"d",
 				"b",
 				"d",	'd',diamond,'b',blazeRod);
+		ItemHelper.addShapedOreRecipe(ModBlocks.polarityNegator, 
+				"imi",
+				"ici",
+				"ivi",	'i',ironIngot,'m',magnet,'c',machineCore,'v',voidBucket);
 
 	}
 }

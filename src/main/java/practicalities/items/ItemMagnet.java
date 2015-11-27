@@ -15,6 +15,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import practicalities.ModUtils;
 import practicalities.PracticalitiesMod;
+import practicalities.machine.polaritynegator.PolarityNegatorManager;
 
 public class ItemMagnet extends Item {
 
@@ -56,7 +57,9 @@ public class ItemMagnet extends Item {
 			return;
 		if (!(entity instanceof EntityPlayer))
 			return;
-
+		
+		PolarityNegatorManager.cacheWorldData(world);
+		
 		EntityPlayer player = (EntityPlayer) entity;
 
 		// items
@@ -64,6 +67,8 @@ public class ItemMagnet extends Item {
 				this.distanceFromPlayer).iterator();
 		while (iterator.hasNext()) {
 			EntityItem itemToGet = (EntityItem) iterator.next();
+			if( PolarityNegatorManager.isEntityCloseToNegator(itemToGet) )
+				continue;
 			itemToGet.delayBeforeCanPickup = 50;
 
 			EntityItemPickupEvent pickupEvent = new EntityItemPickupEvent(player, itemToGet);
@@ -85,6 +90,9 @@ public class ItemMagnet extends Item {
 				this.distanceFromPlayer).iterator();
 		while (iterator.hasNext()) {
 			EntityXPOrb xpToGet = (EntityXPOrb) iterator.next();
+			if( PolarityNegatorManager.isEntityCloseToNegator(xpToGet) )
+				continue;
+			
 			if (xpToGet.isDead || xpToGet.isInvisible()) {
 				continue;
 			}
@@ -97,6 +105,8 @@ public class ItemMagnet extends Item {
 			world.playSoundAtEntity(player, "random.orb", 0.08F,
 					0.5F * ((world.rand.nextFloat() - world.rand.nextFloat()) * 0.7F + 1.8F));
 		}
+		
+		PolarityNegatorManager.cleareWorldDataCache();
 	}
 
 	protected boolean isActivated(ItemStack item) {

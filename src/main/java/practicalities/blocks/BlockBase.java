@@ -5,21 +5,29 @@ import java.util.ArrayList;
 import cofh.core.block.BlockCoFHBase;
 import cofh.core.util.CoreUtils;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import practicalities.PracticalitiesMod;
 
 public class BlockBase extends BlockCoFHBase {
 
+	protected IIcon icon;
+	protected String name;
+	
 	public BlockBase(Material material, String name, float hardness, Class<? extends ItemBlock> itemBlock) {
 		super(material);
-
+		this.name = name;
+		
 		setBlockName(name);
 		setCreativeTab(PracticalitiesMod.tab);
 		setBlockTextureName(getTexture(name));
@@ -30,6 +38,17 @@ public class BlockBase extends BlockCoFHBase {
 			GameRegistry.registerBlock(this, name);
 		}
 
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerBlockIcons(IIconRegister ir) {
+		this.icon = ir.registerIcon(getTexture(name + "/" + name));
+	}
+
+	@Override
+	public IIcon getIcon(int side, int meta) {
+		return this.icon;
 	}
 
 	protected BlockBase(Material material, String name, float hardness, String harvestTool, int harvestLevel,
