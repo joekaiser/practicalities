@@ -1,16 +1,16 @@
 package practicalities.machine.shippingcrate;
 
-import cofh.lib.gui.container.InventoryContainerItemWrapper;
-import cofh.lib.util.helpers.ItemHelper;
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.StatCollector;
+import practicalities.IItemFilter;
 import practicalities.gui.TileSimpleInventory;
 import practicalities.items.ModItems;
+import cofh.lib.gui.container.InventoryContainerItemWrapper;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TileShippingCrate extends TileSimpleInventory {
 
@@ -54,21 +54,26 @@ public class TileShippingCrate extends TileSimpleInventory {
 		return new ContainerShippingCrate(inventory, this);
 	}
 
+	@SuppressWarnings({"unchecked"})
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack item) {
-
-		if (filters != null) {
+		ItemStack filterCard = getStackInSlot(getFilterSlotIndex());
+		if (filterCard != null && filterCard.getItem() instanceof IItemFilter<?>) {
 			int filterToApply = slot % 9;
-			if (filters[filterToApply] == null) {
-				return true;
-			}
-			if (ItemHelper.itemsEqualWithoutMetadata(item, filters[filterToApply], true)) {
-				return true;
-			} else {
-				return false;
-			}
-
+			return ((IItemFilter<ItemStack>)filterCard.getItem()).filter(filterCard, item, filterToApply);
 		}
+//		if (filters != null) {
+//			int filterToApply = slot % 9;
+//			if (filters[filterToApply] == null) {
+//				return true;
+//			}
+//			if (ItemHelper.itemsEqualWithoutMetadata(item, filters[filterToApply], true)) {
+//				return true;
+//			} else {
+//				return false;
+//			}
+//
+//		}
 
 		return true;
 	}

@@ -1,7 +1,5 @@
 package practicalities.machine.polaritynegator;
 
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 import practicalities.PracticalitesWorldData;
@@ -42,7 +40,6 @@ public class PolarityNegatorManager {
 	 * @return
 	 */
 	public static boolean isEntityCloseToNegator(Entity e) {
-		List<BlockCoord> list = cache.magnetStoppers;
 		for (BlockCoord coord : cache.magnetStoppers) {
 			if( Math.abs( e.posX - ( coord.x + 0.5 ) ) < RANGE+0.5 &&
 			    Math.abs( e.posY - ( coord.y + 0.5 ) ) < RANGE+0.5 &&
