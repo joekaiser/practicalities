@@ -21,12 +21,15 @@ public class CraftingRecipes {
 	ItemStack cobblestone = new ItemStack(Blocks.cobblestone);
 	String woodSlab = "slabWood";
 	String log = "logWood";
-
+	ItemStack skull = new ItemStack(Items.skull,1,2);
+	
 	// vanilla - other
 	ItemStack chest = new ItemStack(Blocks.chest);
 	ItemStack web = new ItemStack(Blocks.web);
 	String stick = "stickWood";
 	ItemStack netherStar = new ItemStack(Items.nether_star);
+	ItemStack rottenFlesh = new ItemStack(Items.rotten_flesh);
+	ItemStack spiderEye = new ItemStack(Items.spider_eye);
 
 	// vanilla - mob drops
 	ItemStack string = new ItemStack(Items.string);
@@ -97,6 +100,10 @@ public class CraftingRecipes {
 				"i i",
 				" c ",
 				"i i", 'i', ironIngot, 'c', machineCore);
+		ItemHelper.addShapedOreRecipe(ModBlocks.vampiricGenerator,
+				"ese",
+				"zcz",
+				"ppp", 'p', machinePlate,'c',machineCore,'z',rottenFlesh,'s',skull,'e',spiderEye);
 
 	}
 }
