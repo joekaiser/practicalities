@@ -26,6 +26,8 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 	private static final float maxFuelReserve = 1000;
 	private static final float fuelUsedPerTick = .1f;
 	private static final int sleepTime = 100;
+	public static final DamageSource vampiricDamage = (new DamageSource("vampiricGenerator")).setDamageBypassesArmor()
+			.setMagicDamage();
 
 	private EnergyStorage energy;
 	private TimeTracker timer;
@@ -85,8 +87,8 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 	private int getProductionRate() {
 		return generateBase;
 	}
-	
-	private int getTransferRate(){
+
+	private int getTransferRate() {
 		return transferBase;
 	}
 
@@ -102,7 +104,9 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 			return;
 
 		if (timer.hasDelayPassed(worldObj, sleepTime)) {
-			entities = ModUtils.getEntitiesInRange(EntityLivingBase.class, worldObj, xCoord, yCoord + 1, zCoord, .5);
+			 entities = ModUtils.getEntitiesInRange(EntityLivingBase.class,
+			 worldObj, xCoord+.5,yCoord+1,zCoord+.5, .499,.1,.499);
+	
 		}
 
 		if (entities != null && worldObj.getTotalWorldTime() % 6 == 0) {
@@ -121,18 +125,19 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 
 	private void feedFromEntity(EntityLivingBase entity) {
 
-		if (entity.attackEntityFrom(DamageSource.wither, maxLifeSuckPerOperation)) {
+		if (entity.attackEntityFrom(vampiricDamage, maxLifeSuckPerOperation)) {
+			entity.captureDrops = true;
 			float lpDrained = entity.prevHealth - entity.getHealth();
 			currentFuel = (int) Math.min(currentFuel + lpDrained, maxFuelReserve);
 		}
 	}
 
 	private void produceRF() {
-		
-		if(energy.getEnergyStored() == energy.getMaxEnergyStored()){
+
+		if (energy.getEnergyStored() == energy.getMaxEnergyStored()) {
 			return;
 		}
-		
+
 		if (currentFuel >= fuelUsedPerTick) {
 			currentFuel -= fuelUsedPerTick;
 
@@ -157,34 +162,33 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 					if (used > 0) {
 						this.markDirty();
 					}
-					extractEnergy(dir,used, false);
+					extractEnergy(dir, used, false);
 				}
 
 			}
 
 		}
 	}
-	
+
 	@Override
-	public void writeToNBT(NBTTagCompound tag)
-	{
+	public void writeToNBT(NBTTagCompound tag) {
 		super.writeToNBT(tag);
 		tag.setFloat("currentFuel", (float) this.currentFuel);
 
 		NBTTagCompound energyTag = new NBTTagCompound();
 		this.energy.writeToNBT(energyTag);
 		tag.setTag("energy", energyTag);
-		
+
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound tag)
-	{
+	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
-		
+
 		this.currentFuel = tag.getFloat("currentFuel");
-		
+
 		NBTTagCompound energyTag = tag.getCompoundTag("energy");
 		this.energy.readFromNBT(energyTag);
 	}
+
 }
