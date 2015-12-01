@@ -2,6 +2,7 @@ package practicalities.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import practicalities.ConfigMan;
 import practicalities.machine.playerinterface.BlockPlayerInterface;
 import practicalities.machine.polaritynegator.BlockPolarityNegator;
 import practicalities.machine.shippingcrate.BlockShippingCrate;
@@ -15,10 +16,19 @@ public class ModBlocks {
 	public static Block playerInterface;
 	
 	public static void init() {
-		shippingCrate = new BlockShippingCrate();
+		
 		stoneWall = new BlockDecor(Material.rock, "stonewall", 1, Block.soundTypeStone);
 		vampiricGenerator = new BlockVampiricGenerator();
 		polarityNegator = new BlockPolarityNegator();
 		playerInterface = new BlockPlayerInterface();
+		
+		if(ConfigMan.enableShippingCrate)
+			shippingCrate = new BlockShippingCrate();
+		
+		if(ConfigMan.enableVampiricGenerator)
+			vampiricGenerator = new BlockVampiricGenerator();
+		
+		if(ConfigMan.enableMagnet)
+			polarityNegator = new BlockPolarityNegator();
 	}
 }

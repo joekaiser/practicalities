@@ -19,13 +19,15 @@ import practicalities.gui.TileSimpleInventory;
 
 public class TileVampiricGenerator extends TileSimpleInventory implements IEnergyProvider {
 
-	private static final int generateBase = 30;
+	private static final int generateBase = 40;
 	private static final int storageBase = 10000;
-	private static final int maxTransfer = 100;
+	private static final int transferBase = 100;
 	private static final float maxLifeSuckPerOperation = 2;
 	private static final float maxFuelReserve = 1000;
 	private static final float fuelUsedPerTick = .1f;
 	private static final int sleepTime = 100;
+	public static final DamageSource vampiricDamage = (new DamageSource("vampiricGenerator")).setDamageBypassesArmor()
+			.setMagicDamage();
 
 	private EnergyStorage energy;
 	private TimeTracker timer;
@@ -34,7 +36,7 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 
 	public TileVampiricGenerator() {
 		super(1);
-		energy = new EnergyStorage(storageBase, maxTransfer);
+		energy = new EnergyStorage(storageBase, 1000);
 		timer = new TimeTracker();
 
 	}
@@ -68,6 +70,7 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 
 	@Override
 	public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate) {
+		maxExtract = Math.min(maxExtract, getTransferRate());
 		return energy.extractEnergy(maxExtract, simulate);
 	}
 
@@ -85,6 +88,10 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 		return generateBase;
 	}
 
+	private int getTransferRate() {
+		return transferBase;
+	}
+
 	@Override
 	public String getInventoryName() {
 		return StatCollector.translateToLocal("tile.vampiricgenerator.name");
@@ -97,7 +104,9 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 			return;
 
 		if (timer.hasDelayPassed(worldObj, sleepTime)) {
-			entities = ModUtils.getEntitiesInRange(EntityLivingBase.class, worldObj, xCoord, yCoord + 1, zCoord, .5);
+			 entities = ModUtils.getEntitiesInRange(EntityLivingBase.class,
+			 worldObj, xCoord+.5,yCoord+1,zCoord+.5, .499,.1,.499);
+	
 		}
 
 		if (entities != null && worldObj.getTotalWorldTime() % 6 == 0) {
@@ -116,18 +125,19 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 
 	private void feedFromEntity(EntityLivingBase entity) {
 
-		if (entity.attackEntityFrom(DamageSource.wither, maxLifeSuckPerOperation)) {
+		if (entity.attackEntityFrom(vampiricDamage, maxLifeSuckPerOperation)) {
+			entity.captureDrops = true;
 			float lpDrained = entity.prevHealth - entity.getHealth();
 			currentFuel = (int) Math.min(currentFuel + lpDrained, maxFuelReserve);
 		}
 	}
 
 	private void produceRF() {
-		
-		if(energy.getEnergyStored() == energy.getMaxEnergyStored()){
+
+		if (energy.getEnergyStored() == energy.getMaxEnergyStored()) {
 			return;
 		}
-		
+
 		if (currentFuel >= fuelUsedPerTick) {
 			currentFuel -= fuelUsedPerTick;
 
@@ -147,39 +157,38 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 				IEnergyReceiver receiver = (IEnergyReceiver) tile;
 
 				if (receiver.canConnectEnergy(dir.getOpposite())) {
-					int tosend = energy.extractEnergy(maxTransfer, true);
+					int tosend = extractEnergy(dir, getTransferRate(), true);
 					int used = ((IEnergyReceiver) tile).receiveEnergy(dir.getOpposite(), tosend, false);
 					if (used > 0) {
 						this.markDirty();
 					}
-					energy.extractEnergy(used, false);
+					extractEnergy(dir, used, false);
 				}
 
 			}
 
 		}
 	}
-	
+
 	@Override
-	public void writeToNBT(NBTTagCompound tag)
-	{
+	public void writeToNBT(NBTTagCompound tag) {
 		super.writeToNBT(tag);
 		tag.setFloat("currentFuel", (float) this.currentFuel);
 
 		NBTTagCompound energyTag = new NBTTagCompound();
 		this.energy.writeToNBT(energyTag);
 		tag.setTag("energy", energyTag);
-		
+
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound tag)
-	{
+	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
-		
+
 		this.currentFuel = tag.getFloat("currentFuel");
-		
+
 		NBTTagCompound energyTag = tag.getCompoundTag("energy");
 		this.energy.readFromNBT(energyTag);
 	}
+
 }
