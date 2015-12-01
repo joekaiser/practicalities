@@ -5,10 +5,12 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import practicalities.Logger;
 import practicalities.gui.IContainerButtons;
 import cofh.lib.gui.container.ContainerInventoryItem;
 import cofh.lib.gui.slot.SlotFalseCopy;
 import cofh.lib.gui.slot.SlotViewOnly;
+import cofh.lib.util.helpers.ItemHelper;
 
 public class ContainerFilterCard extends ContainerInventoryItem implements IContainerButtons {
 
@@ -72,6 +74,7 @@ public class ContainerFilterCard extends ContainerInventoryItem implements ICont
 	@Override
 	 public ItemStack slotClick(int paramInt1, int paramInt2, int paramInt3, EntityPlayer paramEntityPlayer)
 	  {
+		Logger.info("_ %d", paramInt1);
 	    Slot localSlot = paramInt1 < 0 ? null : (Slot)this.inventorySlots.get(paramInt1);
 	    if ((localSlot instanceof SlotFalseCopy))
 	    {
@@ -88,5 +91,27 @@ public class ContainerFilterCard extends ContainerInventoryItem implements ICont
 	    }
 	    return super.slotClick(paramInt1, paramInt2, paramInt3, paramEntityPlayer);
 	  }
+	
+	@Override
+	public ItemStack transferStackInSlot(EntityPlayer paramEntityPlayer,
+			int paramInt) {
+		ItemStack stack = getSlot(paramInt).getStack();
+		if(stack != null) {
+			for(int i = 0; i < 9; i++) {
+				if( ItemHelper.itemsIdentical( stack, getSlot(i).getStack() )) {
+					return null;
+				}
+			}
+			for(int i = 0; i < 9; i++) {
+				if( !getSlot(i).getHasStack() ) {
+					getSlot(i).putStack(stack.copy());
+					return null;
+				}
+			}
+		}
+//		mainInv = new SlotRegion("mainInventory", 0, 26);
+//		hotbar  = new SlotRegion("hotbar", 27, 35);
+		return super.transferStackInSlot(paramEntityPlayer, paramInt);
+	}
 
 }

@@ -23,7 +23,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 @Mod(modid = PracticalitiesMod.MODID, version = PracticalitiesMod.VERSION)
 public class PracticalitiesMod {
 	public static final String MODID = "practicalities";
-	public static final String VERSION = "2.0.0-a3";
+	public static final String VERSION = "2.0.0-a4";
 	public static final String TEXTURE_BASE = "practicalities:";
 	private boolean initializedMachines;
 
