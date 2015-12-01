@@ -22,6 +22,8 @@ public class CraftingRecipes {
 	String woodSlab = "slabWood";
 	String log = "logWood";
 	ItemStack skull = new ItemStack(Items.skull,1,2);
+	ItemStack ironBars = new ItemStack(Blocks.iron_bars);
+	ItemStack hopper = new ItemStack(Blocks.hopper);
 	
 	// vanilla - other
 	ItemStack chest = new ItemStack(Blocks.chest);
@@ -30,6 +32,7 @@ public class CraftingRecipes {
 	ItemStack netherStar = new ItemStack(Items.nether_star);
 	ItemStack rottenFlesh = new ItemStack(Items.rotten_flesh);
 	ItemStack spiderEye = new ItemStack(Items.spider_eye);
+	
 
 	// vanilla - mob drops
 	ItemStack string = new ItemStack(Items.string);
@@ -41,6 +44,7 @@ public class CraftingRecipes {
 	ItemStack magnet = new ItemStack(ModItems.magnet);
 	ItemStack imbuedCore = new ItemStack(ModItems.imbuedCore);
 	ItemStack machinePlate = new ItemStack(ModItems.machinePlate);
+	ItemStack filterCard = new ItemStack(ModItems.filterCard);
 
 	public void init() {
 		shapedRecipes();
@@ -104,6 +108,11 @@ public class CraftingRecipes {
 				"ese",
 				"zcz",
 				"ppp", 'p', machinePlate,'c',machineCore,'z',rottenFlesh,'s',skull,'e',spiderEye);
+		
+		ItemHelper.addShapedOreRecipe(ModBlocks.inventoryFilter,
+				" i ",
+				"fhf",
+				"pcp", 'i', ironBars, 'f', filterCard,'h',hopper,'p',machinePlate,'c',machineCore);
 
 	}
 }
