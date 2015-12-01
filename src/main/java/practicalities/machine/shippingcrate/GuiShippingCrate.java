@@ -9,7 +9,7 @@ public class GuiShippingCrate extends GuiBase {
 
 	public GuiShippingCrate(InventoryPlayer inventory, TileShippingCrate tile) {
 		super(new ContainerShippingCrate(inventory, tile));
-		texture = new ResourceLocation(PracticalitiesMod.TEXTURE_BASE + "textures/gui/shippingcrate.png");
+		texture = new ResourceLocation(PracticalitiesMod.TEXTURE_BASE + "textures/gui/shippingCrate.png");
 		ySize = 222;
 		xSize = 176;
 

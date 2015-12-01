@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import practicalities.Logger;
 import practicalities.gui.IContainerButtons;
-import practicalities.gui.SlotRegion;
 import cofh.lib.gui.container.ContainerInventoryItem;
 import cofh.lib.gui.slot.SlotFalseCopy;
 import cofh.lib.gui.slot.SlotViewOnly;

@@ -13,10 +13,12 @@ tile.shippingcrate.name=Shipping Crate
 tile.stonewall.name=Stone Wall
 tile.vampiricgenerator.name=Vampiric Generator
 tile.polarityNegator.name=Polarity Negator
+tile.playerinterface.name=Player Interface
 
 chat.sitis.noSky=The stick might work better out in the open
 chat.sitis.noRain=The stick doesn't really have much to do right now
 chat.sitis.clear=Rain, Rain, go away; come again another day
+chat.playerinterface.info=Bound to %s
 
 key.practicalities.magnet_toggle=Toggle Practicalities magnet
 
