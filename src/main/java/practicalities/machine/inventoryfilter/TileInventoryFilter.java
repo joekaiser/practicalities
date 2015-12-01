@@ -1,10 +1,8 @@
-package practicalities.machine.slotfilter;
+package practicalities.machine.inventoryfilter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import practicalities.machine.shippingcrate.ContainerShippingCrate;
-import practicalities.machine.shippingcrate.GuiShippingCrate;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
@@ -20,7 +18,7 @@ import cofh.api.tileentity.IReconfigurableFacing;
 import cofh.core.block.TileCoFHBase;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IReconfigurableFacing{
+public class TileInventoryFilter extends TileCoFHBase implements ISidedInventory, IReconfigurableFacing{
 
 	ForgeDirection facing = ForgeDirection.UP;
 	
@@ -34,12 +32,12 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 	
 	@Override
 	public Object getGuiClient(InventoryPlayer inventory) {
-		return new GuiSlotFilter(inventory, this);
+		return new GuiInventoryFilter(inventory, this);
 	}
 
 	@Override
 	public Object getGuiServer(InventoryPlayer inventory) {
-		return new ContainerSlotFilter(inventory, this);
+		return new ContainerInventoryFilter(inventory, this);
 	}
 	
 	@Override
@@ -53,7 +51,7 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 	}
 	
 	public static void initialize() {
-		GameRegistry.registerTileEntity(TileSlotFilter.class, "p2.slotfilter");
+		GameRegistry.registerTileEntity(TileInventoryFilter.class, "p2.inventoryfilter");
 	}
 	
 	@Override

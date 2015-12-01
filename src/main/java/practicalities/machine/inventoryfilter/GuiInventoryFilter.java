@@ -1,4 +1,4 @@
-package practicalities.machine.slotfilter;
+package practicalities.machine.inventoryfilter;
 
 import java.util.regex.Pattern;
 
@@ -11,14 +11,14 @@ import cofh.lib.gui.GuiBase;
 import cofh.lib.gui.element.ElementTextField;
 import cofh.lib.gui.element.ElementTextFieldFiltered;
 
-public class GuiSlotFilter extends GuiBase {
+public class GuiInventoryFilter extends GuiBase {
 
-	TileSlotFilter tile;
+	TileInventoryFilter tile;
 	
-	public GuiSlotFilter(InventoryPlayer inventory, TileSlotFilter tile) {
-		super(new ContainerSlotFilter(inventory, tile));
+	public GuiInventoryFilter(InventoryPlayer inventory, TileInventoryFilter tile) {
+		super(new ContainerInventoryFilter(inventory, tile));
 		this.tile = tile;
-		texture = new ResourceLocation(PracticalitiesMod.TEXTURE_BASE + "textures/gui/slotFilter.png");
+		texture = new ResourceLocation(PracticalitiesMod.TEXTURE_BASE + "textures/gui/inventoryFilter.png");
 		xSize = 55;
 		ySize = 37;
 

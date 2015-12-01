@@ -1,15 +1,15 @@
-package practicalities.machine.slotfilter;
+package practicalities.machine.inventoryfilter;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import practicalities.gui.ContainerBase;
 import practicalities.gui.IContainerField;
 
-public class ContainerSlotFilter extends ContainerBase implements IContainerField {
+public class ContainerInventoryFilter extends ContainerBase implements IContainerField {
 
-	private TileSlotFilter tile;
+	private TileInventoryFilter tile;
 	
-	public ContainerSlotFilter(InventoryPlayer player, TileSlotFilter tile) {
+	public ContainerInventoryFilter(InventoryPlayer player, TileInventoryFilter tile) {
 		this.tile = tile;
 	}
 	

@@ -1,4 +1,4 @@
-package practicalities.machine.slotfilter;
+package practicalities.machine.inventoryfilter;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,10 +8,10 @@ import practicalities.PracticalitiesMod;
 import practicalities.blocks.BlockBase;
 import practicalities.gui.GuiHandler;
 
-public class BlockSlotFilter extends BlockBase {
+public class BlockInventoryFilter extends BlockBase {
 
-	public BlockSlotFilter() {
-		super(Material.iron, "slotfilter", 1, null);
+	public BlockInventoryFilter() {
+		super(Material.iron, "inventoryfilter", 1, null);
 		
 	}
 	
@@ -22,7 +22,7 @@ public class BlockSlotFilter extends BlockBase {
 
 	@Override
 	public TileEntity createTileEntity(World world, int metadata) {
-		return new TileSlotFilter();
+		return new TileInventoryFilter();
 	}
 
 	@Override
