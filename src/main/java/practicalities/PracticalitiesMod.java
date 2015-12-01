@@ -7,6 +7,7 @@ import net.minecraftforge.common.config.Configuration;
 import practicalities.gui.GuiHandler;
 import practicalities.items.ModItems;
 import practicalities.machine.shippingcrate.TileShippingCrate;
+import practicalities.machine.slotfilter.TileSlotFilter;
 import practicalities.machine.vampiricgenerator.TileVampiricGenerator;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -61,6 +62,7 @@ public class PracticalitiesMod {
 		if (!initializedMachines) {
 			TileShippingCrate.initialize();
 			TileVampiricGenerator.initialize();
+			TileSlotFilter.initialize();
 			initializedMachines = true;
 		}
 	}
