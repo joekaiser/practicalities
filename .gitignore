@@ -39,6 +39,8 @@ local.properties
 /saves
 /usernamecache.json
 /crash-reports
+/mods
+/NBTEdit.log*
 
 #minecraft server stuff
 /banned-ips.json
