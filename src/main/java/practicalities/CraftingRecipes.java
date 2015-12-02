@@ -24,6 +24,7 @@ public class CraftingRecipes {
 	ItemStack skull = new ItemStack(Items.skull,1,2);
 	ItemStack ironBars = new ItemStack(Blocks.iron_bars);
 	ItemStack hopper = new ItemStack(Blocks.hopper);
+	ItemStack redstoneTorch = new ItemStack(Blocks.redstone_torch);
 	
 	// vanilla - other
 	ItemStack chest = new ItemStack(Blocks.chest);
@@ -111,8 +112,8 @@ public class CraftingRecipes {
 		
 		ItemHelper.addShapedOreRecipe(ModBlocks.inventoryFilter,
 				" i ",
-				"fhf",
-				"pcp", 'i', ironBars, 'f', filterCard,'h',hopper,'p',machinePlate,'c',machineCore);
+				"rhr",
+				"pmp", 'i', ironBars,'r',redstoneTorch, 'h',hopper,'p',machinePlate,'m',machineCore);
 
 	}
 }
