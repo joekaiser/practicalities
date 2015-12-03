@@ -190,7 +190,13 @@ public class TileInventoryFilter extends TileCoFHBase implements ISidedInventory
 	public boolean setFacing(int dir) {
 		facing = ForgeDirection.getOrientation(dir).getOpposite();
 		this.markFilthy();
+		worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, facing.ordinal(), 2);
 		return true;
+	}
+	
+	@Override
+	public boolean canPlayerDismantle(EntityPlayer player) {
+		return false;
 	}
 
 	// ISidedInventory
