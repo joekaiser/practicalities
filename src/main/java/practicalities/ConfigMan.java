@@ -23,6 +23,7 @@ public class ConfigMan
     public static boolean enableVoidBucket;
     public static boolean enableMatterTransporter;
     public static boolean enableSitisStick;
+    public static boolean enabledImbuedItems;
 
     public static void init(Configuration configuration)
     {
@@ -44,6 +45,7 @@ public class ConfigMan
     	enableVoidBucket = config.getBoolean("enableVoidBucket", "general", true, "");
     	enableMatterTransporter = config.getBoolean("enableMatterTransporter", "general", true, "");
     	enableSitisStick = config.getBoolean("enableSitisStick", "general", true, "");
+    	enabledImbuedItems = config.getBoolean("enableImbuedItems", "general", true, "");
     	
     }
 }
