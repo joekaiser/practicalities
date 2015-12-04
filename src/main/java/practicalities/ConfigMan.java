@@ -17,12 +17,14 @@ public class ConfigMan
     public static boolean enableShippingCrate;
     public static boolean enableVampiricGenerator;
     public static boolean enablePlayerInterface;
+    public static boolean enableInventoryFilter;
     
     //items
     public static boolean enableMagnet;
     public static boolean enableVoidBucket;
     public static boolean enableMatterTransporter;
     public static boolean enableSitisStick;
+    public static boolean enabledImbuedItems;
 
     public static void init(Configuration configuration)
     {
@@ -39,11 +41,13 @@ public class ConfigMan
     	enableShippingCrate = config.getBoolean("enableShippingCrate", "general", true, "");
     	enableVampiricGenerator = config.getBoolean("enableVampiricGenerator", "general", true, "");
     	enablePlayerInterface = config.getBoolean("enablePlayerInterface", "general", true, "");
+    	enableInventoryFilter = config.getBoolean("enableInventoryFilter", "general", true, "");
     	
     	//items
     	enableVoidBucket = config.getBoolean("enableVoidBucket", "general", true, "");
     	enableMatterTransporter = config.getBoolean("enableMatterTransporter", "general", true, "");
     	enableSitisStick = config.getBoolean("enableSitisStick", "general", true, "");
+    	enabledImbuedItems = config.getBoolean("enableImbuedItems", "general", true, "");
     	
     }
 }

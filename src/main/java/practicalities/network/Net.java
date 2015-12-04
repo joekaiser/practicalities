@@ -12,6 +12,7 @@ public class Net {
 		channel = NetworkRegistry.INSTANCE.newSimpleChannel("practicalities");
 		channel.registerMessage(ToggleMagnetPacket.Handler.class, ToggleMagnetPacket.class, 0, Side.SERVER);
 		channel.registerMessage(ButtonClickPacket.Handler.class, ButtonClickPacket.class, 1, Side.SERVER);
+		channel.registerMessage(TextFieldPacket.Handler.class, TextFieldPacket.class, 2, Side.SERVER);
 	}
 	
 }

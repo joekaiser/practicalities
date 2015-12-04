@@ -5,7 +5,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import practicalities.Logger;
 import practicalities.gui.IContainerButtons;
 import cofh.lib.gui.container.ContainerInventoryItem;
 import cofh.lib.gui.slot.SlotFalseCopy;
@@ -74,7 +73,6 @@ public class ContainerFilterCard extends ContainerInventoryItem implements ICont
 	@Override
 	 public ItemStack slotClick(int paramInt1, int paramInt2, int paramInt3, EntityPlayer paramEntityPlayer)
 	  {
-		Logger.info("_ %d", paramInt1);
 	    Slot localSlot = paramInt1 < 0 ? null : (Slot)this.inventorySlots.get(paramInt1);
 	    if ((localSlot instanceof SlotFalseCopy))
 	    {

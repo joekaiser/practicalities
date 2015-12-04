@@ -2,11 +2,6 @@ package practicalities.blocks;
 
 import java.util.ArrayList;
 
-import cofh.core.block.BlockCoFHBase;
-import cofh.core.util.CoreUtils;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,6 +13,11 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import practicalities.PracticalitiesMod;
+import cofh.core.block.BlockCoFHBase;
+import cofh.core.util.CoreUtils;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBase extends BlockCoFHBase {
 
@@ -114,33 +114,24 @@ public class BlockBase extends BlockCoFHBase {
 		return ret;
 	}
 
-	// protected int determineOrientation(World world, int x, int y, int z,
-	// EntityLivingBase entity, boolean allowUpDown)
-	// {
-	// if (MathHelper.abs((float) entity.posX - (float) x) < 2.0F &&
-	// MathHelper.abs((float) entity.posZ - (float) z) < 2.0F && allowUpDown)
-	// {
-	// double d0 = entity.posY + 1.82D - (double) entity.yOffset;
-	//
-	// if (d0 - (double) y > 2.0D)
-	// {
-	// return 1;
-	// }
-	//
-	// if ((double) y - d0 > 0.0D)
-	// {
-	// return 0;
-	// }
-	// }
-	//
-	// int l = MathHelper.floor_double((double) (entity.rotationYaw * 4.0F /
-	// 360.0F) + 0.5D) & 3;
-	// return l == 0 ? 2 : (l == 1 ? 5 : (l == 2 ? 3 : (l == 3 ? 4 : 0)));
-	//
-	// }
-
-	// protected int getOrientation(int meta)
-	// {
-	// return meta & 7;
-	// }
+//	 public int determineOrientation(World world, int x, int y, int z, EntityLivingBase entity, boolean allowUpDown) {
+//		 if (Math.abs((float) entity.posX - (float) x) < 2.0F && Math.abs((float) entity.posZ - (float) z) < 2.0F && allowUpDown) {
+//			 double d0 = entity.posY + 1.82D - (double) entity.yOffset;
+//			 
+//			 if (d0 - (double) y > 2.0D) {
+//				 return 1;
+//			 }
+//			 
+//			 if ((double) y - d0 > 0.0D) {
+//				 return 0;
+//			 }
+//		 }
+//	
+//		 int l = (int)Math.floor((double) (entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+//		 return l == 0 ? 2 : (l == 1 ? 5 : (l == 2 ? 3 : (l == 3 ? 4 : 0)));
+//	 }
+//
+//	 public int getOrientation(int meta) {
+//		 return meta & 7;
+//	 }
 }

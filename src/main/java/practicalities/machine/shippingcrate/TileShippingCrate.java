@@ -55,7 +55,7 @@ public class TileShippingCrate extends TileSimpleInventory {
 		ItemStack filterCard = getStackInSlot(getFilterSlotIndex());
 		if (filterCard != null && filterCard.getItem() instanceof IItemFilter<?>) {
 			int filterToApply = slot % 9;
-			return ((IItemFilter<ItemStack>)filterCard.getItem()).filter(filterCard, item, filterToApply);
+			return ((IItemFilter<ItemStack>)filterCard.getItem()).filter(filterCard, item, filterToApply, true);
 		}
 
 		return true;

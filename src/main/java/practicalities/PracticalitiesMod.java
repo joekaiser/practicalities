@@ -7,6 +7,7 @@ import net.minecraftforge.common.config.Configuration;
 import practicalities.gui.GuiHandler;
 import practicalities.items.ModItems;
 import practicalities.machine.playerinterface.TilePlayerInterface;
+import practicalities.machine.inventoryfilter.TileInventoryFilter;
 import practicalities.machine.shippingcrate.TileShippingCrate;
 import practicalities.machine.vampiricgenerator.TileVampiricGenerator;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -63,6 +64,7 @@ public class PracticalitiesMod {
 			TileShippingCrate.initialize();
 			TilePlayerInterface.initialize();
 			TileVampiricGenerator.initialize();
+			TileInventoryFilter.initialize();
 			initializedMachines = true;
 		}
 	}

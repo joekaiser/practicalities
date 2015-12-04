@@ -17,9 +17,10 @@ public interface IItemFilter<T> {
 	 * @param testOn the object that will be tested on
 	 * @param stack Stack to test
 	 * @param filterNum Filter number, cannot be larger than {@code filterCount()-1}
+	 * @param nullValue Value to return if there is no filter for the selected slot
 	 * @return Whether the stack matches the filter
 	 */
-	public boolean filter(T testOn, ItemStack stack, int filterNum);
+	public boolean filter(T testOn, ItemStack stack, int filterNum, boolean nullValue);
 	
 	/**
 	 * The number of distinct filters

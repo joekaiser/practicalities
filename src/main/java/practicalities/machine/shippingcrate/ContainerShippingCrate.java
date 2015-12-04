@@ -47,7 +47,7 @@ public class ContainerShippingCrate extends ContainerBase {
 		hotbar.addShiftTargets(card, crate, mainInv);
 		mainInv.addShiftTargets(card, crate, hotbar);
 		crate.addShiftTargets(mainInv, hotbar);
-		card.addShiftTargets(mainInv, hotbar);
+		card.addShiftTargets(hotbar, mainInv);
 	}
 	
 	
@@ -70,15 +70,11 @@ public class ContainerShippingCrate extends ContainerBase {
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {		
 		
-//		
-//		SlotRegion upper = new SlotRegion("upper", crate);
-//		SlotRegion lower = new SlotRegion("player", mainInv, hotbar);
-		
 		if (!supportsShiftClick(player, slotIndex)) {
 			return null;
 		}
 
-		return SlotRegion.shiftClick(this, slotIndex, player, card, mainInv, hotbar, crate);//stack;
+		return SlotRegion.shiftClick(this, slotIndex, player, card, mainInv, hotbar, crate);
 	}
 
 }
