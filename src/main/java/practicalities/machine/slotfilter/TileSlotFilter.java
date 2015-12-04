@@ -3,8 +3,7 @@ package practicalities.machine.slotfilter;
 import java.util.ArrayList;
 import java.util.List;
 
-import practicalities.machine.shippingcrate.ContainerShippingCrate;
-import practicalities.machine.shippingcrate.GuiShippingCrate;
+import practicalities.IItemFilter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
@@ -24,9 +23,15 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 
 	ForgeDirection facing = ForgeDirection.UP;
 	
-	int slotStart = 0;
-	int slotEnd = 65536;
+	public int slotStart = 0;
+	public int slotEnd = 65536;
+	public boolean invert = false;
+	public ItemStack filterCard = null;
 	
+	/**
+	 * Call both markDirty() and worldObj.markBlockForUpdate
+	 * This sends an update packet to the client
+	 */
 	public void markFilthy() {
 		this.markDirty();
 		this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
@@ -52,6 +57,74 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 		return 0;
 	}
 	
+	public IInventory getFilterInventory() {
+		final TileSlotFilter tile = this;
+		return new IInventory() {
+			
+			@Override
+			public void setInventorySlotContents(int slot, ItemStack stack) {
+				tile.filterCard = stack;
+			}
+			
+			@Override
+			public void openInventory() {}
+			
+			@Override
+			public void markDirty() {
+				tile.markFilthy();
+			}
+			
+			@Override
+			public boolean isUseableByPlayer(EntityPlayer player) {
+				return true;
+			}
+			
+			@Override
+			public boolean isItemValidForSlot(int slot, ItemStack stack) {
+				return stack != null && stack.getItem() != null && stack.getItem() instanceof IItemFilter<?>;
+			}
+			
+			@Override
+			public boolean hasCustomInventoryName() { return false; }
+			
+			@Override
+			public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
+				return null;
+			}
+			
+			@Override
+			public ItemStack getStackInSlot(int p_70301_1_) {
+				return tile.filterCard;
+			}
+			
+			@Override
+			public int getSizeInventory() {
+				return 1;
+			}
+			
+			@Override
+			public int getInventoryStackLimit() {
+				return 64;
+			}
+			
+			@Override
+			public String getInventoryName() {
+				return "inventory.inventoryFilter.slotFilter";
+			}
+			
+			@Override
+			public ItemStack decrStackSize(int slot, int amt) {
+				ItemStack ret = tile.filterCard.copy();
+				tile.filterCard.stackSize -= amt;
+				ret.stackSize = amt;
+				return ret;
+			}
+			
+			@Override
+			public void closeInventory() {}
+		};
+	}
+	
 	public static void initialize() {
 		GameRegistry.registerTileEntity(TileSlotFilter.class, "p2.slotfilter");
 	}
@@ -62,6 +135,15 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 		tag.setInteger("facing", facing.ordinal());
 		tag.setInteger("start", slotStart);
 		tag.setInteger("end", slotEnd);
+		tag.setBoolean("invert", invert);
+		
+		if(filterCard != null) {
+			NBTTagCompound stackTag = new NBTTagCompound();
+			filterCard.writeToNBT(stackTag);
+			tag.setTag("filter", stackTag);
+		} else {
+			tag.removeTag("filter");
+		}
 	}
 	
 	@Override
@@ -70,6 +152,10 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 		facing = ForgeDirection.getOrientation(tag.getInteger("facing"));
 		slotStart = tag.getInteger("start");
 		slotEnd = tag.getInteger("end");
+		invert = tag.getBoolean("invert");
+		if(tag.hasKey("filter")) {
+			filterCard = ItemStack.loadItemStackFromNBT(tag.getCompoundTag("filter"));
+		}
 	}
 	
 	

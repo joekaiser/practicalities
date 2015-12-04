@@ -2,6 +2,8 @@ package practicalities.machine.slotfilter;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
 import practicalities.gui.ContainerBase;
 import practicalities.gui.IContainerField;
 
@@ -11,6 +13,7 @@ public class ContainerSlotFilter extends ContainerBase implements IContainerFiel
 	
 	public ContainerSlotFilter(InventoryPlayer player, TileSlotFilter tile) {
 		this.tile = tile;
+		addSlotToContainer(new Slot(tile.getFilterInventory(), 0, 9, 53));
 	}
 	
 	@Override
@@ -20,7 +23,7 @@ public class ContainerSlotFilter extends ContainerBase implements IContainerFiel
 
 	@Override
 	protected int getSizeInventory() {
-		return 0;
+		return 1;
 	}
 
 	@Override
@@ -43,6 +46,11 @@ public class ContainerSlotFilter extends ContainerBase implements IContainerFiel
 		} catch(NumberFormatException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
+		return super.transferStackInSlot(player, slotIndex);
 	}
 
 }
