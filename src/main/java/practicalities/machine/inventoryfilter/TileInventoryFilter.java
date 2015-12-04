@@ -1,4 +1,4 @@
-package practicalities.machine.slotfilter;
+package practicalities.machine.inventoryfilter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import cofh.api.tileentity.IReconfigurableFacing;
 import cofh.core.block.TileCoFHBase;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IReconfigurableFacing{
+public class TileInventoryFilter extends TileCoFHBase implements ISidedInventory, IReconfigurableFacing{
 
 	ForgeDirection facing = ForgeDirection.UP;
 	
@@ -39,12 +39,12 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 	
 	@Override
 	public Object getGuiClient(InventoryPlayer inventory) {
-		return new GuiSlotFilter(inventory, this);
+		return new GuiInventoryFilter(inventory, this);
 	}
 
 	@Override
 	public Object getGuiServer(InventoryPlayer inventory) {
-		return new ContainerSlotFilter(inventory, this);
+		return new ContainerInventoryFilter(inventory, this);
 	}
 	
 	@Override
@@ -58,7 +58,7 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 	}
 	
 	public IInventory getFilterInventory() {
-		final TileSlotFilter tile = this;
+		final TileInventoryFilter tile = this;
 		return new IInventory() {
 			
 			@Override
@@ -125,8 +125,17 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 		};
 	}
 	
+	@SuppressWarnings("unchecked")
+	public IItemFilter<ItemStack> getFilter() {
+		IItemFilter<ItemStack> f = null;
+		if(filterCard != null && filterCard.getItem() instanceof IItemFilter<?>) {
+			f = (IItemFilter<ItemStack>)filterCard.getItem();
+		}
+		return f;
+	}
+	
 	public static void initialize() {
-		GameRegistry.registerTileEntity(TileSlotFilter.class, "p2.slotfilter");
+		GameRegistry.registerTileEntity(TileInventoryFilter.class, "p2.inventoryfilter");
 	}
 	
 	@Override
@@ -278,7 +287,13 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 	public boolean setFacing(int dir) {
 		facing = ForgeDirection.getOrientation(dir).getOpposite();
 		this.markFilthy();
+		worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, facing.ordinal(), 2);
 		return true;
+	}
+	
+	@Override
+	public boolean canPlayerDismantle(EntityPlayer player) {
+		return false;
 	}
 
 	// ISidedInventory
@@ -301,8 +316,9 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 		List<Integer> finalSlots = new ArrayList<Integer>(slots.length);
 		
 		for (int i = 0; i < slots.length; i++) {
-			if(slots[i] >= slotStart && slots[i] <= slotEnd) {
+			if( ( slots[i] >= slotStart && slots[i] <= slotEnd ) != invert) {
 				finalSlots.add(i);
+				continue;
 			}
 		}
 		
@@ -318,6 +334,8 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 	@Override
 	public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
 		if(!isFacingInventory()) return false;
+		IItemFilter<ItemStack> f = getFilter();
+		if(f != null && f.filter(filterCard, p_102007_2_) == invert) return false;
 		if(getInventoryFacing() instanceof ISidedInventory)
 			((ISidedInventory)getInventoryFacing()).canInsertItem(p_102007_1_, p_102007_2_, facing.getOpposite().ordinal());
 		return true;
@@ -326,6 +344,8 @@ public class TileSlotFilter extends TileCoFHBase implements ISidedInventory, IRe
 	@Override
 	public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
 		if(!isFacingInventory()) return false;
+		IItemFilter<ItemStack> f = getFilter();
+		if(f != null && f.filter(filterCard, p_102008_2_) == invert) return false;
 		if(getInventoryFacing() instanceof ISidedInventory)
 			((ISidedInventory)getInventoryFacing()).canExtractItem(p_102008_1_, p_102008_2_, facing.getOpposite().ordinal());
 		return true;

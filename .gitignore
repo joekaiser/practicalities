@@ -41,6 +41,7 @@ local.properties
 /crash-reports
 /mods
 /NBTEdit.log*
+/screenshots
 
 #minecraft server stuff
 /banned-ips.json
