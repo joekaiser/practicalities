@@ -35,17 +35,17 @@ public class ItemFilterCard extends Item implements IItemFilter<ItemStack>, IIte
 		if(tag == null)
 			return false;
 		for (int i = 0; i < filterCount(testOn); i++) {
-			if(filter(testOn, stack, i))
+			if(filter(testOn, stack, i, false))
 				return true;
 		}
 		return false;
 	}
 	
 	@Override
-	public boolean filter(ItemStack testOn, ItemStack stack, int filterNum) {
+	public boolean filter(ItemStack testOn, ItemStack stack, int filterNum, boolean nullValue) {
 		ItemStack filter = getStackInSlot(testOn, filterNum);
 		if(filter == null || testOn.stackTagCompound == null) {
-			return true;
+			return nullValue;
 		}
 		boolean fuzzy = testOn.stackTagCompound.getBoolean("fuzzy_"+filterNum);
 		boolean match = true;

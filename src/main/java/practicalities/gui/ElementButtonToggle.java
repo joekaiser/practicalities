@@ -35,6 +35,7 @@ public class ElementButtonToggle extends ElementButtonBase {
 		int v = selected ? onV : offV;
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+		GL11.glColor4f(1, 1, 1, 1);
 		this.drawTexturedModalRect(this.getPosX(), this.getPosY(), u, v, this.getWidth(), this.getHeight());
 		GL11.glDisable(GL11.GL_BLEND);
 	}
