@@ -156,11 +156,12 @@ public class TilePlayerInterface extends TileCoFHBase implements IInventory {
 		if(!hasPlayer()) {
 			return 0;
 		}
-		return player.get().inventory.getSizeInventory();
+		return player.get().inventory.getSizeInventory()-9;
 	}
 
 	@Override
 	public ItemStack getStackInSlot(int slot) {
+		slot+=9;
 		if(!hasPlayer()) {
 			return null;
 		}
@@ -169,6 +170,7 @@ public class TilePlayerInterface extends TileCoFHBase implements IInventory {
 
 	@Override
 	public ItemStack decrStackSize(int slot, int amt) {
+		slot+=9;
 		if(!hasPlayer()) {
 			return null;
 		}
@@ -182,6 +184,7 @@ public class TilePlayerInterface extends TileCoFHBase implements IInventory {
 
 	@Override
 	public void setInventorySlotContents(int slot, ItemStack stack) {
+		slot+=9;
 		if(!hasPlayer()) {
 			return;
 		}
@@ -206,6 +209,7 @@ public class TilePlayerInterface extends TileCoFHBase implements IInventory {
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack stack) {
+		slot+=9;
 		if(!hasPlayer()) {
 			return false;
 		}
