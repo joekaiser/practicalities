@@ -30,4 +30,7 @@ tooltip.itemMagnet.flair=Suck it!
 tooltip.imbuedTool.flair=The OPness!
 tooltip.imbuedSword.flair=Watch out for the quick draw!
 
+gui.tooltip.inventoryfilter.whitelist=Whitelist
+gui.tooltip.inventoryfilter.blacklist=Blacklist
+
 death.attack.vampiricGenerator=%1$s's life was sucked dry

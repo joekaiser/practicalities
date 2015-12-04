@@ -1,27 +1,25 @@
 package practicalities.machine.inventoryfilter;
 
-import cofh.lib.gui.slot.SlotAcceptValid;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import practicalities.gui.ContainerBase;
 import practicalities.gui.IContainerButtons;
 import practicalities.gui.IContainerField;
 import practicalities.gui.SlotRegion;
+import cofh.lib.gui.slot.SlotAcceptValid;
 
 public class ContainerInventoryFilter extends ContainerBase implements IContainerField, IContainerButtons {
 
 	private TileInventoryFilter tile;
-	private IInventory inv;
 	private SlotRegion mainInv, hotbar, card;
 
 	public ContainerInventoryFilter(InventoryPlayer player, TileInventoryFilter tile) {
 		this.tile = tile;
 		bindPlayerInventory(player);
 		Slot cardSlot;
-		addSlotToContainer(cardSlot = new SlotAcceptValid(inv = tile.getFilterInventory(), 0, 102, 10));
+		addSlotToContainer(cardSlot = new SlotAcceptValid(tile.getFilterInventory(), 0, 102, 10));
 		
 		mainInv = new SlotRegion("mainInventory", 0, 26);
 		hotbar  = new SlotRegion("hotbar", 27, 35);
