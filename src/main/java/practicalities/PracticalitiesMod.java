@@ -2,14 +2,13 @@ package practicalities;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import practicalities.gui.GuiHandler;
 import practicalities.items.ModItems;
 import practicalities.machine.inventoryfilter.TileInventoryFilter;
 import practicalities.machine.shippingcrate.TileShippingCrate;
 import practicalities.machine.vampiricgenerator.TileVampiricGenerator;
-import cpw.mods.fml.common.FMLCommonHandler;
+import practicalities.network.Proxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -32,14 +31,13 @@ public class PracticalitiesMod {
 	public static PracticalitiesMod instance;
 	public static final GuiHandler guiHandler = new GuiHandler();
 
-	@SidedProxy(clientSide = "practicalities.ProxyClient", serverSide = "practicalities.Proxy")
+	@SidedProxy(clientSide = "practicalities.network.ProxyClient", serverSide = "practicalities.network.Proxy")
 	public static Proxy proxy;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		ConfigMan.init(new Configuration(event.getSuggestedConfigurationFile()));
-		MinecraftForge.EVENT_BUS.register(proxy);
-		FMLCommonHandler.instance().bus().register(proxy);
+
 		proxy.preInit();
 		initMachines();
 	}
@@ -71,7 +69,6 @@ public class PracticalitiesMod {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
-			// todo: set an item
 			return ModItems.machineCore;
 		}
 	};

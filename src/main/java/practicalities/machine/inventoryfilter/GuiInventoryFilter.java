@@ -9,7 +9,6 @@ import practicalities.gui.ElementButtonToggle;
 import practicalities.network.Net;
 import practicalities.network.TextFieldPacket;
 import cofh.lib.gui.GuiBase;
-import cofh.lib.gui.element.ElementBase;
 import cofh.lib.gui.element.ElementTextField;
 import cofh.lib.gui.element.ElementTextFieldFiltered;
 

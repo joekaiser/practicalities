@@ -15,9 +15,9 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
-import practicalities.ModUtils;
 import practicalities.PracticalitiesMod;
 import practicalities.machine.polaritynegator.PolarityNegatorManager;
+import practicalities.utils.ModUtils;
 
 public class ItemMagnet extends Item {
 
