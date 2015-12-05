@@ -6,7 +6,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import practicalities.PracticalitiesMod;
-import practicalities.gui.ElementButtonToggle;
+import practicalities.gui.element.ElementButtonToggle;
 import practicalities.network.Net;
 import practicalities.network.TextFieldPacket;
 import cofh.lib.gui.GuiBase;

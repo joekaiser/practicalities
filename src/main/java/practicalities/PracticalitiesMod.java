@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import practicalities.gui.GuiHandler;
 import practicalities.items.ModItems;
+import practicalities.machine.playerinterface.TilePlayerInterface;
 import practicalities.machine.inventoryfilter.TileInventoryFilter;
 import practicalities.machine.shippingcrate.TileShippingCrate;
 import practicalities.machine.vampiricgenerator.TileVampiricGenerator;
@@ -59,6 +60,7 @@ public class PracticalitiesMod {
 	private void initMachines() {
 		if (!initializedMachines) {
 			TileShippingCrate.initialize();
+			TilePlayerInterface.initialize();
 			TileVampiricGenerator.initialize();
 			TileInventoryFilter.initialize();
 			initializedMachines = true;

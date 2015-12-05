@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import practicalities.PracticalitiesMod;
-import practicalities.gui.ElementButtonToggle;
+import practicalities.gui.element.ElementButtonToggle;
 import cofh.lib.gui.GuiBase;
 
 public class GuiFilterCard extends GuiBase {

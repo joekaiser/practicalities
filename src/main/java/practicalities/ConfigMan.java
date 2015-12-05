@@ -16,6 +16,7 @@ public class ConfigMan
     //blocks
     public static boolean enableShippingCrate;
     public static boolean enableVampiricGenerator;
+    public static boolean enablePlayerInterface;
     public static boolean enableInventoryFilter;
     
     //items
@@ -40,6 +41,7 @@ public class ConfigMan
     	enableMagnet = config.getBoolean("enableMagnet", "general", true, "");
     	enableShippingCrate = config.getBoolean("enableShippingCrate", "general", true, "");
     	enableVampiricGenerator = config.getBoolean("enableVampiricGenerator", "general", true, "");
+    	enablePlayerInterface = config.getBoolean("enablePlayerInterface", "general", true, "");
     	enableInventoryFilter = config.getBoolean("enableInventoryFilter", "general", true, "");
     	
     	//items

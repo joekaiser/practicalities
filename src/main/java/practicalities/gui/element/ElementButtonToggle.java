@@ -1,4 +1,4 @@
-package practicalities.gui;
+package practicalities.gui.element;
 
 import org.lwjgl.opengl.GL11;
 
