@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
+import practicalities.PracticalitiesMod;
 import practicalities.blocks.BlockBase;
 
 public class BlockPlayerInterface extends BlockBase implements ITileEntityProvider {
