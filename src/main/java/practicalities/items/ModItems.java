@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import practicalities.ConfigMan;
 import practicalities.items.filtercard.ItemFilterCard;
+import practicalities.items.netherbane.ItemNetherbane;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class ModItems {
@@ -14,6 +15,9 @@ public class ModItems {
 	public static final ToolMaterial imbuedWeaponMaterial = 
 			EnumHelper.addToolMaterial("imbued", 
 					6,10000, 20, 40, 40);
+	
+	public static final ToolMaterial netherBaneMaterial =
+			EnumHelper.addToolMaterial("netherBane",4, 5000, 10.0F, 4.0F, 16);
 
 	// tools
 	public static Item voidBucket;
@@ -22,6 +26,7 @@ public class ModItems {
 	public static Item sitisStick;
 	public static Item imbuedTool;
 	public static Item imbuedSword;
+	public static Item netherBlade;
 	
 	// crafting components
 	public static Item diamondRod;
@@ -47,9 +52,13 @@ public class ModItems {
 		if(ConfigMan.enableSitisStick)
 			sitisStick = new ItemSitisStick();
 		
-		if(ConfigMan.enabledImbuedItems){
+		if(ConfigMan.enableImbuedItems){
 			imbuedSword = new ItemImbuedSword();
 			imbuedTool = new ItemImbuedTool();
+		}
+		
+		if(ConfigMan.enableNetherBlade){
+			netherBlade = new ItemNetherbane();
 		}
 				
 		// crafting components
