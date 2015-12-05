@@ -139,6 +139,11 @@ public class CraftingRecipes {
 				"crc",
 				" r ",		'c',imbuedCore,'r',imbuedRod);
 		
+		addShapedOreRecipe(ConfigMan.enablePlayerInterface, ModBlocks.playerInterface, 
+				"pcp",
+				"cnc",
+				"pcp",		'p',machinePlate,'c',machineCore,'n',netherStar);
+		
 
 	}
 	
