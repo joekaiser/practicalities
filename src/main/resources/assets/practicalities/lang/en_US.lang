@@ -32,4 +32,7 @@ tooltip.imbuedTool.flair=The OPness!
 tooltip.imbuedSword.flair=Watch out for the quick draw!
 tooltip.netherBane.flair=Sabre of the Moon
 
+gui.tooltip.inventoryfilter.whitelist=Whitelist
+gui.tooltip.inventoryfilter.blacklist=Blacklist
+
 death.attack.vampiricGenerator=%1$s's life was sucked dry
