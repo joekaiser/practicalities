@@ -20,8 +20,6 @@ public class ModBlocks {
 	public static void init() {
 		
 		stoneWall = new BlockDecor(Material.rock, "stonewall", 1, Block.soundTypeStone);
-//		vampiricGenerator = new BlockVampiricGenerator();
-//		polarityNegator = new BlockPolarityNegator();
 		if(ConfigMan.enablePlayerInterface)
 			playerInterface = new BlockPlayerInterface();
 		

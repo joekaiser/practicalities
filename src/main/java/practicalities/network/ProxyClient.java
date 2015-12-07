@@ -1,11 +1,9 @@
-package practicalities;
+package practicalities.network;
 
 import net.minecraft.client.settings.KeyBinding;
 
 import org.lwjgl.input.Keyboard;
 
-import practicalities.network.Net;
-import practicalities.network.ToggleMagnetPacket;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;

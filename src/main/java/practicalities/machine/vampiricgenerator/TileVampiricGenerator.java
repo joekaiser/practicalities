@@ -14,8 +14,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.util.ForgeDirection;
-import practicalities.ModUtils;
 import practicalities.gui.TileSimpleInventory;
+import practicalities.utils.ModUtils;
 
 public class TileVampiricGenerator extends TileSimpleInventory implements IEnergyProvider {
 

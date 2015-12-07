@@ -129,15 +129,20 @@ public class CraftingRecipes {
 				"i",
 				"i", 		'i',imbuedCore);
 		
-		addShapedOreRecipe(ConfigMan.enabledImbuedItems, ModItems.imbuedSword, 
+		addShapedOreRecipe(ConfigMan.enableImbuedItems, ModItems.imbuedSword, 
 				"c",
 				"c",
 				"r",		'c',imbuedCore,'r',imbuedRod);
 		
-		addShapedOreRecipe(ConfigMan.enabledImbuedItems, ModItems.imbuedTool, 
+		addShapedOreRecipe(ConfigMan.enableImbuedItems, ModItems.imbuedTool, 
 				"ccc",
 				"crc",
 				" r ",		'c',imbuedCore,'r',imbuedRod);
+		
+		addShapedOreRecipe(ConfigMan.enablePlayerInterface, ModBlocks.playerInterface, 
+				"pcp",
+				"cnc",
+				"pcp",		'p',machinePlate,'c',machineCore,'n',netherStar);
 		
 
 	}
