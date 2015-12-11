@@ -18,6 +18,7 @@ public class ConfigMan
     public static boolean enableVampiricGenerator;
     public static boolean enablePlayerInterface;
     public static boolean enableInventoryFilter;
+    public static boolean enableTeslaCoil;
     
     //items
     public static boolean enableMagnet;
@@ -43,6 +44,7 @@ public class ConfigMan
     	enableVampiricGenerator = config.getBoolean("enableVampiricGenerator", "general", true, "");
     	enablePlayerInterface = config.getBoolean("enablePlayerInterface", "general", true, "");
     	enableInventoryFilter = config.getBoolean("enableInventoryFilter", "general", true, "");
+    	enableTeslaCoil = config.getBoolean("enableTeslaCoil", "general", true, "");
     	
     	//items
     	enableVoidBucket = config.getBoolean("enableVoidBucket", "general", true, "");

@@ -21,6 +21,8 @@ tile.vampiricgenerator.name=Vampiric Generator
 tile.polarityNegator.name=Polarity Negator
 tile.playerinterface.name=Player Interface
 tile.inventoryfilter.name=Inventory Filter
+tile.teslacoil.name=Tesla Coil
+tile.inductionCoil.name=Induction Coil
 
 chat.sitis.noSky=The stick might work better out in the open
 chat.sitis.noRain=The stick doesn't really have much to do right now
