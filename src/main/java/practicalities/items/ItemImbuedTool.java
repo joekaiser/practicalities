@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import practicalities.PracticalitiesMod;
+import practicalities.register.ModItems;
 
 public class ItemImbuedTool extends ItemPickaxe {
 

@@ -1,10 +1,12 @@
 package practicalities.blocks;
 
+import practicalities.base.BlockBase;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockDecor extends BlockBase {
 
@@ -29,5 +31,9 @@ public class BlockDecor extends BlockBase {
 
 		return this.iconTexture;
 	}
-
+	
+	@Override
+	public boolean isOpaqueCube() {
+		return true;
+	}
 }

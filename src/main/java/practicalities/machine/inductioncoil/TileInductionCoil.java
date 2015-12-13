@@ -3,7 +3,6 @@ package practicalities.machine.inductioncoil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.util.ForgeDirection;
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
@@ -68,7 +67,6 @@ public class TileInductionCoil extends TileCoFHBase implements IEnergyProvider {
 		return energy.getMaxReceive();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void updateEntity() {
 		if (worldObj.isRemote)

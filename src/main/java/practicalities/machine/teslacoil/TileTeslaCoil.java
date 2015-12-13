@@ -7,7 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.util.ForgeDirection;
-import practicalities.gui.TileSimpleInventory;
+import practicalities.base.TileSimpleInventory;
 import practicalities.machine.inductioncoil.InductionCoilManager;
 import practicalities.machine.inductioncoil.TileInductionCoil;
 import codechicken.lib.vec.BlockCoord;
@@ -73,8 +73,7 @@ public class TileTeslaCoil extends TileSimpleInventory implements IEnergyReceive
 	public String getInventoryName() {
 		return StatCollector.translateToLocal("tile.vampiricgenerator.name");
 	}
-
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public void updateEntity() {
 		if (worldObj.isRemote)

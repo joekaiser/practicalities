@@ -10,7 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import practicalities.PracticalitiesMod;
-import practicalities.blocks.BlockBase;
+import practicalities.base.BlockBase;
 import practicalities.gui.GuiHandler;
 
 public class BlockShippingCrate extends BlockBase implements ITileEntityProvider {

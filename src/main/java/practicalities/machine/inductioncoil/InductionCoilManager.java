@@ -7,7 +7,6 @@ import net.minecraft.world.World;
 import practicalities.Logger;
 import practicalities.PracticalitesWorldData;
 import codechicken.lib.vec.BlockCoord;
-import codechicken.lib.vec.Vector3;
 
 public class InductionCoilManager {	
 	public static void addCoil(World w, int x, int y, int z) {

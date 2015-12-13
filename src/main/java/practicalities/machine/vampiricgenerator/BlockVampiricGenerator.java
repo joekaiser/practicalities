@@ -11,7 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import practicalities.blocks.BlockBase;
+import practicalities.base.BlockBase;
 
 public class BlockVampiricGenerator extends BlockBase implements ITileEntityProvider {
 

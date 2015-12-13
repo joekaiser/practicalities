@@ -1,8 +1,10 @@
-package practicalities.blocks;
+package practicalities.register;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import practicalities.ConfigMan;
+import practicalities.blocks.BlockDecor;
+import practicalities.blocks.multiblock.BlockMultiblockPart;
 import practicalities.machine.playerinterface.BlockPlayerInterface;
 import practicalities.machine.inductioncoil.BlockInductionCoil;
 import practicalities.machine.inventoryfilter.BlockInventoryFilter;
@@ -21,9 +23,12 @@ public class ModBlocks {
 	public static Block teslaCoil;
 	public static Block inductionCoil;
 	
+	public static Block multiblockPart;
+	
 	public static void init() {
 		
 		stoneWall = new BlockDecor(Material.rock, "stonewall", 1, Block.soundTypeStone);
+		
 		if(ConfigMan.enablePlayerInterface)
 			playerInterface = new BlockPlayerInterface();
 		
@@ -43,5 +48,7 @@ public class ModBlocks {
 		
 		if(ConfigMan.enableMagnet)
 			polarityNegator = new BlockPolarityNegator();
+		
+		multiblockPart = new BlockMultiblockPart();
 	}
 }

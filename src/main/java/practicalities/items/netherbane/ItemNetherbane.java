@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.StatCollector;
 import practicalities.PracticalitiesMod;
-import practicalities.items.ModItems;
+import practicalities.register.ModItems;
 
 public class ItemNetherbane extends ItemSword {
 

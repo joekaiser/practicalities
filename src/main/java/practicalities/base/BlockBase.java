@@ -1,4 +1,4 @@
-package practicalities.blocks;
+package practicalities.base;
 
 import java.util.ArrayList;
 

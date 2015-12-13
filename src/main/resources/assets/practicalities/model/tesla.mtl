@@ -1,0 +1,21 @@
+# Blender MTL File: 'Tesla Coil Small.blend'
+# Material Count: 2
+
+newmtl Material
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.010513 0.015864 0.640000
+Ks 0.500000 0.000000 0.002002
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Material_tesla.png
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.010513 0.015864 0.640000
+Ks 0.500000 0.000000 0.002002
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/piercecorcoran/Desktop/Programming/1.Minecraft/1.Minecraft_Forge/mods/1.7.10/cloned/practicalities/src/main/resources/assets/practicalities/textures/blocks/model/tesla.png
