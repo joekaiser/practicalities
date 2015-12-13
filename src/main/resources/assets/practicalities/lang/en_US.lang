@@ -24,6 +24,7 @@ tile.inventoryfilter.name=Inventory Filter
 tile.teslacoil.name=Tesla Coil
 tile.inductioncoil.name=Induction Coil
 tile.multiblockPart.name=Practicalities Multiblock Part
+tile.fieldrepeater.name=Field Repeater
 
 chat.sitis.noSky=The stick might work better out in the open
 chat.sitis.noRain=The stick doesn't really have much to do right now
@@ -36,6 +37,7 @@ tooltip.itemMagnet.flair=Suck it!
 tooltip.imbuedTool.flair=The OPness!
 tooltip.imbuedSword.flair=Watch out for the quick draw!
 tooltip.netherBane.flair=Sabre of the Moon
+tooltip.fieldRepeater.flair=Disclaimer: Can't send to other Field Repeaters
 
 gui.tooltip.inventoryfilter.whitelist=Whitelist
 gui.tooltip.inventoryfilter.blacklist=Blacklist

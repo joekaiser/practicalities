@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import practicalities.gui.GuiHandler;
 import practicalities.machine.playerinterface.TilePlayerInterface;
+import practicalities.machine.fieldrepeater.TileFieldRepeater;
 import practicalities.machine.inductioncoil.TileInductionCoil;
 import practicalities.machine.inventoryfilter.TileInventoryFilter;
 import practicalities.machine.shippingcrate.TileShippingCrate;
@@ -67,6 +68,7 @@ public class PracticalitiesMod {
 			TileInventoryFilter.initialize();
 			TileTeslaCoil.initialize();
 			TileInductionCoil.initialize();
+			TileFieldRepeater.initialize();
 			initializedMachines = true;
 		}
 	}

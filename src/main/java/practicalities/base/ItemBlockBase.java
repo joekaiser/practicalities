@@ -1,5 +1,8 @@
 package practicalities.base;
 
+import java.util.List;
+
+import practicalities.blocks.IBlockFlair;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -17,6 +20,16 @@ public class ItemBlockBase extends ItemBlock {
 		super(p_i45328_1_);
 		// TODO Auto-generated constructor stub
 	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
+		super.addInformation(p_77624_1_, p_77624_2_, p_77624_3_, p_77624_4_);
+		if(field_150939_a instanceof IBlockFlair) {
+			((IBlockFlair)field_150939_a).addInformation(p_77624_1_, p_77624_2_, p_77624_3_, p_77624_4_);
+		}
+	}
+	
 	/**
 	 * 
 	 * @param x X position of final block place

@@ -6,6 +6,7 @@ import practicalities.ConfigMan;
 import practicalities.blocks.BlockDecor;
 import practicalities.blocks.multiblock.BlockMultiblockPart;
 import practicalities.machine.playerinterface.BlockPlayerInterface;
+import practicalities.machine.fieldrepeater.BlockFieldRepeater;
 import practicalities.machine.inductioncoil.BlockInductionCoil;
 import practicalities.machine.inventoryfilter.BlockInventoryFilter;
 import practicalities.machine.polaritynegator.BlockPolarityNegator;
@@ -22,6 +23,7 @@ public class ModBlocks {
 	public static Block inventoryFilter;
 	public static Block teslaCoil;
 	public static Block inductionCoil;
+	public static Block fieldRepeater;
 	
 	public static Block multiblockPart;
 	
@@ -35,6 +37,7 @@ public class ModBlocks {
 		if(ConfigMan.enableTeslaCoil) {
 			teslaCoil = new BlockTeslaCoil();
 			inductionCoil = new BlockInductionCoil();
+			fieldRepeater = new BlockFieldRepeater();
 		}
 		
 		if(ConfigMan.enableInventoryFilter)

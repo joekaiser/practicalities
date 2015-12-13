@@ -1,5 +1,6 @@
 package practicalities.machine.inductioncoil;
 
+import practicalities.machine.teslacoil.IFieldReceiver;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -10,7 +11,7 @@ import cofh.api.energy.IEnergyReceiver;
 import cofh.core.block.TileCoFHBase;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class TileInductionCoil extends TileCoFHBase implements IEnergyProvider {
+public class TileInductionCoil extends TileCoFHBase implements IEnergyProvider, IFieldReceiver {
 
 	private static final int storageBase = 10000;
 
@@ -21,8 +22,23 @@ public class TileInductionCoil extends TileCoFHBase implements IEnergyProvider {
 		energy = new EnergyStorage(storageBase, 100);
 	}
 
-	public EnergyStorage getEnergyStorage() {
-		return energy;
+	@Override
+	public int getDraw()    { return 10; }
+	@Override
+	public int getDeposit() { return 8; }
+	@Override
+	public boolean isRepeater() { return false; }
+	
+	@Override
+	public boolean canFitRF() {
+		return ( energy.getMaxEnergyStored()-energy.getEnergyStored() ) > getDeposit();
+	}
+
+	@Override
+	public void reciveRF() {
+		energy.receiveEnergy(getDeposit(), false);
+		markDirty();
+		markChunkDirty();
 	}
 	
 	public static void initialize() {

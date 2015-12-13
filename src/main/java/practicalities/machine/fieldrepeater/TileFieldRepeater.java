@@ -1,32 +1,60 @@
-package practicalities.machine.teslacoil;
+package practicalities.machine.fieldrepeater;
 
 import java.util.List;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.common.util.ForgeDirection;
 import practicalities.ConfigMan;
 import practicalities.base.TileSimpleInventory;
 import practicalities.machine.inductioncoil.InductionCoilManager;
+import practicalities.machine.teslacoil.IFieldReceiver;
 import codechicken.lib.vec.BlockCoord;
 import cofh.api.energy.EnergyStorage;
-import cofh.api.energy.IEnergyReceiver;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class TileTeslaCoil extends TileSimpleInventory implements IEnergyReceiver {
+public class TileFieldRepeater extends TileSimpleInventory implements IFieldReceiver {
 
+	public static int RANGE = 64;
 	private int storageBase = 10000;
 	private EnergyStorage energy;
 
-	public TileTeslaCoil() {
+	public TileFieldRepeater() {
 		super(1);
 		energy = new EnergyStorage(storageBase, 1000);
 
 	}
+	
+	@Override
+	public int getDraw() {
+		// TODO Auto-generated method stub
+		return 1000;
+	}
+	
+	@Override
+	public int getDeposit() {
+		return 900;
+	}
+	
+	@Override
+	public boolean canFitRF() {
+		return ( energy.getMaxEnergyStored()-energy.getEnergyStored() ) > getDeposit();
+	}
 
+	@Override
+	public void reciveRF() {
+		energy.receiveEnergy(getDeposit(), false);
+		markDirty();
+		markChunkDirty();
+	}
+
+	@Override
+	public boolean isRepeater() {
+		return true;
+	}
+	
 	public static void initialize() {
-		GameRegistry.registerTileEntity(TileTeslaCoil.class, "p2.teslacoil");
+		GameRegistry.registerTileEntity(TileFieldRepeater.class, "p2.fieldrepeater");
 	}
 
 	@Override
@@ -42,29 +70,6 @@ public class TileTeslaCoil extends TileSimpleInventory implements IEnergyReceive
 	@Override
 	public boolean canPlayerDismantle(EntityPlayer player) {
 		return false;
-	}
-
-	@Override
-	public boolean canConnectEnergy(ForgeDirection from) {
-		if (from == ForgeDirection.UP) {
-			return false;
-		}
-		return true;
-	}
-	
-	@Override
-	public int receiveEnergy(ForgeDirection side, int amt, boolean simulate) {
-		return energy.receiveEnergy(amt, simulate);
-	}
-	
-	@Override
-	public int getEnergyStored(ForgeDirection from) {
-		return energy.getEnergyStored();
-	}
-
-	@Override
-	public int getMaxEnergyStored(ForgeDirection from) {
-		return energy.getMaxEnergyStored();
 	}
 
 	@Override
@@ -84,14 +89,10 @@ public class TileTeslaCoil extends TileSimpleInventory implements IEnergyReceive
 		
 		List<BlockCoord> coils = InductionCoilManager.getCoilsInRange(worldObj, xCoord, yCoord, zCoord, ConfigMan.teslaRange);
 		for (BlockCoord coord : coils) {
-			if(energy.getEnergyStored() < draw)
-				break;
-			
 			TileEntity entity = worldObj.getTileEntity(coord.x, coord.y, coord.z);
 			if(entity instanceof IFieldReceiver) {
 				IFieldReceiver coil = (IFieldReceiver)entity;
-				
-				if(coil.canFitRF()) {
+				if(energy.getEnergyStored() >= coil.getDraw() && coil.canFitRF() && !coil.isRepeater()) {
 					coil.reciveRF();
 					energy.extractEnergy(draw, false);
 					markDirty();

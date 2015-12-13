@@ -1,34 +1,46 @@
-package practicalities.machine.teslacoil;
+package practicalities.machine.fieldrepeater;
+
+import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import practicalities.base.BlockBase;
+import practicalities.blocks.IBlockFlair;
 import practicalities.client.render.ModRenderHandler;
 import practicalities.items.ItemBlockTeslaCoil;
+import practicalities.machine.inductioncoil.InductionCoilManager;
 import practicalities.register.ModMultiblocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockTeslaCoil extends BlockBase implements ITileEntityProvider {
+public class BlockFieldRepeater extends BlockBase implements IBlockFlair, ITileEntityProvider {
 
 	
-	public BlockTeslaCoil() {
-		super(Material.rock, "teslacoil", 1, ItemBlockTeslaCoil.class);
+	public BlockFieldRepeater() {
+		super(Material.rock, "fieldrepeater", 1, ItemBlockTeslaCoil.class);
 		setStepSound(soundTypeStone);
 	}
 	
-	@SideOnly(Side.CLIENT)
+//	@SideOnly(Side.CLIENT)
+//	@Override
+//	public void registerBlockIcons(IIconRegister ir) {
+//		ModRenderHandler.teslaIcon = ir.registerIcon(getTexture("model/tesla"));
+//	}
+//	
 	@Override
-	public void registerBlockIcons(IIconRegister ir) {
-		ModRenderHandler.teslaIcon = ir.registerIcon(getTexture("model/tesla"));
+	public void addInformation(ItemStack stack, EntityPlayer player,
+			List<String> list, boolean thing) {
+		list.add(StatCollector.translateToLocal("tooltip.fieldRepeater.flair"));
 	}
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getRenderType() {
@@ -41,18 +53,25 @@ public class BlockTeslaCoil extends BlockBase implements ITileEntityProvider {
 	}
 
 	@Override
+	public void onBlockAdded(World w, int x, int y, int z) {
+		InductionCoilManager.addCoil(w, x, y, z);
+		super.onBlockAdded(w, x, y, z);
+	}
+	
+	@Override
 	public boolean hasTileEntity() {
 		return true;
 	}
 
 	@Override
 	public TileEntity createTileEntity(World world, int metadata) {
-		return new TileTeslaCoil();
+		return new TileFieldRepeater();
 	}
 	
 	@Override
 	public void onBlockPreDestroy(World world, int x, int y, int z, int meta) {
 		super.onBlockPreDestroy(world, x, y, z, meta);
+		InductionCoilManager.removeCoil(world, x, y, z);
 		ModMultiblocks.tesla.despawn(world, x, y, z, 0, false);
 	}
 	

@@ -1,4 +1,4 @@
-package practicalities.machine.teslacoil;
+package practicalities.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;

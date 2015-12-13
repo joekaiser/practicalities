@@ -28,6 +28,8 @@ public class ConfigMan
     public static boolean enableImbuedItems;
     public static boolean enableNetherBlade;
 
+    public static int teslaRange;
+    
     public static void init(Configuration configuration)
     {
         config = configuration;
@@ -53,5 +55,6 @@ public class ConfigMan
     	enableImbuedItems = config.getBoolean("enableImbuedItems", "general", true, "");
     	enableNetherBlade = config.getBoolean("enableNetherBlade", "general", true, "");
     	
+    	teslaRange = config.getInt("teslaCoilRange", "general", 64, 0, 256, "");
     }
 }
