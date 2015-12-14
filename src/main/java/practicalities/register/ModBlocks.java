@@ -2,13 +2,15 @@ package practicalities.register;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 import practicalities.ConfigMan;
 import practicalities.blocks.BlockDecor;
+import practicalities.blocks.BlockFakeTorch;
 import practicalities.blocks.multiblock.BlockMultiblockPart;
-import practicalities.machine.playerinterface.BlockPlayerInterface;
 import practicalities.machine.fieldrepeater.BlockFieldRepeater;
 import practicalities.machine.inductioncoil.BlockInductionCoil;
 import practicalities.machine.inventoryfilter.BlockInventoryFilter;
+import practicalities.machine.playerinterface.BlockPlayerInterface;
 import practicalities.machine.polaritynegator.BlockPolarityNegator;
 import practicalities.machine.shippingcrate.BlockShippingCrate;
 import practicalities.machine.teslacoil.BlockTeslaCoil;
@@ -24,6 +26,7 @@ public class ModBlocks {
 	public static Block teslaCoil;
 	public static Block inductionCoil;
 	public static Block fieldRepeater;
+	public static Block fakeTorch;
 	
 	public static Block multiblockPart;
 	
@@ -52,6 +55,10 @@ public class ModBlocks {
 		if(ConfigMan.enableMagnet)
 			polarityNegator = new BlockPolarityNegator();
 		
+		if(ConfigMan.enableImbuedItems)
+			fakeTorch = new BlockFakeTorch();
+		
 		multiblockPart = new BlockMultiblockPart();
+		ModItems.blockFakeTorch = Item.getItemFromBlock(ModBlocks.fakeTorch);
 	}
 }

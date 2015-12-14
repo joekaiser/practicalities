@@ -2,7 +2,6 @@ package practicalities.items;
 
 import java.util.List;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +11,7 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import practicalities.PracticalitiesMod;
 import practicalities.register.ModItems;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemImbuedTool extends ItemPickaxe {
 
@@ -31,8 +31,12 @@ public class ItemImbuedTool extends ItemPickaxe {
 			boolean p_77624_4_) {
 		list.add(StatCollector.translateToLocal("tooltip.imbuedTool.flair"));
 	}
-
-
+	
+	@Override
+	public boolean onItemUse(ItemStack a, EntityPlayer b, World c, int d, int e, int f, int g, float h, float i, float j) {
+		return ModItems.blockFakeTorch.onItemUse(new ItemStack(ModItems.blockFakeTorch, 1), b, c, d, e, f, g, h, i, j);
+	}
+	
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase entity,
 			EntityLivingBase entity2) {

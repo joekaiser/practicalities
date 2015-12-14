@@ -5,6 +5,7 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -29,12 +30,10 @@ public class BlockFieldRepeater extends BlockBase implements IBlockFlair, ITileE
 		setStepSound(soundTypeStone);
 	}
 	
-//	@SideOnly(Side.CLIENT)
-//	@Override
-//	public void registerBlockIcons(IIconRegister ir) {
-//		ModRenderHandler.teslaIcon = ir.registerIcon(getTexture("model/tesla"));
-//	}
-//	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerBlockIcons(IIconRegister ir) {}
+	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player,
 			List<String> list, boolean thing) {

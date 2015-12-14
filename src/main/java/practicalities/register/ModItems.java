@@ -44,6 +44,7 @@ public class ModItems {
 
 	// other
 	public static Item filterCard;
+	public static Item blockFakeTorch;
 	
 	public static void init(){
 		// tools
