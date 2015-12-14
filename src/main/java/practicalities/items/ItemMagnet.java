@@ -118,7 +118,8 @@ public class ItemMagnet extends Item {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List info, boolean extended) {
-		info.add(StatCollector.translateToLocal("tooltip.itemMagnet.flair"));
+		ModUtils.addFlairToList(info, "item.magnet");
+//		info.add(StatCollector.translateToLocal("tooltip.itemMagnet.flair"));
 	}
 
 }

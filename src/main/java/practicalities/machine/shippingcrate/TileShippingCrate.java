@@ -5,8 +5,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
-import practicalities.IItemFilter;
 import practicalities.base.TileSimpleInventory;
+import practicalities.items.IItemFilter;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TileShippingCrate extends TileSimpleInventory {

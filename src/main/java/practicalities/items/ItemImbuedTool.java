@@ -11,6 +11,7 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import practicalities.PracticalitiesMod;
 import practicalities.register.ModItems;
+import practicalities.utils.ModUtils;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemImbuedTool extends ItemPickaxe {
@@ -29,7 +30,8 @@ public class ItemImbuedTool extends ItemPickaxe {
 	@Override
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List list,
 			boolean p_77624_4_) {
-		list.add(StatCollector.translateToLocal("tooltip.imbuedTool.flair"));
+		ModUtils.addFlairToList(list, "item.imbuedTool");
+//		list.add(StatCollector.translateToLocal("tooltip.imbuedTool.flair"));
 	}
 	
 	@Override

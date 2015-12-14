@@ -33,11 +33,12 @@ chat.playerinterface.info=Bound to %s
 
 key.practicalities.magnet_toggle=Toggle Practicalities magnet
 
-tooltip.itemMagnet.flair=Suck it!
-tooltip.imbuedTool.flair=The OPness!
-tooltip.imbuedSword.flair=Watch out for the quick draw!
-tooltip.netherBane.flair=Sabre of the Moon
-tooltip.fieldRepeater.flair=Disclaimer: Can't send to other Field Repeaters
+flair.item.itemMagnet=Suck it!
+flair.item.imbuedTool=The OPness!
+flair.item.imbuedSword=Watch out for the quick draw!
+flair.item.netherBane=Sabre of the Moon
+
+flair.block.fieldRepeater=Can't be daisy-chained
 
 gui.tooltip.inventoryfilter.whitelist=Whitelist
 gui.tooltip.inventoryfilter.blacklist=Blacklist

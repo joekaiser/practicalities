@@ -1,4 +1,4 @@
-package practicalities;
+package practicalities.utils;
 
 import net.minecraft.util.IIcon;
 

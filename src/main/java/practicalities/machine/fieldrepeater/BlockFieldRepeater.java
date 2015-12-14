@@ -19,6 +19,7 @@ import practicalities.client.render.ModRenderHandler;
 import practicalities.items.ItemBlockTeslaCoil;
 import practicalities.machine.inductioncoil.InductionCoilManager;
 import practicalities.register.ModMultiblocks;
+import practicalities.utils.ModUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -37,7 +38,8 @@ public class BlockFieldRepeater extends BlockBase implements IBlockFlair, ITileE
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player,
 			List<String> list, boolean thing) {
-		list.add(StatCollector.translateToLocal("tooltip.fieldRepeater.flair"));
+		ModUtils.addFlairToList(list, "block.fieldRepeater");
+//		list.add(StatCollector.translateToLocal("tooltip.fieldRepeater.flair"));
 	}
 	
 	@Override

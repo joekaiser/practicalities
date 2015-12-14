@@ -12,6 +12,7 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import practicalities.PracticalitiesMod;
 import practicalities.register.ModItems;
+import practicalities.utils.ModUtils;
 
 public class ItemImbuedSword extends ItemSword {
 
@@ -29,7 +30,8 @@ public class ItemImbuedSword extends ItemSword {
 	@Override
 	public void addInformation(ItemStack itemStack, EntityPlayer player, List list,
 			boolean p_77624_4_) {
-		list.add(StatCollector.translateToLocal("tooltip.imbuedSword.flair"));
+		ModUtils.addFlairToList(list, "item.imbuedSword");
+//		list.add(StatCollector.translateToLocal("tooltip.imbuedSword.flair"));
 	}
 
 	@Override
