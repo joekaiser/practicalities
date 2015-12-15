@@ -8,14 +8,47 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 import practicalities.ConfigMan;
 import practicalities.base.TileSimpleInventory;
+import practicalities.client.render.ITeslaRenderVars;
+import practicalities.client.render.Lightning;
 import practicalities.machine.inductioncoil.InductionCoilManager;
 import codechicken.lib.vec.BlockCoord;
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyReceiver;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class TileTeslaCoil extends TileSimpleInventory implements IEnergyReceiver {
+public class TileTeslaCoil extends TileSimpleInventory implements ITeslaRenderVars, IEnergyReceiver {
 
+	public int boltCD1, boltCD2;
+	public Lightning bolt1, bolt2;
+	
+	@Override
+	public Lightning getLighting(int i) {
+		return i == 0 ? bolt1 : bolt2;
+	}
+	
+	@Override
+	public void setLightning(int i, Lightning l) {
+		if(i == 0) {
+			bolt1 = l;
+		} else {
+			bolt2 = l;
+		}
+	}
+	
+	@Override
+	public int getCountdown(int i) {
+		return i == 0 ? boltCD1 : boltCD2;
+	}
+	
+	@Override
+	public void setCountdown(int i, int c) {
+		if(i == 0) {
+			boltCD1 = c;
+		} else {
+			boltCD2 = c;
+		}
+	}
+	
 	private int storageBase = 10000;
 	private EnergyStorage energy;
 
@@ -74,6 +107,7 @@ public class TileTeslaCoil extends TileSimpleInventory implements IEnergyReceive
 	
 	@Override
 	public void updateEntity() {
+		boltCD1--; boltCD2--;
 		if (worldObj.isRemote)
 			return;
 		

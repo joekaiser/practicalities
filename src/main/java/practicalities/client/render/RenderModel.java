@@ -5,11 +5,16 @@ import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.client.model.obj.Face;
+import net.minecraftforge.client.model.obj.GroupObject;
+import net.minecraftforge.client.model.obj.TextureCoordinate;
+import net.minecraftforge.client.model.obj.Vertex;
 import net.minecraftforge.client.model.obj.WavefrontObject;
 
 import org.lwjgl.opengl.GL11;
 
 import practicalities.PracticalitiesMod;
+import scala.actors.threadpool.Arrays;
 import codechicken.lib.vec.Vector3;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -38,6 +43,40 @@ public abstract class RenderModel implements ISimpleBlockRenderingHandler {
 	
 	public void loadModel() {
 		model = new WavefrontObject(objFile);
+		for(Vertex v : model.vertices) {
+			v.z = -v.z;
+		}
+		
+		for(GroupObject g : model.groupObjects) {
+			for(Face f : g.faces) {
+				f.faceNormal.z = -f.faceNormal.z;
+				Vertex[] verts;
+				TextureCoordinate[] texs;
+				
+				if(f.textureCoordinates != null) {
+					texs = new TextureCoordinate[f.textureCoordinates.length];
+					for(int i = 0; i < texs.length; i++) {
+						texs[i] = f.textureCoordinates[( texs.length-1 )-i];
+					}
+					f.textureCoordinates = texs;
+				}
+				if(f.vertices != null) {
+					verts = new Vertex[f.vertices.length];
+					for(int i = 0; i < verts.length; i++) {
+						verts[i] = f.vertices[( verts.length-1 )-i];
+					}
+					f.vertices = verts;
+				}
+				
+				if(f.vertexNormals != null) {
+					verts = new Vertex[f.vertexNormals.length];
+					for(int i = 0; i < verts.length; i++) {
+						verts[i] = f.vertexNormals[( verts.length-1 )-i];
+					}
+					f.vertexNormals = verts;
+				}
+			}
+		}
 	}
 	
 	@Override
