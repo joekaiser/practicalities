@@ -55,6 +55,6 @@ public class ConfigMan
     	enableImbuedItems = config.getBoolean("enableImbuedItems", "general", true, "");
     	enableNetherBlade = config.getBoolean("enableNetherBlade", "general", true, "");
     	
-    	teslaRange = config.getInt("teslaCoilRange", "general", 64, 0, 256, "");
+    	teslaRange = config.getInt("teslaCoilRange", "general", 16, 1, 64, "");
     }
 }
