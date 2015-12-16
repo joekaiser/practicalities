@@ -3,7 +3,10 @@ package practicalities.client.render;
 import java.util.ArrayList;
 import java.util.Random;
 
-import codechicken.lib.vec.Vector3;
+import cofh.repack.codechicken.lib.vec.Vector3;
+
+
+
 
 public class Lightning {
 
