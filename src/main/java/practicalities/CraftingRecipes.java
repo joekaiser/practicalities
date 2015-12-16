@@ -49,6 +49,7 @@ public class CraftingRecipes {
 	ItemStack imbuedRod = new ItemStack(ModItems.imbuedRod);
 	ItemStack machinePlate = new ItemStack(ModItems.machinePlate);
 	ItemStack filterCard = new ItemStack(ModItems.filterCard);
+	ItemStack inductiveCoil = new ItemStack(ModItems.inductiveCoil);
 
 	public void init() {
 		shapedRecipes();
@@ -143,6 +144,11 @@ public class CraftingRecipes {
 				"pcp",
 				"cnc",
 				"pcp",		'p',machinePlate,'c',machineCore,'n',netherStar);
+		
+		addShapedOreRecipe(true, ModItems.inductiveCoil,
+				"g g",
+				"rir",
+				"g g", 'g', goldNugget, 'r', redstone, 'i', ironIngot);
 		
 
 	}
