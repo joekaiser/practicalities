@@ -4,12 +4,15 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import practicalities.gui.GuiHandler;
-import practicalities.items.ModItems;
 import practicalities.machine.playerinterface.TilePlayerInterface;
+import practicalities.machine.fieldrepeater.TileFieldRepeater;
+import practicalities.machine.inductioncoil.TileInductionCoil;
 import practicalities.machine.inventoryfilter.TileInventoryFilter;
 import practicalities.machine.shippingcrate.TileShippingCrate;
+import practicalities.machine.teslacoil.TileTeslaCoil;
 import practicalities.machine.vampiricgenerator.TileVampiricGenerator;
 import practicalities.network.Proxy;
+import practicalities.register.ModItems;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -63,6 +66,9 @@ public class PracticalitiesMod {
 			TilePlayerInterface.initialize();
 			TileVampiricGenerator.initialize();
 			TileInventoryFilter.initialize();
+			TileTeslaCoil.initialize();
+			TileInductionCoil.initialize();
+			TileFieldRepeater.initialize();
 			initializedMachines = true;
 		}
 	}

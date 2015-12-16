@@ -18,6 +18,7 @@ public class ConfigMan
     public static boolean enableVampiricGenerator;
     public static boolean enablePlayerInterface;
     public static boolean enableInventoryFilter;
+    public static boolean enableTeslaCoil;
     
     //items
     public static boolean enableMagnet;
@@ -27,6 +28,8 @@ public class ConfigMan
     public static boolean enableImbuedItems;
     public static boolean enableNetherBlade;
 
+    public static int teslaRange;
+    
     public static void init(Configuration configuration)
     {
         config = configuration;
@@ -43,6 +46,7 @@ public class ConfigMan
     	enableVampiricGenerator = config.getBoolean("enableVampiricGenerator", "general", true, "");
     	enablePlayerInterface = config.getBoolean("enablePlayerInterface", "general", true, "");
     	enableInventoryFilter = config.getBoolean("enableInventoryFilter", "general", true, "");
+    	enableTeslaCoil = config.getBoolean("enableTeslaCoil", "general", true, "");
     	
     	//items
     	enableVoidBucket = config.getBoolean("enableVoidBucket", "general", true, "");
@@ -51,5 +55,6 @@ public class ConfigMan
     	enableImbuedItems = config.getBoolean("enableImbuedItems", "general", true, "");
     	enableNetherBlade = config.getBoolean("enableNetherBlade", "general", true, "");
     	
+    	teslaRange = config.getInt("teslaCoilRange", "general", 64, 0, 256, "");
     }
 }

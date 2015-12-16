@@ -1,6 +1,6 @@
 package practicalities.machine.polaritynegator;
 
-import practicalities.blocks.BlockBase;
+import practicalities.base.BlockBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;

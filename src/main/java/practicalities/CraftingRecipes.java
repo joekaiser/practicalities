@@ -6,8 +6,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import practicalities.blocks.ModBlocks;
-import practicalities.items.ModItems;
+import practicalities.register.ModBlocks;
+import practicalities.register.ModItems;
 
 public class CraftingRecipes {
 

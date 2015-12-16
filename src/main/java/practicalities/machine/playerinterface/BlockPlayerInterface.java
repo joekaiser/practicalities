@@ -12,7 +12,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import practicalities.blocks.BlockBase;
+import practicalities.base.BlockBase;
 
 public class BlockPlayerInterface extends BlockBase implements ITileEntityProvider {
 

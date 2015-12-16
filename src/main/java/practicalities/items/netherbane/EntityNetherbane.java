@@ -8,7 +8,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import practicalities.items.ModItems;
+import practicalities.register.ModItems;
 
 public class EntityNetherbane extends EntityItem {
 

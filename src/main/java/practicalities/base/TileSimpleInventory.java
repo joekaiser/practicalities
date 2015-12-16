@@ -1,4 +1,4 @@
-package practicalities.gui;
+package practicalities.base;
 
 import cofh.core.block.TileCoFHBase;
 import net.minecraft.entity.player.EntityPlayer;

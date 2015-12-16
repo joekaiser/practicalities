@@ -1,17 +1,18 @@
 package practicalities.network;
 
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import practicalities.blocks.ModBlocks;
-import practicalities.items.ModItems;
 import practicalities.items.netherbane.EntityNetherbane;
 import practicalities.machine.vampiricgenerator.TileVampiricGenerator;
+import practicalities.register.ModBlocks;
+import practicalities.register.ModItems;
+import practicalities.register.ModMultiblocks;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class Proxy {
 	
@@ -19,8 +20,9 @@ public class Proxy {
 	public void preInit() {
 		ModItems.init();
 		ModBlocks.init();
+		ModMultiblocks.init();
 		Net.init();
-
+		
 	}
 
 	public void registerKeyBinds() {

@@ -1,4 +1,4 @@
-package practicalities;
+package practicalities.items;
 
 import net.minecraft.item.ItemStack;
 

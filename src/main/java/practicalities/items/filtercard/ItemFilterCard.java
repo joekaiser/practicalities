@@ -11,9 +11,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import practicalities.IItemFilter;
 import practicalities.PracticalitiesMod;
 import practicalities.gui.GuiHandler;
+import practicalities.items.IItemFilter;
 import practicalities.items.IItemGui;
 
 public class ItemFilterCard extends Item implements IItemFilter<ItemStack>, IItemGui, IInventoryContainerItem {

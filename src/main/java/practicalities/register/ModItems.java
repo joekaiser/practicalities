@@ -1,8 +1,15 @@
-package practicalities.items;
+package practicalities.register;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import practicalities.ConfigMan;
+import practicalities.items.ItemCraftingBase;
+import practicalities.items.ItemImbuedSword;
+import practicalities.items.ItemImbuedTool;
+import practicalities.items.ItemMagnet;
+import practicalities.items.ItemMatterTransporter;
+import practicalities.items.ItemSitisStick;
+import practicalities.items.ItemVoidBucket;
 import practicalities.items.filtercard.ItemFilterCard;
 import practicalities.items.netherbane.ItemNetherbane;
 import net.minecraftforge.common.util.EnumHelper;
@@ -37,6 +44,7 @@ public class ModItems {
 
 	// other
 	public static Item filterCard;
+	public static Item blockFakeTorch;
 	
 	public static void init(){
 		// tools

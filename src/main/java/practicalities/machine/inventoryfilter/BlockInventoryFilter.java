@@ -12,7 +12,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import practicalities.Logger;
 import practicalities.PracticalitiesMod;
-import practicalities.blocks.BlockBase;
+import practicalities.base.BlockBase;
 import practicalities.gui.GuiHandler;
 
 public class BlockInventoryFilter extends BlockBase {

@@ -3,7 +3,7 @@ package practicalities.machine.inventoryfilter;
 import java.util.ArrayList;
 import java.util.List;
 
-import practicalities.IItemFilter;
+import practicalities.items.IItemFilter;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
