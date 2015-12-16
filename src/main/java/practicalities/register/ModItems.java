@@ -41,7 +41,7 @@ public class ModItems {
 	public static Item imbuedCore;
 	public static Item machinePlate;
 	public static Item imbuedRod;
-	public static Item inductiveCoil;
+	public static Item inductiveWrap;
 
 	// other
 	public static Item filterCard;
@@ -76,7 +76,7 @@ public class ModItems {
 		imbuedCore = new ItemCraftingBase("imbuedCore");
 		imbuedRod = new ItemCraftingBase("imbuedRod");
 		machinePlate = new ItemCraftingBase("machinePlate");
-		inductiveCoil = new ItemCraftingBase("inductiveCoil");
+		inductiveWrap = new ItemCraftingBase("inductiveWrap");
 
 		// other
 		filterCard = new ItemFilterCard();

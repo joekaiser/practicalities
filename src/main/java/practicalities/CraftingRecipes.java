@@ -28,6 +28,7 @@ public class CraftingRecipes {
 	ItemStack hopper = new ItemStack(Blocks.hopper);
 	ItemStack redstoneTorch = new ItemStack(Blocks.redstone_torch);
 	
+	
 	// vanilla - other
 	ItemStack chest = new ItemStack(Blocks.chest);
 	ItemStack web = new ItemStack(Blocks.web);
@@ -49,7 +50,7 @@ public class CraftingRecipes {
 	ItemStack imbuedRod = new ItemStack(ModItems.imbuedRod);
 	ItemStack machinePlate = new ItemStack(ModItems.machinePlate);
 	ItemStack filterCard = new ItemStack(ModItems.filterCard);
-	ItemStack inductiveCoil = new ItemStack(ModItems.inductiveCoil);
+	ItemStack inductiveWrap = new ItemStack(ModItems.inductiveWrap);
 
 	public void init() {
 		shapedRecipes();
@@ -145,10 +146,24 @@ public class CraftingRecipes {
 				"cnc",
 				"pcp",		'p',machinePlate,'c',machineCore,'n',netherStar);
 		
-		addShapedOreRecipe(true, ModItems.inductiveCoil,
+		addShapedOreRecipe(true, ModItems.inductiveWrap,
 				"g g",
 				"rir",
-				"g g", 'g', goldNugget, 'r', redstone, 'i', ironIngot);
+				"g g", 		'g', goldNugget, 'r', redstone, 'i', ironIngot);
+		
+		addShapedOreRecipe(ConfigMan.enableTeslaCoil, ModBlocks.teslaCoil,
+				" i ",
+				" c ",
+				"sss", 		'i', ironIngot,'c', inductiveWrap,'s',woodSlab);
+		
+		addShapedOreRecipe(ConfigMan.enableTeslaCoil, ModBlocks.fieldRepeater,
+				"r",
+				"t",		'r', redstoneTorch, 't', new ItemStack(ModBlocks.teslaCoil));
+		
+		addShapedOreRecipe(ConfigMan.enableTeslaCoil, ModBlocks.inductionCoil,
+				" c ",
+				"pmp",
+				"iii", 		'i', ironIngot,'c', inductiveWrap,'p',machinePlate,'m',machineCore);
 		
 
 	}
