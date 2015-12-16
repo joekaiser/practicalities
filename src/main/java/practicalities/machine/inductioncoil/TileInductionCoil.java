@@ -4,11 +4,9 @@ import practicalities.machine.teslacoil.IFieldReceiver;
 import practicalities.utils.RFUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
-import cofh.api.energy.IEnergyReceiver;
 import cofh.core.block.TileCoFHBase;
 import cpw.mods.fml.common.registry.GameRegistry;
 

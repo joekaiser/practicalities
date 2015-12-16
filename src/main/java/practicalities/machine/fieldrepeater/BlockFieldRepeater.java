@@ -38,7 +38,6 @@ public class BlockFieldRepeater extends BlockBase implements IBlockFlair, ITileE
 	public void addInformation(ItemStack stack, EntityPlayer player,
 			List<String> list, boolean thing) {
 		ModUtils.addFlairToList(list, "block.fieldRepeater");
-//		list.add(StatCollector.translateToLocal("tooltip.fieldRepeater.flair"));
 	}
 	
 	@Override
