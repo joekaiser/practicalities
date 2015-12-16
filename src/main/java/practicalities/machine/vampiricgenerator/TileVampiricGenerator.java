@@ -4,18 +4,17 @@ import java.util.List;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyProvider;
-import cofh.api.energy.IEnergyReceiver;
 import cofh.lib.util.TimeTracker;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.util.ForgeDirection;
 import practicalities.base.TileSimpleInventory;
 import practicalities.utils.ModUtils;
+import practicalities.utils.RFUtils;
 
 public class TileVampiricGenerator extends TileSimpleInventory implements IEnergyProvider {
 
@@ -147,26 +146,8 @@ public class TileVampiricGenerator extends TileSimpleInventory implements IEnerg
 	}
 
 	private void pushRfOut() {
-		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-			int targetX = xCoord + dir.offsetX;
-			int targetY = yCoord + dir.offsetY;
-			int targetZ = zCoord + dir.offsetZ;
-
-			TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
-			if (tile instanceof IEnergyReceiver) {
-				IEnergyReceiver receiver = (IEnergyReceiver) tile;
-
-				if (receiver.canConnectEnergy(dir.getOpposite())) {
-					int tosend = extractEnergy(dir, getTransferRate(), true);
-					int used = ((IEnergyReceiver) tile).receiveEnergy(dir.getOpposite(), tosend, false);
-					if (used > 0) {
-						this.markDirty();
-					}
-					extractEnergy(dir, used, false);
-				}
-
-			}
-
+		if(RFUtils.pushRfOut(this, worldObj, xCoord, yCoord, zCoord, getTransferRate())){
+			this.markDirty();
 		}
 	}
 

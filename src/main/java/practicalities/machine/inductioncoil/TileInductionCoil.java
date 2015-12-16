@@ -1,6 +1,7 @@
 package practicalities.machine.inductioncoil;
 
 import practicalities.machine.teslacoil.IFieldReceiver;
+import practicalities.utils.RFUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -14,12 +15,13 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class TileInductionCoil extends TileCoFHBase implements IEnergyProvider, IFieldReceiver {
 
 	private static final int storageBase = 10000;
-
+	private static final int maxTransferRate=100;
 	private EnergyStorage energy;
+	
 
 	public TileInductionCoil() {
 		super();
-		energy = new EnergyStorage(storageBase, 100);
+		energy = new EnergyStorage(storageBase, maxTransferRate);
 	}
 
 	@Override
@@ -87,32 +89,14 @@ public class TileInductionCoil extends TileCoFHBase implements IEnergyProvider, 
 	public void updateEntity() {
 		if (worldObj.isRemote)
 			return;
-//		this.energy.receiveEnergy(100, false);
 		pushRfOut();
 	}
 
 	private void pushRfOut() {
-		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-			int targetX = xCoord + dir.offsetX;
-			int targetY = yCoord + dir.offsetY;
-			int targetZ = zCoord + dir.offsetZ;
-
-			TileEntity tile = worldObj.getTileEntity(targetX, targetY, targetZ);
-			if (tile instanceof IEnergyReceiver) {
-				IEnergyReceiver receiver = (IEnergyReceiver) tile;
-
-				if (receiver.canConnectEnergy(dir.getOpposite())) {
-					int tosend = extractEnergy(dir, energy.getMaxExtract(), true);
-					int used = ((IEnergyReceiver) tile).receiveEnergy(dir.getOpposite(), tosend, false);
-					if (used > 0) {
-						this.markDirty();
-					}
-					extractEnergy(dir, used, false);
-				}
-
-			}
-
+		if(RFUtils.pushRfOut(this, worldObj, xCoord, yCoord, zCoord, maxTransferRate)){
+			this.markDirty();
 		}
+	
 	}
 
 	@Override
