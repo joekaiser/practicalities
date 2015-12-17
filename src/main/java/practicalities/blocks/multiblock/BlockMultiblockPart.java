@@ -15,6 +15,7 @@ public class BlockMultiblockPart extends BlockBase {
 	
 	public BlockMultiblockPart() {
 		super(Material.rock, "multiblockPart" , 1, null);
+		setCreativeTab(null);
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
