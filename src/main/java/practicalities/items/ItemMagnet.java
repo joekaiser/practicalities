@@ -20,7 +20,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemMagnet extends Item {
 
-	private int distanceFromPlayer;
+	protected int distanceFromPlayer;
 
 	public ItemMagnet() {
 		super();
