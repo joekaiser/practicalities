@@ -32,7 +32,9 @@ public class BlockFieldRepeater extends BlockBase implements IBlockFlair, ITileE
 	
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void registerBlockIcons(IIconRegister ir) {}
+	public void registerBlockIcons(IIconRegister ir) {
+		ModRenderHandler.fieldRepeaterIcon = ir.registerIcon(getTexture("model/fieldRepeater"));
+	}
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player,
@@ -43,7 +45,7 @@ public class BlockFieldRepeater extends BlockBase implements IBlockFlair, ITileE
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getRenderType() {
-		return ModRenderHandler.tesla.getRenderId();
+		return ModRenderHandler.fieldRepeater.getRenderId();
 	}
 	
 	@Override
