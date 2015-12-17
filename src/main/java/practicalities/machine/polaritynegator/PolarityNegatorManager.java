@@ -1,9 +1,10 @@
 package practicalities.machine.polaritynegator;
 
+import cofh.repack.codechicken.lib.vec.BlockCoord;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 import practicalities.PracticalitesWorldData;
-import codechicken.lib.vec.BlockCoord;
+
 
 public class PolarityNegatorManager {
 	public static double RANGE = 2; // distance from the sides of the block

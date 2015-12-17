@@ -3,10 +3,11 @@ package practicalities;
 import java.util.ArrayList;
 import java.util.List;
 
+import cofh.repack.codechicken.lib.vec.BlockCoord;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldSavedData;
-import codechicken.lib.vec.BlockCoord;
+
 
 public class PracticalitesWorldData extends WorldSavedData {
 

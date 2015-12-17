@@ -11,8 +11,9 @@ import practicalities.client.render.ITeslaRenderVars;
 import practicalities.client.render.Lightning;
 import practicalities.machine.inductioncoil.InductionCoilManager;
 import practicalities.machine.teslacoil.IFieldReceiver;
-import codechicken.lib.vec.BlockCoord;
+
 import cofh.api.energy.EnergyStorage;
+import cofh.repack.codechicken.lib.vec.BlockCoord;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TileFieldRepeater extends TileSimpleInventory implements ITeslaRenderVars, IFieldReceiver {

@@ -3,10 +3,11 @@ package practicalities.machine.inductioncoil;
 import java.util.ArrayList;
 import java.util.List;
 
+import cofh.repack.codechicken.lib.vec.BlockCoord;
 import net.minecraft.world.World;
 import practicalities.Logger;
 import practicalities.PracticalitesWorldData;
-import codechicken.lib.vec.BlockCoord;
+
 
 public class InductionCoilManager {	
 	public static void addCoil(World w, int x, int y, int z) {

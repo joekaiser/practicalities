@@ -5,7 +5,7 @@ import practicalities.machine.fieldrepeater.TileFieldRepeater;
 import practicalities.machine.teslacoil.TileTeslaCoil;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.IIcon;
-import codechicken.lib.vec.Vector3;
+import cofh.repack.codechicken.lib.vec.Vector3;
 import cpw.mods.fml.client.registry.ClientRegistry;
 
 public class ModRenderHandler {

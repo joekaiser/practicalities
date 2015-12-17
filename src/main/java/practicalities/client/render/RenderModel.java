@@ -13,8 +13,9 @@ import net.minecraftforge.client.model.obj.WavefrontObject;
 
 import org.lwjgl.opengl.GL11;
 
+import cofh.repack.codechicken.lib.vec.Vector3;
 import practicalities.PracticalitiesMod;
-import codechicken.lib.vec.Vector3;
+
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
