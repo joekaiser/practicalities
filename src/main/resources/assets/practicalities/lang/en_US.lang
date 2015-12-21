@@ -1,0 +1,49 @@
+itemGroup.tabPracticalities=Practicalities
+
+item.voidBucket.name=Void Bucket
+item.matterTransporter.name=Matter Transporter
+item.magnet.name=Item Magnet
+item.magneticNorth.name=Magnetic North
+item.magneticSouth.name=Magnetic South
+item.machineCore.name=Machine Core
+item.filtercard.name=Filter Card
+item.sitisStick.name=Sitis Stick
+item.diamondRod.name=Diamond Rod
+item.imbuedCore.name=Imbued Core
+item.imbuedRod.name=Imbued Rod
+item.imbuedTool.name=Imbued Tool
+item.imbuedSword.name=Imbued Sword
+item.netherBane.name=Netherbane
+item.inductiveWrap.name=Inductive Wrap
+
+item.machinePlate.name=Machine Plate
+
+tile.shippingcrate.name=Shipping Crate
+tile.stonewall.name=Stone Wall
+tile.vampiricgenerator.name=Vampiric Generator
+tile.polarityNegator.name=Polarity Negator
+tile.playerinterface.name=Player Interface
+tile.inventoryfilter.name=Inventory Filter
+tile.teslacoil.name=Tesla Coil
+tile.inductioncoil.name=Induction Coil
+tile.multiblockPart.name=Practicalities Multiblock Part
+tile.fieldrepeater.name=Field Repeater
+
+chat.sitis.noSky=The stick might work better out in the open
+chat.sitis.noRain=The stick doesn't really have much to do right now
+chat.sitis.clear=Rain, Rain, go away; come again another day
+chat.playerinterface.info=Bound to %s
+
+key.practicalities.magnet_toggle=Toggle Practicalities magnet
+
+flair.item.itemMagnet=Suck it!
+flair.item.imbuedTool=The OPness!
+flair.item.imbuedSword=Watch out for the quick draw!
+flair.item.netherBane=Sabre of the Moon
+
+flair.block.fieldRepeater=Can't be daisy-chained
+
+gui.tooltip.inventoryfilter.whitelist=Whitelist
+gui.tooltip.inventoryfilter.blacklist=Blacklist
+
+death.attack.vampiricGenerator=%1$s's life was sucked dry
