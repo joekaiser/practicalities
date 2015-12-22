@@ -2,7 +2,6 @@ package practicalities.items;
 
 import java.util.List;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +12,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import practicalities.PracticalitiesMod;
 import practicalities.helpers.ItemHelpers;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class ItemBase extends Item implements ItemMeshDefinition {
 

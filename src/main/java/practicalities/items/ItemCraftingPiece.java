@@ -5,20 +5,11 @@ import java.util.List;
 
 import gnu.trove.map.TMap;
 import gnu.trove.map.hash.THashMap;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Items;
-import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
-import practicalities.PracticalitiesMod;
 
 public class ItemCraftingPiece extends ItemBase {
 	public TMap<String, SubItem> subItemMap = new THashMap<String, SubItem>();
@@ -87,7 +78,7 @@ public class ItemCraftingPiece extends ItemBase {
 	}
 
 	@Override
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
+	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
 
 		for (int i = 0; i < subItemList.size(); i++) {
 			list.add(new ItemStack(item, 1, i));

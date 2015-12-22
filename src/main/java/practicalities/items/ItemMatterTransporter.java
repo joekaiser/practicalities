@@ -1,10 +1,8 @@
 package practicalities.items;
 
-import java.util.Iterator;
 import java.util.List;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -15,7 +13,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import practicalities.Logger;
 import practicalities.helpers.NBTHelper;
 
 public class ItemMatterTransporter extends ItemBase {

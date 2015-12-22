@@ -47,3 +47,67 @@ gui.tooltip.inventoryfilter.whitelist=Whitelist
 gui.tooltip.inventoryfilter.blacklist=Blacklist
 
 death.attack.vampiricGenerator=%1$s's life was sucked dry
+
+# Guide book
+
+guide.list.root.text=Root node
+guide.list.root.iconStack=minecraft:iron_ingot
+
+guide.list.items.text=Items
+guide.list.items.iconStack=practicalities:craftingPiece
+
+#guide.list.example.text=Example Page
+#guide.list.example.iconStack=practicalities:craftingPiece|1|4
+
+# Example page (VERY LARGE)
+
+guide.entry.example.title=Example
+guide.entry.example.list.text=Feature Examples
+guide.entry.example.list.iconStack=minecraft:iron_pickaxe|2|111|{ench:[id:32,lvl:6]}
+
+guide.entry.example.page.0=This is the test page for the Practical Guide of Practical Things. It is designed to give you the practical knowledge to use all of the practical constructs in this mod.\n\nAll of the information in this guide is located in the language file, including recipes and all other information. §oNone§r of it is in the code.\n\nIt is based on §oEntries§r, each entry can have many pages, and each page can be of one type. Though at this point only text and recipes are implemented. A page is defined with at least two* lines in the lang file.§a§o\n\nguide.entry.ENTRYNAME.PAGENUM.type=TYPE\nguide.entry.ENTRYNAME.PAGENUM=CONTENT\n\n§r§0The type line can be either §otext§r or §orecipe§r, though if it doesn't exist it will default to §otext§r. These formats will be discussed in further detail later.\n\nThe guide book will search forward from page 0->∞ for a plain §a§o...PAGENUM=SOMETHING§r§0 line to determine the length of the guide, stopping once it finds one missing.\n\n\n\n*no type line is required for text
+
+guide.entry.example.page.1.type=recipe
+guide.entry.example.page.1=[][minecraft:nether_star|1|0|{display:{Lore:["It's kind of overkill, don't you think?", "you > Yep, it is."]}}][][minecraft:iron_pickaxe|1|111|{display:{Name:"SOmeNaMe"},ench:[{id:32,lvl:7268}]}][minecraft:iron_ingot][minecraft:iron_ingot][minecraft:iron_ingot][minecraft:iron_ingot][minecraft:iron_ingot][minecraft:iron_bars|3]
+guide.entry.example.page.1.text=Recipes consist of 1 (1x1), 4 (2x2), or 9(3x3) items + one result item. The format for an item is as follows\n\n§7[§0item:id§7|§0stacksize§7|§0damage§7|§0{nbt}§7]§0\n\nAny item can be omitted off the end, so specifying the NBT requires also specifying the stack size and damage.
+
+guide.entry.example.page.2.type=recipe
+guide.entry.example.page.2=[][minecraft:cobblestone][minecraft:sand][][minecraft:nether_star]
+guide.entry.example.page.2.text=That makes the previous recipe a bit better.
+
+guide.entry.example.page.3.type=recipe
+guide.entry.example.page.3=[minecraft:iron_pickaxe][minecraft:iron_pickaxe|1|111|{display:{Name:"SOmeNaMe"},ench:[{id:32,lvl:7268}]}]
+guide.entry.example.page.3.text=That makes the recipe even better!
+
+guide.entry.example.page.4=§nChecklist of things to do§r\n\n■ add recipes\n■ add a navigation system\n     ■ add basic entry list\n     ■ add support for multiple lists\n§7■§0 add more types of pages.
+
+enchantment.level.7268=MMMMMMMCCLXVIII
+
+# Other pages
+
+guide.entry.intro.title=Introduction
+guide.entry.intro.list.text=Introduction
+guide.entry.intro.list.iconStack=minecraft:stone
+
+guide.entry.intro.page.0=This is the Practical Guide. It's a very practical thing to have around.
+
+guide.entry.magnet.title=Magnet
+guide.entry.magnet.list.text=Magnet
+guide.entry.magnet.list.iconStack=practicalities:magnet
+
+guide.entry.magnet.page.0=The Magnet is one of the most useful items in Practicalities
+
+guide.entry.magnet.page.1.type=recipe
+guide.entry.magnet.page.1=[practicalities:craftingPiece|1|5][][practicalities:craftingPiece|1|4] [minecraft:ender_pearl][][minecraft:ender_pearl] [minecraft:iron_ingot][practicalities:craftingPiece|1|0][minecraft:iron_ingot] [practicalities:magnet]
+guide.entry.magnet.page.1.text= 
+
+guide.entry.transporter.title=Matter Transporter
+guide.entry.transporter.list.text=§c[WIP]§0 Matter Transporter
+guide.entry.transporter.list.iconStack=practicalities:matterTransporter
+
+guide.entry.transporter.page.0=The Matter Transporter allows the player to move nearly any block, including Monster Spawners and nearly all machines!
+
+guide.entry.transporter.page.1.type=recipe
+guide.entry.transporter.page.1=[minecraft:barrier][minecraft:barrier][minecraft:barrier] [minecraft:barrier][minecraft:barrier][minecraft:barrier] [minecraft:barrier][minecraft:barrier][minecraft:barrier] [practicalities:matterTransporter]
+guide.entry.transporter.page.1.text=
+
