@@ -54,63 +54,74 @@ public class ItemMatterTransporter extends ItemBase {
 	}
 
 	@Override
-	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, BlockPos pos, EnumFacing side,
+	public boolean onItemUse(ItemStack stackIn, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side,
 			float hitX, float hitY, float hitZ) {
 		
-		if(world.isRemote){
+		if(worldIn.isRemote){
 			return false;
 		}
 
-		boolean hasBlock = NBTHelper.getBoolean(itemstack, HAS_BLOCK, false);
-		boolean hasTE = NBTHelper.getBoolean(itemstack, HAS_TILEENTITY, false);
+		boolean hasBlock = NBTHelper.getBoolean(stackIn, HAS_BLOCK, false);
+		boolean hasTE = NBTHelper.getBoolean(stackIn, HAS_TILEENTITY, false);
 		
 
 		if (hasBlock) {
+			int metadata = NBTHelper.getInt(stackIn, STORED_METADATA, 0);
+			Block storedBlock = getBlockFromNbt(stackIn);
 
 			BlockPos targetPos = pos.add(side.getDirectionVec());
-			Block targetBlock = world.getBlockState(targetPos).getBlock();
-			
+			Block targetBlock = worldIn.getBlockState(targetPos).getBlock();
 
-			if ((world.isAirBlock(targetPos)) || targetBlock.isReplaceable(world, targetPos)) {
-				NBTTagCompound tileEntityNbtData = NBTHelper.getCompoundTag(itemstack, STORED_TILEENTITY);
-				Block storedBlock = getBlockFromNbt(itemstack);
-				int metadata = NBTHelper.getInt(itemstack, STORED_METADATA, 0);
+			if ((worldIn.isAirBlock(targetPos)) || targetBlock.isReplaceable(worldIn, targetPos)) {
 
-				if (storedBlock.canPlaceBlockAt(world, targetPos)) {
+				if (storedBlock.canPlaceBlockAt(worldIn, targetPos)) {
 					
-					world.setBlockState(targetPos, storedBlock.getStateFromMeta(metadata)); 
+					worldIn.setBlockState(targetPos, storedBlock.getStateFromMeta(metadata)); 
+					
 					if (hasTE) {
-						world.setTileEntity(targetPos, TileEntity.createAndLoadEntity(tileEntityNbtData));
+						NBTTagCompound tileEntityNbtData = NBTHelper.getCompoundTag(stackIn, STORED_TILEENTITY);
+						TileEntity te = worldIn.getTileEntity(targetPos);
+						if(te != null) {
+						    tileEntityNbtData.setInteger("x", targetPos.getX());
+						    tileEntityNbtData.setInteger("y", targetPos.getY());
+						    tileEntityNbtData.setInteger("z", targetPos.getZ());
+						    te.readFromNBT(tileEntityNbtData);
+						    te.markDirty();
+						    worldIn.markBlockForUpdate(targetPos);
+						}
 					}
-					NBTHelper.setBoolean(itemstack, HAS_BLOCK, false);
-					NBTHelper.setBoolean(itemstack, HAS_TILEENTITY, false);
+					
+					NBTHelper.setBoolean(stackIn, HAS_BLOCK, false);
+					NBTHelper.setBoolean(stackIn, HAS_TILEENTITY, false);
 
 					if (storedBlock.getLocalizedName().toLowerCase().contains("spawner")) {
-						itemstack.damageItem(maxDamage / 4, player);
+						stackIn.damageItem(maxDamage / 4, playerIn);
 					} else {
-						itemstack.damageItem(1, player);
+						stackIn.damageItem(1, playerIn);
 					}
-					world.notifyBlockOfStateChange(targetPos, storedBlock);
-					world.playSoundAtEntity(player, "random.pop", 0.4F, 0.7F);
+					worldIn.notifyBlockOfStateChange(targetPos, storedBlock);
+					worldIn.playSoundAtEntity(playerIn, "random.pop", 0.4F, 0.7F);
+					
+
 				}
 			}
-		} else if (!world.isAirBlock(pos)) { 
-			IBlockState targetBlockState = world.getBlockState(pos);
+		} else if (!worldIn.isAirBlock(pos)) { 
+			IBlockState targetBlockState = worldIn.getBlockState(pos);
 			Block targetBlock = targetBlockState.getBlock(); 
 			int metadata = targetBlock.getMetaFromState(targetBlockState);
 			
 
 			if (targetBlock.blockParticleGravity == -1.0F
-					|| targetBlock.getBlockHardness(world, pos) < 0) {
+					|| targetBlock.getBlockHardness(worldIn, pos) < 0) {
 				return false;
 			}
-			if (world.getTileEntity(pos) != null) {
+			if (worldIn.getTileEntity(pos) != null) {
 				NBTTagCompound savedTE = new NBTTagCompound();
-				TileEntity te = world.getTileEntity(pos);
+				TileEntity te = worldIn.getTileEntity(pos);
 				te.writeToNBT(savedTE);
 
-				NBTHelper.setBoolean(itemstack, HAS_TILEENTITY, true);
-				NBTHelper.setTag(itemstack, STORED_TILEENTITY, savedTE);
+				NBTHelper.setBoolean(stackIn, HAS_TILEENTITY, true);
+				NBTHelper.setTag(stackIn, STORED_TILEENTITY, savedTE);
 				
 			}
 
@@ -118,22 +129,22 @@ public class ItemMatterTransporter extends ItemBase {
 			ItemStack i = new ItemStack(targetBlock);
 			
 			i.writeToNBT(blockNbt);
-			NBTHelper.setTag(itemstack, STORED_BLOCK, blockNbt);
-			NBTHelper.setInt(itemstack, STORED_METADATA, metadata);
+			NBTHelper.setTag(stackIn, STORED_BLOCK, blockNbt);
+			NBTHelper.setInt(stackIn, STORED_METADATA, metadata);
 
 			// some blocks (like redstone) crash to client
 			// so before we do the deed, make sure we can recover later
 			try {
-				getBlockFromNbt(itemstack);
+				getBlockFromNbt(stackIn);
 			} catch (Exception e) {
 				return false;
 			}
 
-			world.removeTileEntity(pos);
-			world.setBlockToAir(pos);
+			worldIn.removeTileEntity(pos);
+			worldIn.setBlockToAir(pos);
 
-			world.playSoundAtEntity(player, "random.pop", 1.0F, 1.0F);
-			NBTHelper.setBoolean(itemstack, HAS_BLOCK, true);
+			worldIn.playSoundAtEntity(playerIn, "random.pop", 1.0F, 1.0F);
+			NBTHelper.setBoolean(stackIn, HAS_BLOCK, true);
 
 		}
 		return true;
