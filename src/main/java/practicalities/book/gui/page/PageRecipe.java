@@ -71,9 +71,10 @@ public class PageRecipe extends PageInEntry {
 		super.init(gui, state);	
 		mainElements.add(new ElementIcon(gui, 0, 0, GuiGuide.MAIN_SIZE_X, GuiGuide.MAIN_SIZE_Y, 0, 0, tex));
 		
-		mainElements.add(new ElementRecipe(gui, 59, 50, matrix, 2, 56, 18));
+		mainElements.add(new ElementText(gui, 3, 122, GuiGuide.MAIN_SIZE_X-6, GuiGuide.MAIN_SIZE_Y-122, text));
+
+		mainElements.add(new ElementRecipe(gui, 32, 6, matrix, 2, 1.5, 27, 84));
 		
-		mainElements.add(new ElementText(gui, 3, 110, GuiGuide.MAIN_SIZE_X-6, GuiGuide.MAIN_SIZE_Y-110, text));
 	}
 
 }
