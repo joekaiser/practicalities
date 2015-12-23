@@ -12,6 +12,7 @@ import practicalities.Logger;
 import practicalities.PracticalitiesMod;
 import practicalities.items.ItemBase;
 import practicalities.items.ItemPracticalGuide;
+import practicalities.items.ItemSitisStick;
 import practicalities.items.ItemCraftingPiece;
 import practicalities.items.ItemMagnet;
 import practicalities.items.ItemMatterTransporter;
@@ -23,13 +24,14 @@ public class ItemRegister {
 	public static Item voidBucket;
 	public static Item matterTransporter;
 	public static Item practicalGuide;
+	public static Item sitisStick;
 	
 	public static void init() {
 		magnet = new ItemMagnet();
 		voidBucket = new ItemVoidBucket();
 		matterTransporter = new ItemMatterTransporter();
 		practicalGuide = new ItemPracticalGuide();
-		
+		sitisStick = new ItemSitisStick();
 		
 		craftingPieces = new ItemCraftingPiece();
 		craftingPieces.addItem("machineCore");
@@ -53,6 +55,7 @@ public class ItemRegister {
 		registerRender((ItemBase) voidBucket);
 		registerRender((ItemBase) matterTransporter);
 		registerRender((ItemBase) practicalGuide);
+		registerRender((ItemBase) sitisStick);
 	}
 
 	@SideOnly(Side.CLIENT)

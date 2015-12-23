@@ -25,6 +25,8 @@ public final class RecipeRegister {
 	ItemStack leather = new ItemStack(Items.leather);
 	ItemStack potato = new ItemStack(Items.potato);
 	ItemStack blazeRod = new ItemStack(Items.blaze_rod);
+	ItemStack magmaCream = new ItemStack(Items.magma_cream);
+	String stick = "stickWood";
 
 	// vanilla blocks
 
@@ -95,7 +97,12 @@ public final class RecipeRegister {
 		addShapedOreRecipe(ConfigMan.enableMatterTransporter, ItemRegister.matterTransporter,
 				"e e",
 				" d ",
-				" s ", 'e',enderpearl, 'd',diamond, 's', blazeRod);
+				" s ", 'e',enderpearl, 'd',diamond, 's', stick);
+		
+		addShapedOreRecipe(ConfigMan.enableSitisStick,ItemRegister.sitisStick,
+				" d ",
+				"cbc",
+				" b ", 'd',diamond, 'c', magmaCream, 'b', blazeRod);
 	
 		
 	}

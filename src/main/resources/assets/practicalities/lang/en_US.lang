@@ -49,6 +49,7 @@ flair.item.itemMagnet=Suck it!
 flair.item.imbuedTool=The OPness!
 flair.item.imbuedSword=Watch out for the quick draw!
 flair.item.netherBane=Sabre of the Moon
+flair.item.sitisStick=Rain, rain, go away.
 
 flair.block.fieldRepeater=Can't be daisy-chained
 
@@ -98,10 +99,11 @@ enchantment.level.7268=MMMMMMMCCLXVIII
 
 guide.entry.intro.title=Introduction
 guide.entry.intro.list.text=Introduction
-guide.entry.intro.list.iconStack=minecraft:stone
+guide.entry.intro.list.iconStack=practicalities:practicalGuide
 
 guide.entry.intro.page.0=This is the Practical Guide. It's a very practical thing to have around.
 
+# magnet
 guide.entry.magnet.title=Magnet
 guide.entry.magnet.list.text=Magnet
 guide.entry.magnet.list.iconStack=practicalities:magnet
@@ -110,12 +112,21 @@ guide.entry.magnet.page.0.type=recipe
 guide.entry.magnet.page.0=[practicalities:craftingPiece|1|5][][practicalities:craftingPiece|1|4] [minecraft:ender_pearl][][minecraft:ender_pearl] [minecraft:iron_ingot][practicalities:craftingPiece|1|0][minecraft:iron_ingot] [practicalities:magnet]
 guide.entry.magnet.page.0.text=The Magnet is one of the most useful items in Practicalities. Activate it by pressing Sneak+Activate (default is Shift+RClick).
 
+# matter transporter
 guide.entry.transporter.title=Matter Transporter
 guide.entry.transporter.list.text=Matter Transporter
 guide.entry.transporter.list.iconStack=practicalities:matterTransporter
 
-
 guide.entry.transporter.page.0.type=recipe
-guide.entry.transporter.page.0=[minecraft:ender_pearl][][minecraft:ender_pearl] [][minecraft:diamond][] [][minecraft:blaze_rod][] [practicalities:matterTransporter]
+guide.entry.transporter.page.0=[minecraft:ender_pearl][][minecraft:ender_pearl] [][minecraft:diamond][] [][minecraft:stick][] [practicalities:matterTransporter]
 guide.entry.transporter.page.0.text=The Matter Transporter allows the player to move nearly any block, including Monster Spawners and nearly all machines!
+
+#sitis stick
+guide.entry.sitis.title=Sitis Stick
+guide.entry.sitis.list.text=Sitis Stick
+guide.entry.sitis.list.iconStack=practicalities:sitisStick
+
+guide.entry.sitis.page.0.type=recipe
+guide.entry.sitis.page.0=[][minecraft:diamond][] [minecraft:magma_cream][minecraft:blaze_rod][minecraft:magma_cream] [][minecraft:blaze_rod][] [practicalities:sitisStick|1|0|{display:{Lore:["Latin for 'drought'"]}}]
+guide.entry.sitis.page.0.text=The Sitis Stick is capable of stopping the rain. Hold it in your hand and use it like a bow to turn the rainiest of days into sunshine.
 
