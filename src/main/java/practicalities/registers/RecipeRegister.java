@@ -20,6 +20,9 @@ public final class RecipeRegister {
 	// vanilla items
 	ItemStack enderpearl = new ItemStack(Items.ender_pearl);
 	ItemStack netherStar = new ItemStack(Items.nether_star);
+	ItemStack paper = new ItemStack(Items.paper);
+	ItemStack leather = new ItemStack(Items.leather);
+	ItemStack potato = new ItemStack(Items.potato);
 
 	// vanilla blocks
 
@@ -30,6 +33,8 @@ public final class RecipeRegister {
 	ItemStack imbuedRod = ItemRegister.craftingPieces.getSubItem("imbuedRod");
 	ItemStack magneticNorth = ItemRegister.craftingPieces.getSubItem("magneticNorth");
 	ItemStack magneticSouth = ItemRegister.craftingPieces.getSubItem("magneticSouth");
+	
+
 
 	public void init() {
 		shapedRecipes();
@@ -65,13 +70,13 @@ public final class RecipeRegister {
 				"  r",
 				" i ",
 				"i  ",
-				'r',redstone,'i',lapis);
+				'r', redstone,'i',lapis);
 		
 		addShapedOreRecipe(ConfigMan.enableMagnet, magneticSouth, 
 				"  l",
 				" i ",
 				"i  ",
-				'l',lapis,'i',lapis);
+				'l', lapis,'i',lapis);
 		
 		addShapedOreRecipe(ConfigMan.enableMagnet, ItemRegister.magnet, 
 				"s n",
@@ -79,9 +84,17 @@ public final class RecipeRegister {
 				"imi",
 				's', magneticSouth, 'n', magneticNorth,'e',enderpearl,'i',ingotIron,'m',machineCore);
 		
+		addShapedOreRecipe(true, ItemRegister.practicalGuide, 
+				"ppp",
+				"pop",
+				"ppp",
+				'p', paper,'o',potato);
+	
+		
 	}
 
 	private void shapelessRecipes() {
+		
 
 	}
 
