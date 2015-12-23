@@ -5,26 +5,38 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import practicalities.Logger;
 import practicalities.PracticalitiesMod;
 import practicalities.items.ItemBase;
-import practicalities.items.ItemPracticalGuide;
-import practicalities.items.ItemSitisStick;
 import practicalities.items.ItemCraftingPiece;
+import practicalities.items.ItemImbuedSword;
+import practicalities.items.ItemImbuedTool;
 import practicalities.items.ItemMagnet;
 import practicalities.items.ItemMatterTransporter;
+import practicalities.items.ItemPracticalGuide;
+import practicalities.items.ItemSitisStick;
 import practicalities.items.ItemVoidBucket;
 
 public class ItemRegister {
+	
+	public static final ToolMaterial imbuedSwordMaterial = 
+			EnumHelper.addToolMaterial("imbued", 100, 15, 100, 35, 30);
+	public static final ToolMaterial imbuedToolMaterial = 
+			EnumHelper.addToolMaterial("imbued", 100, 5000, 100, 15, 30);
+	
 	public static ItemCraftingPiece craftingPieces;
 	public static Item magnet;
 	public static Item voidBucket;
 	public static Item matterTransporter;
 	public static Item practicalGuide;
 	public static Item sitisStick;
+	public static Item imbuedTool;
+	public static Item imbuedSword;
 	
 	public static void init() {
 		magnet = new ItemMagnet();
@@ -32,6 +44,8 @@ public class ItemRegister {
 		matterTransporter = new ItemMatterTransporter();
 		practicalGuide = new ItemPracticalGuide();
 		sitisStick = new ItemSitisStick();
+		imbuedTool = new ItemImbuedTool();
+		imbuedSword = new ItemImbuedSword();
 		
 		craftingPieces = new ItemCraftingPiece();
 		craftingPieces.addItem("machineCore");
@@ -56,6 +70,8 @@ public class ItemRegister {
 		registerRender((ItemBase) matterTransporter);
 		registerRender((ItemBase) practicalGuide);
 		registerRender((ItemBase) sitisStick);
+		registerRender(imbuedTool,0,false);
+		registerRender(imbuedSword,0,false);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -80,5 +96,7 @@ public class ItemRegister {
 		Logger.info("    %s", item.getUnlocalizedName().substring(5));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, (ItemMeshDefinition) item);
 	}
+	
+	
 
 }
