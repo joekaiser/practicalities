@@ -3,20 +3,15 @@ package practicalities.items;
 import java.util.Iterator;
 import java.util.List;
 
-import net.minecraft.client.renderer.ItemMeshDefinition;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import practicalities.helpers.EntityHelpers;
 import practicalities.helpers.ItemHelpers;
 

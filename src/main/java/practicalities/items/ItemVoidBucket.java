@@ -1,7 +1,6 @@
 package practicalities.items;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.pattern.BlockHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
