@@ -15,6 +15,7 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import practicalities.Logger;
+import practicalities.PracticalitiesMod;
 
 public final class ItemHelpers {
 	
@@ -33,7 +34,7 @@ public final class ItemHelpers {
 
 	@SideOnly(Side.CLIENT)
 	public static ModelResourceLocation getModelLocation(ItemStack stack) {
-		return new ModelResourceLocation("practicalities:" + stack.getUnlocalizedName().substring(5),"inventory");
+		return new ModelResourceLocation(PracticalitiesMod.TEXTURE_BASE + stack.getUnlocalizedName().substring(5),"inventory");
 	}
 	
 	public static ItemStack parseItemStack(String str) {

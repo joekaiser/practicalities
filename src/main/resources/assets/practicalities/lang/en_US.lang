@@ -1,5 +1,6 @@
 itemGroup.tabPracticalities=Practicalities
 
+# ITEMS
 item.voidBucket.name=Void Bucket
 item.matterTransporter.name=Matter Transporter
 item.magnet.name=Item Magnet
@@ -15,8 +16,10 @@ item.imbuedTool.name=Imbued Tool
 item.imbuedSword.name=Imbued Sword
 item.netherBane.name=Netherbane
 item.inductiveWrap.name=Inductive Wrap
-
+item.practicalGuide.name=Practical Guide
 item.machinePlate.name=Machine Plate
+
+# Blocks
 
 tile.shippingcrate.name=Shipping Crate
 tile.stonewall.name=Stone Wall
@@ -29,12 +32,18 @@ tile.inductioncoil.name=Induction Coil
 tile.multiblockPart.name=Practicalities Multiblock Part
 tile.fieldrepeater.name=Field Repeater
 
+# Chat
+
 chat.sitis.noSky=The stick might work better out in the open
 chat.sitis.noRain=The stick doesn't really have much to do right now
 chat.sitis.clear=Rain, Rain, go away; come again another day
 chat.playerinterface.info=Bound to %s
 
+# Options
+
 key.practicalities.magnet_toggle=Toggle Practicalities magnet
+
+# Flair
 
 flair.item.itemMagnet=Suck it!
 flair.item.imbuedTool=The OPness!
@@ -42,6 +51,8 @@ flair.item.imbuedSword=Watch out for the quick draw!
 flair.item.netherBane=Sabre of the Moon
 
 flair.block.fieldRepeater=Can't be daisy-chained
+
+#Tooltips
 
 gui.tooltip.inventoryfilter.whitelist=Whitelist
 gui.tooltip.inventoryfilter.blacklist=Blacklist
