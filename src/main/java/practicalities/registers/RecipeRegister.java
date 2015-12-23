@@ -16,6 +16,7 @@ public final class RecipeRegister {
 	String nuggetGold = "nuggetGold";
 	ItemStack redstone = new ItemStack(Items.redstone);
 	ItemStack lapis = new ItemStack(Items.dye, 1, 4);
+	String diamond = "gemDiamond";
 
 	// vanilla items
 	ItemStack enderpearl = new ItemStack(Items.ender_pearl);
@@ -23,6 +24,7 @@ public final class RecipeRegister {
 	ItemStack paper = new ItemStack(Items.paper);
 	ItemStack leather = new ItemStack(Items.leather);
 	ItemStack potato = new ItemStack(Items.potato);
+	ItemStack blazeRod = new ItemStack(Items.blaze_rod);
 
 	// vanilla blocks
 
@@ -89,6 +91,11 @@ public final class RecipeRegister {
 				"pop",
 				"ppp",
 				'p', paper,'o',potato);
+		
+		addShapedOreRecipe(ConfigMan.enableMatterTransporter, ItemRegister.matterTransporter,
+				"e e",
+				" d ",
+				" s ", 'e',enderpearl, 'd',diamond, 's', blazeRod);
 	
 		
 	}

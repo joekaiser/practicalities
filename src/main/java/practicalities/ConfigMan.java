@@ -50,7 +50,7 @@ public class ConfigMan
     	//items
     	enableMagnet = config.getBoolean("enableMagnet", "general", true, "");
     	//enableVoidBucket = config.getBoolean("enableVoidBucket", "general", true, "");
-    	//enableMatterTransporter = config.getBoolean("enableMatterTransporter", "general", true, "");
+    	enableMatterTransporter = config.getBoolean("enableMatterTransporter", "general", true, "");
     	//enableSitisStick = config.getBoolean("enableSitisStick", "general", true, "");
     	enableImbuedItems = config.getBoolean("enableImbuedItems", "general", true, "");
     	//enableNetherBlade = config.getBoolean("enableNetherBlade", "general", true, "");

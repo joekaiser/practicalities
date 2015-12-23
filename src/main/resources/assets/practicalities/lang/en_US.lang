@@ -62,7 +62,7 @@ death.attack.vampiricGenerator=%1$s's life was sucked dry
 # Guide book
 
 guide.list.root.text=Root node
-guide.list.root.iconStack=minecraft:iron_ingot
+guide.list.root.iconStack=practicalities:practicalGuide
 
 guide.list.items.text=Items
 guide.list.items.iconStack=practicalities:craftingPiece
@@ -106,19 +106,16 @@ guide.entry.magnet.title=Magnet
 guide.entry.magnet.list.text=Magnet
 guide.entry.magnet.list.iconStack=practicalities:magnet
 
-guide.entry.magnet.page.0=The Magnet is one of the most useful items in Practicalities
-
-guide.entry.magnet.page.1.type=recipe
-guide.entry.magnet.page.1=[practicalities:craftingPiece|1|5][][practicalities:craftingPiece|1|4] [minecraft:ender_pearl][][minecraft:ender_pearl] [minecraft:iron_ingot][practicalities:craftingPiece|1|0][minecraft:iron_ingot] [practicalities:magnet]
-guide.entry.magnet.page.1.text= 
+guide.entry.magnet.page.0.type=recipe
+guide.entry.magnet.page.0=[practicalities:craftingPiece|1|5][][practicalities:craftingPiece|1|4] [minecraft:ender_pearl][][minecraft:ender_pearl] [minecraft:iron_ingot][practicalities:craftingPiece|1|0][minecraft:iron_ingot] [practicalities:magnet]
+guide.entry.magnet.page.0.text=The Magnet is one of the most useful items in Practicalities. Activate it by pressing Sneak+Activate (default is Shift+RClick).
 
 guide.entry.transporter.title=Matter Transporter
-guide.entry.transporter.list.text=§c[WIP]§0 Matter Transporter
+guide.entry.transporter.list.text=Matter Transporter
 guide.entry.transporter.list.iconStack=practicalities:matterTransporter
 
-guide.entry.transporter.page.0=The Matter Transporter allows the player to move nearly any block, including Monster Spawners and nearly all machines!
 
-guide.entry.transporter.page.1.type=recipe
-guide.entry.transporter.page.1=[minecraft:barrier][minecraft:barrier][minecraft:barrier] [minecraft:barrier][minecraft:barrier][minecraft:barrier] [minecraft:barrier][minecraft:barrier][minecraft:barrier] [practicalities:matterTransporter]
-guide.entry.transporter.page.1.text=
+guide.entry.transporter.page.0.type=recipe
+guide.entry.transporter.page.0=[minecraft:ender_pearl][][minecraft:ender_pearl] [][minecraft:diamond][] [][minecraft:blaze_rod][] [practicalities:matterTransporter]
+guide.entry.transporter.page.0.text=The Matter Transporter allows the player to move nearly any block, including Monster Spawners and nearly all machines!
 
