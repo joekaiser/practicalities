@@ -70,6 +70,17 @@ public final class RecipeRegister {
 				"c",
 				'c', imbuedCore);
 		
+		addShapedOreRecipe(ConfigMan.enableImbuedItems, ItemRegister.imbuedSword,
+				"c",
+				"c",
+				"i",
+				'c', imbuedCore, 'i', imbuedRod);
+		
+		addShapedOreRecipe(ConfigMan.enableImbuedItems, ItemRegister.imbuedTool,
+				"ccc",
+				"cic",
+				" i ", 'c', imbuedCore, 'i', imbuedRod);
+		
 		addShapedOreRecipe(ConfigMan.enableMagnet, magneticNorth, 
 				"  r",
 				" i ",

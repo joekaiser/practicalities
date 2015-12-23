@@ -7,11 +7,11 @@ public class ProxyCommon {
 
 	public void preInit() {
 		ItemRegister.init();
-		new RecipeRegister().init();
+		
 	}
 
 	public void init() {
-
+		new RecipeRegister().init();
 	}
 
 	public void postInit() {
