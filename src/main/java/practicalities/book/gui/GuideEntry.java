@@ -75,7 +75,7 @@ public class GuideEntry extends GuiElement {
 		S = 1.0/s;
 		
 		GL11.glScaled(s, s, s);
-		GuiHelper.fontRendererObj.drawString(getTranslatedName(), (int)( ( posX+textLeft )*S ), (int)( ( posY+3 )*S ), 0xFF0000);
+		GuiHelper.fontRendererObj.drawString(getTranslatedName(), (int)( ( posX+textLeft )*S ), (int)( ( posY+3 )*S ), 0x00000);
 		GL11.glScaled(S, S, S);
 		
 		GL11.glAlphaFunc(GL11.GL_GREATER, 0);

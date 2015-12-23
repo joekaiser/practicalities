@@ -15,7 +15,7 @@ public abstract class ElementButton extends GuiElement {
 
 	@Override
 	public void drawBackground(int paramInt1, int paramInt2, float paramFloat) {
-		gui.drawTexturedModalRect(posX, posY, u, v, sizeX, sizeY);
+		gui.drawTexturedModalRect(posX, posY, u, v + (isEnabled() ? 0 : sizeY), sizeX, sizeY);
 	}
 
 	@Override
