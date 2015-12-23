@@ -114,6 +114,10 @@ public final class RecipeRegister {
 				" d ",
 				"cbc",
 				" b ", 'd',diamond, 'c', magmaCream, 'b', blazeRod);
+		
+		addShapedOreRecipe(ConfigMan.enableVoidBucket, ItemRegister.voidBucket,
+				"iei",
+				" i ", 'i',ingotIron,'e',enderpearl);
 	
 		
 	}
