@@ -44,6 +44,13 @@ public class ScreenBase extends GuiScreen {
 		this.elements.clear();
 	}
 
+	public void setZLevel(float z) {
+		this.zLevel = z;
+	}
+	public float getZLevel() {
+		return this.zLevel;
+	}
+	
 	public void drawScreen(int paramInt1, int paramInt2, float paramFloat) {
 		updateElementInformation();
 		super.drawScreen(paramInt1, paramInt2, paramFloat);

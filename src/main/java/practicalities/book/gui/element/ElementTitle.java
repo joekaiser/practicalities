@@ -29,8 +29,8 @@ public class ElementTitle extends GuiElement {
 	public void drawBackground(int paramInt1, int paramInt2, float paramFloat) {
 		init();
 		this.gui.drawTexturedModalRect(posX-7, posY-3, 0, 193, 7, 13);
-		this.gui.drawTexturedModalRect(posX, posY-3, 7, 193, textWidth, 13);
-		this.gui.drawTexturedModalRect(posX+textWidth, posY-3, 162, 193, 7, 13);
+		this.gui.drawTexturedModalRect(posX, posY-3, 7, 193, textWidth-1, 13);
+		this.gui.drawTexturedModalRect(posX+textWidth-1, posY-3, 162, 193, 7, 13);
 	}
 
 	@Override
