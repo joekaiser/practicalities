@@ -96,8 +96,8 @@ public final class RecipeRegister {
 		addShapedOreRecipe(ConfigMan.enableMagnet, ItemRegister.magnet, 
 				"s n",
 				"e e",
-				"imi",
-				's', magneticSouth, 'n', magneticNorth,'e',enderpearl,'i',ingotIron,'m',machineCore);
+				" m ",
+				's', magneticSouth, 'n', magneticNorth,'e',enderpearl,'m',machineCore);
 		
 		addShapedOreRecipe(true, ItemRegister.practicalGuide, 
 				"ppp",
