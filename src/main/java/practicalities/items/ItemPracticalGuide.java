@@ -1,11 +1,14 @@
 package practicalities.items;
 
+import java.util.List;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import practicalities.PracticalitiesMod;
 import practicalities.book.gui.GuiGuide;
+import practicalities.helpers.ItemHelpers;
 import practicalities.lib.server.IItemGui;
 import practicalities.registers.GuiHandler;
 
@@ -13,6 +16,11 @@ public class ItemPracticalGuide extends ItemBase implements IItemGui {
 	
 	public ItemPracticalGuide() {
 		super("practicalGuide");
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
+		ItemHelpers.addFlairToList(tooltip, "item.practicalGuide");
 	}
 
 	@Override
