@@ -14,7 +14,7 @@ item.imbuedCore.name=Imbued Core
 item.imbuedRod.name=Imbued Rod
 item.imbuedTool.name=Imbued Tool
 item.imbuedSword.name=Imbued Sword
-item.netherBane.name=Netherbane
+item.netherbane.name=Netherbane
 item.inductiveWrap.name=Inductive Wrap
 item.practicalGuide.name=Practical Guide
 item.machinePlate.name=Machine Plate
@@ -36,8 +36,9 @@ tile.fieldrepeater.name=Field Repeater
 
 chat.sitis.noSky=The stick might work better out in the open
 chat.sitis.noRain=The stick doesn't really have much to do right now
-chat.sitis.clear=Rain, Rain, go away; come again another day
+chat.sitis.clear=Rain, Rain, go away
 chat.playerinterface.info=Bound to %s
+death.attack.vampiricGenerator=%1$s's life was sucked dry
 
 # Options
 
@@ -50,7 +51,7 @@ flair.item.imbuedTool=The OPness!
 flair.item.imbuedSword=Watch out for the quick draw!
 flair.item.netherBane=Sabre of the Moon
 flair.item.sitisStick=Rain, rain, go away.
-
+flair.item.practicalGuide=A practical guide to practical things! (TM)
 flair.block.fieldRepeater=Can't be daisy-chained
 
 #Tooltips
@@ -58,4 +59,4 @@ flair.block.fieldRepeater=Can't be daisy-chained
 gui.tooltip.inventoryfilter.whitelist=Whitelist
 gui.tooltip.inventoryfilter.blacklist=Blacklist
 
-death.attack.vampiricGenerator=%1$s's life was sucked dry
+

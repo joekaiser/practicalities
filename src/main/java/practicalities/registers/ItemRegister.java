@@ -21,6 +21,7 @@ import practicalities.items.ItemMatterTransporter;
 import practicalities.items.ItemPracticalGuide;
 import practicalities.items.ItemSitisStick;
 import practicalities.items.ItemVoidBucket;
+import practicalities.items.netherbane.ItemNetherbane;
 
 public class ItemRegister {
 	
@@ -28,6 +29,8 @@ public class ItemRegister {
 			EnumHelper.addToolMaterial("imbued", 100, 15, 100, 35, 30);
 	public static final ToolMaterial imbuedToolMaterial = 
 			EnumHelper.addToolMaterial("imbued", 100, 5000, 100, 15, 30);
+	public static final ToolMaterial netherBaneMaterial =
+			EnumHelper.addToolMaterial("netherbane",4, 5000, 10.0F, 4.0F, 16);
 	
 	public static ItemCraftingPiece craftingPieces;
 	public static Item magnet;
@@ -37,6 +40,7 @@ public class ItemRegister {
 	public static Item sitisStick;
 	public static Item imbuedTool;
 	public static Item imbuedSword;
+	public static Item netherbane;
 	
 	public static void init() {
 		magnet = new ItemMagnet();
@@ -46,6 +50,7 @@ public class ItemRegister {
 		sitisStick = new ItemSitisStick();
 		imbuedTool = new ItemImbuedTool();
 		imbuedSword = new ItemImbuedSword();
+		netherbane = new ItemNetherbane();
 		
 		craftingPieces = new ItemCraftingPiece();
 		craftingPieces.addItem("machineCore");
@@ -72,6 +77,7 @@ public class ItemRegister {
 		registerRender((ItemBase) sitisStick);
 		registerRender(imbuedTool,0,false);
 		registerRender(imbuedSword,0,false);
+		registerRender(netherbane,0,false);
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -53,7 +53,7 @@ public class ConfigMan
     	enableMatterTransporter = config.getBoolean("enableMatterTransporter", "general", true, "");
     	enableSitisStick = config.getBoolean("enableSitisStick", "general", true, "");
     	enableImbuedItems = config.getBoolean("enableImbuedItems", "general", true, "");
-    	//enableNetherBlade = config.getBoolean("enableNetherBlade", "general", true, "");
+    	enableNetherBlade = config.getBoolean("enableNetherBlade", "general", true, "");
     	
     	//teslaRange = config.getInt("teslaCoilRange", "general", 20, 1, 64, "");
     }

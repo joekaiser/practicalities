@@ -88,3 +88,47 @@ guide.entry.sitis.{
 	page.0=[][minecraft:diamond][] [minecraft:magma_cream][minecraft:blaze_rod][minecraft:magma_cream] [][minecraft:blaze_rod][] [practicalities:sitisStick|1|0|{display:{Lore:["Latin for 'drought'"]}}]
 	page.0.text=The Sitis Stick is capable of stopping the rain. Hold it in your hand and use it like a bow to turn the rainiest of days into sunshine.
 }
+
+# IMBUED TOOL
+guide.entry.imbuedTool.{
+    title=Imbued Tool
+    list.text=Imbued Tool
+    list.iconStack=practicalities:imbuedTool
+    
+    page.0.type=recipe
+    page.0=[practicalities:craftingPiece|1|2][practicalities:craftingPiece|1|2][practicalities:craftingPiece|1|2] [practicalities:craftingPiece|1|2][practicalities:craftingPiece|1|3][practicalities:craftingPiece|1|2] [][practicalities:craftingPiece|1|3][] [practicalities:imbuedTool]
+    page.0.text=The Imbued Tool is an indestructible end-game mine-all pickaxe capable of destroying blocks instantly. Use with caution.
+}
+
+# IMBUED SWORD
+guide.entry.imbuedSword.{
+    title=Imbued Sword
+    list.text=Imbued Sword
+    list.iconStack=practicalities:imbuedSword
+    
+    page.0.type=recipe
+    page.0=[][practicalities:craftingPiece|1|2][] [][practicalities:craftingPiece|1|2][] [][practicalities:craftingPiece|1|3][] [practicalities:imbuedSword]
+    page.0.text=The Imbued Sword is an indestructible end-game sword that can deal tremendous amounts of damage to your opponent.
+}
+
+# VOID BUCKET
+guide.entry.voidBucket.{
+    title=Void Bucket
+    list.text=Void bucket
+    list.iconStack=practicalities:voidBucket
+    
+    page.0.type=recipe
+    page.0=[minecraft:iron_ingot][minecraft:ender_pearl][minecraft:iron_ingot] [][minecraft:iron_ingot][] [][]][ ][practicalities:voidBucket]
+    page.0.text=The Void Bucket voids any liquid it picks up. A great way to clear lava lakes or small ponds.
+}
+
+# NETHERBANE
+guide.entry.netherbane.{
+    title=Netherbane
+    list.text=Netherbane
+    list.iconStack=practicalities:netherbane
+    
+    page.0.type=recipe
+    page.0=[][][] [][][] [][][] [practicalities:netherbane|1|0|{display:{Lore:["It glimmers like a black diamond"]}}]
+    page.0.text=The Netherbane's existence is disputed. Some say it is "creative only", but some players have found a way to legitimately get it in survival.
+}

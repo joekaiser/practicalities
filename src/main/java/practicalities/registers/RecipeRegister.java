@@ -96,8 +96,8 @@ public final class RecipeRegister {
 		addShapedOreRecipe(ConfigMan.enableMagnet, ItemRegister.magnet, 
 				"s n",
 				"e e",
-				"imi",
-				's', magneticSouth, 'n', magneticNorth,'e',enderpearl,'i',ingotIron,'m',machineCore);
+				" m ",
+				's', magneticSouth, 'n', magneticNorth,'e',enderpearl,'m',machineCore);
 		
 		addShapedOreRecipe(true, ItemRegister.practicalGuide, 
 				"ppp",
@@ -114,6 +114,10 @@ public final class RecipeRegister {
 				" d ",
 				"cbc",
 				" b ", 'd',diamond, 'c', magmaCream, 'b', blazeRod);
+		
+		addShapedOreRecipe(ConfigMan.enableVoidBucket, ItemRegister.voidBucket,
+				"iei",
+				" i ", 'i',ingotIron,'e',enderpearl);
 	
 		
 	}
