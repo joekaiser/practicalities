@@ -1,9 +1,12 @@
 package practicalities;
 
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import practicalities.items.netherbane.EntityNetherbane;
@@ -40,6 +43,28 @@ public class ProxyCommon {
 	}
 	
 	/*Events*/
+	
+	@SubscribeEvent
+	public void onLivingDrops(LivingDropsEvent event) {
+		if(event.entity.worldObj.isRemote) 
+			return;
+		
+//		if (event.source == TileVampiricGenerator.vampiricDamage) {
+//			event.setCanceled(true);
+//		}
+		
+		if(event.entityLiving instanceof EntityPig){
+			if(event.entity.worldObj.rand.nextDouble() <.0002){
+				EntityItem hamCheese = new EntityItem(event.entityLiving.worldObj,
+						event.entityLiving.posX,event.entityLiving.posY,event.entityLiving.posZ,
+						new ItemStack(ItemRegister.hamCheese));
+				hamCheese.dimension = event.entityLiving.dimension;
+				
+				event.drops.add(hamCheese);
+				
+			}
+		}
+	}
 	
 	@SubscribeEvent
 	public void onItemToss(ItemTossEvent event) {

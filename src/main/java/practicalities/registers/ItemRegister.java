@@ -5,9 +5,11 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import practicalities.Logger;
@@ -41,6 +43,7 @@ public class ItemRegister {
 	public static Item imbuedTool;
 	public static Item imbuedSword;
 	public static Item netherbane;
+	public static Item hamCheese;
 	
 	public static void init() {
 		magnet = new ItemMagnet();
@@ -51,6 +54,8 @@ public class ItemRegister {
 		imbuedTool = new ItemImbuedTool();
 		imbuedSword = new ItemImbuedSword();
 		netherbane = new ItemNetherbane();
+		hamCheese= new ItemFood(10, 1f, true).setUnlocalizedName("hamCheese").setCreativeTab(PracticalitiesMod.tab);
+		GameRegistry.registerItem(hamCheese, "hamCheese");
 		
 		craftingPieces = new ItemCraftingPiece();
 		craftingPieces.addItem("machineCore");
@@ -78,6 +83,7 @@ public class ItemRegister {
 		registerRender(imbuedTool,0,false);
 		registerRender(imbuedSword,0,false);
 		registerRender(netherbane,0,false);
+		registerRender(hamCheese,0,false);
 	}
 
 	@SideOnly(Side.CLIENT)
