@@ -94,3 +94,12 @@ guide.entry.voidBucket.list.iconStack=practicalities:voidBucket
 guide.entry.voidBucket.page.0.type=recipe
 guide.entry.voidBucket.page.0=[minecraft:iron_ingot][minecraft:ender_pearl][minecraft:iron_ingot] [][minecraft:iron_ingot][] [][]][ ][practicalities:voidBucket]
 guide.entry.voidBucket.page.0.text=The Void Bucket voids any liquid it picks up. A great way to clear lava lakes or small ponds.
+
+# NETHERBANE
+guide.entry.netherbane.title=Netherbane
+guide.entry.netherbane.list.text=Netherbane
+guide.entry.netherbane.list.iconStack=practicalities:netherbane
+
+guide.entry.netherbane.page.0.type=recipe
+guide.entry.netherbane.page.0=[][][] [][][] [][][] [practicalities:netherbane]
+guide.entry.netherbane.page.0.text=The Netherbane is said to not exists, but somehow players keep finding a legitimate way to get it.

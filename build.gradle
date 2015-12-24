@@ -1,4 +1,5 @@
 
+
 // For those who want the bleeding edge
 buildscript {
     repositories {
@@ -20,9 +21,12 @@ plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 */
-version = "2.0.0-b3"
+version = "1.8.8-2.0.0-b3"
 group= "practicalities" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "practicalities"
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 minecraft {
     version = "1.8.8-11.15.0.1635-1.8.8"
