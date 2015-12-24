@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "practicalities",
+  "name": "Practicalities",
+  "description": "Practical things to make life better",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "http://www.curse.com/mc-mods/minecraft/231935-practicalities",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Jotato"],
+  "credits": "TheCodeWarrior",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
