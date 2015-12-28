@@ -1,11 +1,28 @@
 # Guide book
+${
+	PC=practicalities
+
+	M_CORE=${PC}:craftingPiece|1|0
+	I_CORE=${PC}:craftingPiece|1|2
+	D_ROD=${PC}:craftingPiece|1|3
+	NORTH=${PC}:craftingPiece|1|4
+	SOUTH=${PC}:craftingPiece|1|5
+	
+	IRON=minecraft:iron_ingot
+	PEARL=minecraft:ender_pearl
+	DIAMOND=minecraft:diamond
+	MAGMA_CREAM=minecraft:magma_cream
+	BLAZE_ROD=minecraft:blaze_rod
+	STICK=minecraft:stick
+}
+
 
 guide.list.{
 	root.text=Root node
-	root.iconStack=practicalities:practicalGuide
+	root.iconStack=${PC}:practicalGuide
 
 	items.text=Items
-	items.iconStack=practicalities:craftingPiece
+	items.iconStack=${PC}:craftingPiece
 	
 	dev.text=§1Developer
 	dev.iconStack=minecraft:redstone_torch
@@ -27,7 +44,7 @@ guide.entry.COPYME.{
 			[][][]
 			[][minecraft:dirt][]
 			[][][]
-			[minecraft:diamond]
+			[${DIAMOND}]
 		]
 	}
 }
@@ -54,14 +71,15 @@ guide.entry.example.{
 			§2§o...PAGE=SOMETHING§r§0 line to determine the length of the guide, stopping once it finds one missing.
 			
 			
+			
 			*no type line is required for text
 		]
 		
 		1.type=recipe
 		1[
 			[] [minecraft:nether_star|1|0|{display:{Lore:["It's kind of overkill, don't you think?", "you > Yep, it is."]}}] []
-			[minecraft:iron_pickaxe|1|111|{display:{Name:"SOmeNaMe"},ench:[{id:32,lvl:7268}]}] [minecraft:iron_ingot] [minecraft:iron_ingot]
-			[minecraft:iron_ingot] [minecraft:iron_ingot] [minecraft:iron_ingot]
+			[minecraft:iron_pickaxe|1|111|{display:{Name:"SOmeNaMe"},ench:[{id:32,lvl:7268}]}] [${IRON}] [${IRON}]
+			[${IRON}] [${IRON}] [${IRON}]
 			[minecraft:iron_bars|3]
 		]
 		
@@ -106,24 +124,30 @@ guide.entry.advancedLang.{
 	
 	
 	page.1[
-		Advanced language files have two special things about them, they allow you to nest prefixes and have multiline strings.
-		
-		§2some.lang.line.{
+		Advanced language files have three special things about them, they allow you to nest prefixes, multiline strings, and variables.
+		§2
+		${
+		¡    name=thingy
+		¡    text=Thing™
+		}
+		some.lang.line.{
 		¡    item=Text stuff
 		¡    sub.{
 		¡        item=Another
 		¡    }
 		¡    text[
-		¡        Some long text
-		¡        In it.
+		¡        Some long
+		¡        \${text}
 		¡    ]
+		¡    \${name}.var=Var®
 		}§0
 		
 		The previous block translates to the following:
-		
-		§2some.lang.line.item=Text stuff
+		§2
+		some.lang.line.item=Text stuff
 		some.lang.line.sub.item=Another
-		some.lang.line.text=Some long text\\nIn it.
+		some.lang.line.text=Some long\\nThing™
+		some.lang.line.thingy.var=Var®
 	]
 	
 	page.2[
@@ -161,6 +185,18 @@ guide.entry.advancedLang.{
 		¡    ¡] Brackets are cool!
 		¡]§0
 	]
+	
+	page.4[
+		§lVariables§r
+		
+		Variables help reduce the amount of repetition in language files by allowing you to re-use commonly used text.
+		
+		Variables are defined in a special area which starts with a line containing only §2${§0 \
+		and ends with one containing only §2}§0. The variables are defined each on their own line with §2name=value§0. Names can only contain letters, numbers, and underscores.
+		
+		Variables are accessed by putting §2\${name}§0 anywhere in the lang file. Including other variables. If you want to put a literal §2\${*}§0 in your text you can \
+		escape it with a backslash.
+	]
 }
 
 enchantment.level.7268=MMMMMMMCCLXVIII
@@ -170,7 +206,7 @@ enchantment.level.7268=MMMMMMMCCLXVIII
 guide.entry.intro.{
 	title=Introduction
 	list.text=Introduction
-	list.iconStack=practicalities:practicalGuide
+	list.iconStack=${PC}:practicalGuide
 	
 	page.0=This is the Practical Guide. It's a very practical thing to have around.
 }
@@ -179,10 +215,15 @@ guide.entry.intro.{
 guide.entry.magnet.{
 	title=Magnet
 	list.text=Magnet
-	list.iconStack=practicalities:magnet
+	list.iconStack=${PC}:magnet
 	
 	page.0.type=recipe
-	page.0=[practicalities:craftingPiece|1|5][][practicalities:craftingPiece|1|4] [minecraft:ender_pearl][][minecraft:ender_pearl] [minecraft:iron_ingot][practicalities:craftingPiece|1|0][minecraft:iron_ingot] [practicalities:magnet]
+	page.0[
+		[${SOUTH}][][${NORTH}]
+		[${PEARL}][][${PEARL}]
+		[${IRON}][${M_CORE}][${IRON}]
+		[${PC}:magnet]
+	]
 	page.0.text=The Magnet is one of the most useful items in Practicalities. Activate it by pressing Sneak+Activate (default is Shift+RClick).
 }
 
@@ -190,10 +231,15 @@ guide.entry.magnet.{
 guide.entry.transporter.{
 	title=Matter Transporter
 	list.text=Matter Transporter
-	list.iconStack=practicalities:matterTransporter
+	list.iconStack=${PC}:matterTransporter
 	
 	page.0.type=recipe
-	page.0=[minecraft:ender_pearl][][minecraft:ender_pearl] [][minecraft:diamond][] [][minecraft:stick][] [practicalities:matterTransporter]
+	page.0[
+		[${PEARL}][][${PEARL}]
+		[][${DIAMOND}][]
+		[][${STICK}][]
+		[${PC}:matterTransporter]
+	]
 	page.0.text=The Matter Transporter allows the player to move nearly any block, including Monster Spawners and nearly all machines!
 }
 
@@ -201,10 +247,15 @@ guide.entry.transporter.{
 guide.entry.sitis.{
 	title=Sitis Stick
 	list.text=Sitis Stick
-	list.iconStack=practicalities:sitisStick
+	list.iconStack=${PC}:sitisStick
 	
 	page.0.type=recipe
-	page.0=[][minecraft:diamond][] [minecraft:magma_cream][minecraft:blaze_rod][minecraft:magma_cream] [][minecraft:blaze_rod][] [practicalities:sitisStick|1|0|{display:{Lore:["Latin for 'drought'"]}}]
+	page.0[
+		[]                [${DIAMOND}]  []
+		[${MAGMA_CREAM}] [${BLAZE_ROD}] [${MAGMA_CREAM}]
+		[]               [${BLAZE_ROD}] []
+		[${PC}:sitisStick|1|0|{display:{Lore:["Latin for 'drought'"]}}]
+	]
 	page.0.text=The Sitis Stick is capable of stopping the rain. Hold it in your hand and use it like a bow to turn the rainiest of days into sunshine.
 }
 
@@ -212,10 +263,15 @@ guide.entry.sitis.{
 guide.entry.imbuedTool.{
     title=Imbued Tool
     list.text=Imbued Tool
-    list.iconStack=practicalities:imbuedTool
+    list.iconStack=${PC}:imbuedTool
     
     page.0.type=recipe
-    page.0=[practicalities:craftingPiece|1|2][practicalities:craftingPiece|1|2][practicalities:craftingPiece|1|2] [practicalities:craftingPiece|1|2][practicalities:craftingPiece|1|3][practicalities:craftingPiece|1|2] [][practicalities:craftingPiece|1|3][] [practicalities:imbuedTool]
+    page.0[
+    	[${I_CORE}][${I_CORE}][${I_CORE}]
+    	[${I_CORE}][${D_ROD}] [${I_CORE}]
+    	[]         [${D_ROD}] []
+    	[${PC}:imbuedTool]
+    ]
     page.0.text=The Imbued Tool is an indestructible end-game mine-all pickaxe capable of destroying blocks instantly. Use with caution.
 }
 
@@ -223,10 +279,15 @@ guide.entry.imbuedTool.{
 guide.entry.imbuedSword.{
     title=Imbued Sword
     list.text=Imbued Sword
-    list.iconStack=practicalities:imbuedSword
+    list.iconStack=${PC}:imbuedSword
     
     page.0.type=recipe
-    page.0=[][practicalities:craftingPiece|1|2][] [][practicalities:craftingPiece|1|2][] [][practicalities:craftingPiece|1|3][] [practicalities:imbuedSword]
+    page.0[
+    	[][${I_CORE}][]
+    	[][${I_CORE}][]
+    	[][${D_ROD}][]
+    	[${PC}:imbuedSword]
+    ]
     page.0.text=The Imbued Sword is an indestructible end-game sword that can deal tremendous amounts of damage to your opponent.
 }
 
@@ -234,10 +295,15 @@ guide.entry.imbuedSword.{
 guide.entry.voidBucket.{
     title=Void Bucket
     list.text=Void bucket
-    list.iconStack=practicalities:voidBucket
+    list.iconStack=${PC}:voidBucket
     
     page.0.type=recipe
-    page.0=[minecraft:iron_ingot][minecraft:ender_pearl][minecraft:iron_ingot] [][minecraft:iron_ingot][] [][]][ ][practicalities:voidBucket]
+    page.0[
+    	[${IRON}] [${PEARL}] [${IRON}]
+    	[]        [${IRON}]  []
+    	[]        []         []
+    	[${PC}:voidBucket]
+    ]
     page.0.text=The Void Bucket voids any liquid it picks up. A great way to clear lava lakes or small ponds.
 }
 
@@ -245,9 +311,9 @@ guide.entry.voidBucket.{
 guide.entry.netherbane.{
     title=Netherbane
     list.text=Netherbane
-    list.iconStack=practicalities:netherbane
+    list.iconStack=${PC}:netherbane
     
-    page.0.type=recipe
-    page.0=[][][] [][][] [][][] [practicalities:netherbane|1|0|{display:{Lore:["It glimmers like a black diamond"]}}]
-    page.0.text=The Netherbane's existence is disputed. Some say it is "creative only", but some players have found a way to legitimately get it in survival.
+    page.0.type=display
+    page.0=The Netherbane's existence is disputed. Some say it is "creative only", but some players have found a way to legitimately get it in survival.
+    page.0.item=${PC}:netherbane|1|0|{display:{Lore:["It glimmers like a black diamond"]}}
 }

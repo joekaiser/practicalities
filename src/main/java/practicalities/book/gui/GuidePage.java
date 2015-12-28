@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.minecraft.util.StatCollector;
 import practicalities.book.GuideStateManager;
+import practicalities.book.gui.page.PageDisplay;
 import practicalities.book.gui.page.PageRecipe;
 import practicalities.book.gui.page.PageText;
 import practicalities.lib.client.gui.GuiElement;
@@ -26,6 +27,9 @@ public abstract class GuidePage {
 		GuidePage page = null;
 		if(type.equals("recipe")) {
 			page = new PageRecipe(name, pageNum);
+		}
+		if(type.equals("display")) {
+			page = new PageDisplay(name, pageNum);
 		}
 		if(type.equals("text") || page == null) {
 			page = new PageText(name, pageNum);

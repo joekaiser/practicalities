@@ -18,7 +18,7 @@ public class PageText extends PageInEntry {
 	@Override
 	public void init(ScreenBase gui, GuideStateManager state) {
 		super.init(gui, state);
-		this.mainElements.add(new ElementText(gui, 0, 0, GuiGuide.MAIN_SIZE_X, GuiGuide.MAIN_SIZE_Y, text));
+		this.mainElements.add(new ElementText(gui, 3, 2, GuiGuide.MAIN_SIZE_X-6, GuiGuide.MAIN_SIZE_Y, text));
 	}
 
 }

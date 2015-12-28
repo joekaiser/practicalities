@@ -4,11 +4,11 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import net.minecraft.util.StringTranslate;
 
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.IOUtils;
@@ -23,6 +23,22 @@ public class AdvancedLangLoader {
 	public static InputStream parse(InputStream stream) {		
 		try {
 			StringBuilder real = new StringBuilder();
+			
+			final Map<String, String> variables = new HashMap<String, String>();
+			boolean isAddingVars = false;
+			
+			Rewriter vars = new Rewriter("(?<!\\\\)\\$\\{(\\w+)\\}") {
+				
+				@Override
+				public String replacement() {
+					String name = group(1);
+					if(variables.containsKey(name)) {
+						return variables.get(name);
+					}
+					Logger.error("[Advanced Lang Loader] Variable not found: %s", name);
+					return "!!VAR_NOT_FOUND(" + name + ")!!";
+				}
+			};
 			
 			int lineNum = 0;
 			Stack<String> region = new Stack<String>();
@@ -41,6 +57,8 @@ public class AdvancedLangLoader {
 					continue;					
 				}
 				
+				line = vars.rewrite(line);
+				line = line.replaceAll("\\\\(\\$\\{\\w+\\})", "$1");
 				
 				if(line.charAt(0) == ']') {
 					real.append(e( currentBlockName, currentBlock.toString() )+"\n");
@@ -60,10 +78,17 @@ public class AdvancedLangLoader {
 					continue;
 				}
 				
-				
+				if(line.startsWith("${") && region.isEmpty()) {
+					isAddingVars = true;
+					continue;
+				}
 				if(line.charAt(0) == '#')
 					continue;
 				if(line.charAt(0) == '}') {
+					if(isAddingVars) {
+						isAddingVars = false;
+					}
+						
 					if(region.isEmpty()) {
 						Logger.error("[Advanced Lang Loader] Ignoring unexpected close bracket: line %d", lineNum);
 					} else {
@@ -71,6 +96,17 @@ public class AdvancedLangLoader {
 					}
 					continue;
 				}
+				
+				if(isAddingVars) {
+					String[] parts = line.split("=", 2);
+					if(parts.length < 2) {
+						Logger.error("[Advanced Lang Loader] Invalid variable declaration, '=' not found: line %d", lineNum);
+					} else {
+						variables.put(parts[0], parts[1]);
+					}
+					continue;
+				}
+				
 				
 				Matcher m = braceLine.matcher(line);
 				
