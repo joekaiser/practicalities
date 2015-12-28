@@ -24,7 +24,7 @@ public class ElementText extends GuiElement {
 		double s = 2.0/3.0;
 		double S = 1/s;
 		GL11.glScaled(s, s, s);
-		this.getFontRenderer().drawSplitString(text, (int)((posX+3)*S), (int)((posY+3)*S), ((int)(sizeX*S))-6, 0x000000);
+		this.getFontRenderer().drawSplitString(text, (int)((posX)*S), (int)((posY)*S), ((int)(sizeX*S)), 0x000000);
 		GL11.glScaled(S, S, S);
 	}
 
