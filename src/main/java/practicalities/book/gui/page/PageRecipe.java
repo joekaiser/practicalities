@@ -26,7 +26,7 @@ public class PageRecipe extends PageInEntry {
 		
 		String prefix = "guide.entry." + pageName + ".page." + page;
 		
-		String recipe = StatCollector.translateToLocal(prefix);
+		String recipe = StatCollector.translateToLocal(prefix).replaceAll("\\\\n", "");
 		text = StatCollector.translateToLocal(prefix + ".text");
 		
 		String[] itemTexts = recipe.substring(1, recipe.length()-1).split("\\]\\s*\\[");
