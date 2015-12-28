@@ -19,6 +19,8 @@ public class GuideStateManager {
 	public static void registerList(String name, String... entries) {
 		PageEntryList list = new PageEntryList();
 		for (int i = 0; i < entries.length; i++) {
+			if(entries[i] == null)
+				continue;
 			list.entries.add(entries[i]);
 		}
 		entryLists.put(name, list);
