@@ -1,5 +1,6 @@
 package practicalities;
 
+import net.minecraft.launchwrapper.Launch;
 import net.minecraftforge.common.config.Configuration;
 
 public class ConfigMan
@@ -12,6 +13,10 @@ public class ConfigMan
 	 */		
 		 
     private static Configuration config;
+    
+    public static boolean isDev = (Boolean)Launch.blackboard.get("fml.deobfuscatedEnvironment");
+    
+    public static boolean showDevBookEntry;
     
     //blocks
     public static boolean enableShippingCrate;
@@ -54,6 +59,9 @@ public class ConfigMan
     	enableSitisStick = config.getBoolean("enableSitisStick", "general", true, "");
     	enableImbuedItems = config.getBoolean("enableImbuedItems", "general", true, "");
     	enableNetherBlade = config.getBoolean("enableNetherBlade", "general", true, "");
+    	
+    	showDevBookEntry = config.getBoolean("showDevBookEntry", "general", false, "") || isDev;
+
     	
     	//teslaRange = config.getInt("teslaCoilRange", "general", 20, 1, 64, "");
     }

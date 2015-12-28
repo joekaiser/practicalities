@@ -1,73 +1,93 @@
 # Guide book
 
-guide.list.root.text=Root node
-guide.list.root.iconStack=practicalities:practicalGuide
+guide.list.{
+	root.text=Root node
+	root.iconStack=practicalities:practicalGuide
 
-guide.list.items.text=Items
-guide.list.items.iconStack=practicalities:craftingPiece
+	items.text=Items
+	items.iconStack=practicalities:craftingPiece
+	
+	dev.text=§1Developer
+	dev.iconStack=minecraft:redstone_torch
+}
 
-#guide.list.example.text=Example Page
-#guide.list.example.iconStack=practicalities:craftingPiece|1|4
+guide.entry.COPYME.{
+	title=Shows in title card
+	
+	list.text=Shows in entry list
+	list.iconStack=minecraft:item_in_entry_list
+	
+	page.{
+		0[
+			Some text for the first page
+		]
+		
+		1.type=recipe
+		1[
+			[][][]
+			[][minecraft:dirt][]
+			[][][]
+			[minecraft:diamond]
+		]
+	}
+}
 
-# Example page (VERY LARGE)
 
 guide.entry.example.{
 	title=Example
-	list.{
-		text=Feature Examples
-		iconStack=minecraft:iron_pickaxe|2|111|{ench:[id:32,lvl:6]}
+	
+	list.text=Feature Examples
+	list.iconStack=minecraft:iron_pickaxe|2|111|{ench:[id:32,lvl:6]}
+	
+	page.{
+		0[
+			All of the information in this guide is located in the language file, including recipes and all other information. §oNone§r of it is in the code.
+			
+			It is based on §oEntries§r, each entry can have many pages, and each page can be of one type. Though at this point only text and recipes are implemented. \
+			A page is defined with at least two* lines in the lang file.
+			
+			§2§oguide.entry.ENTRYNAME.PAGE.type=TYPE
+			guide.entry.ENTRYNAME.PAGE=CONTENT§r§0
+			
+			The type line can be either §otext§r or §orecipe§r, though if it doesn't exist it will default to §otext§r. \
+			These formats will be discussed in further detail later.\n\nThe guide book will search forward from page 0->∞ for a plain \
+			§2§o...PAGE=SOMETHING§r§0 line to determine the length of the guide, stopping once it finds one missing.
+			
+			
+			*no type line is required for text
+		]
+		
+		1.type=recipe
+		1[
+			[] [minecraft:nether_star|1|0|{display:{Lore:["It's kind of overkill, don't you think?", "you > Yep, it is."]}}] []
+			[minecraft:iron_pickaxe|1|111|{display:{Name:"SOmeNaMe"},ench:[{id:32,lvl:7268}]}] [minecraft:iron_ingot] [minecraft:iron_ingot]
+			[minecraft:iron_ingot] [minecraft:iron_ingot] [minecraft:iron_ingot]
+			[minecraft:iron_bars|3]
+		]
+		
+		1.text[
+			Recipes consist of 1 (1x1), 4 (2x2), or 9(3x3) items + one result item. The format for an item is as follows
+			¡     §7[§0item:id§7|§0stacksize§7|§0damage§7|§0{nbt}§7]§0
+			
+			Any part can be omitted off the end, so specifying the NBT requires also specifying the stack size and damage.
+		]
+		
+		2.type=recipe
+		2=[][minecraft:cobblestone][minecraft:sand][][minecraft:nether_star]
+		2.text=That makes the previous recipe a bit better.
+		
+		3.type=recipe
+		3=[minecraft:iron_pickaxe][minecraft:iron_pickaxe|1|111|{display:{Name:"SOmeNaMe"},ench:[{id:32,lvl:7268}]}]
+		3.text=That makes the recipe even better!
+		
+		4[
+			§nChecklist of things to do§r
+			
+			■ add more types of pages.
+			¡    ■ single item display
+			¡    ■ single block display
+		]
 	}
-	
-	page.0[
-		All of the information in this guide is located in the language file, including recipes and all other information. §oNone§r of it is in the code.
-		
-		It is based on §oEntries§r, each entry can have many pages, and each page can be of one type. Though at this point only text and recipes are implemented. \
-		A page is defined with at least two* lines in the lang file.
-		
-		§a§oguide.entry.ENTRYNAME.PAGE.type=TYPE
-		guide.entry.ENTRYNAME.PAGE=CONTENT§r§0
-		
-		The type line can be either §otext§r or §orecipe§r, though if it doesn't exist it will default to §otext§r. \
-		These formats will be discussed in further detail later.\n\nThe guide book will search forward from page 0->∞ for a plain \
-		§a§o...PAGE=SOMETHING§r§0 line to determine the length of the guide, stopping once it finds one missing.
-		
-		
-		*no type line is required for text
-	]
-
-	# This is the test page for the Practical Guide of Practical Things. It is designed to give you the practical knowledge to use all of the practical constructs in this mod.\n\n
-	page.1.type=recipe
-	page.1[
-		[] [minecraft:nether_star|1|0|{display:{Lore:["It's kind of overkill, don't you think?", "you > Yep, it is."]}}] []
-		[minecraft:iron_pickaxe|1|111|{display:{Name:"SOmeNaMe"},ench:[{id:32,lvl:7268}]}] [minecraft:iron_ingot] [minecraft:iron_ingot]
-		[minecraft:iron_ingot] [minecraft:iron_ingot] [minecraft:iron_ingot]
-		[minecraft:iron_bars|3]
-	]
-	
-	page.1.text[
-		Recipes consist of 1 (1x1), 4 (2x2), or 9(3x3) items + one result item. The format for an item is as follows
-		¡     §7[§0item:id§7|§0stacksize§7|§0damage§7|§0{nbt}§7]§0
-		
-		Any part can be omitted off the end, so specifying the NBT requires also specifying the stack size and damage.
-	]
-	
-	page.2.type=recipe
-	page.2=[][minecraft:cobblestone][minecraft:sand][][minecraft:nether_star]
-	page.2.text=That makes the previous recipe a bit better.
-	
-	page.3.type=recipe
-	page.3=[minecraft:iron_pickaxe][minecraft:iron_pickaxe|1|111|{display:{Name:"SOmeNaMe"},ench:[{id:32,lvl:7268}]}]
-	page.3.text=That makes the recipe even better!
-	
-	page.4[
-		§nChecklist of things to do§r
-		
-		■ add recipes
-		■ add a navigation system
-		¡     ■ add basic entry list
-		¡     ■ add support for multiple lists
-		§7■§0 add more types of pages.
-	]
 }
 
 guide.entry.advancedLang.{
@@ -81,7 +101,7 @@ guide.entry.advancedLang.{
 		
 		Guide files are only loaded for the currently selected language, or en_US if the language file doesn't exist at all.
 		
-		If a page is defined in en_US, but not in the currently selected language it won't appear.
+		If a page is defined in en_US, but not in the currently selected language, it won't appear.
 	]
 	
 	
@@ -100,21 +120,46 @@ guide.entry.advancedLang.{
 		}§0
 		
 		The previous block translates to the following:
-		§2
-		some.lang.line.item=Text stuff
+		
+		§2some.lang.line.item=Text stuff
 		some.lang.line.sub.item=Another
 		some.lang.line.text=Some long text\\nIn it.
 	]
 	
 	page.2[
-		Text Blocks
+		§lBracket Groups§r
 		
-		Text blocks ignore leading whitespace.
+		§2tile.mymod.{
+		¡    myblock.name=My Block
+		¡    mygenerator.name=My Genny
+		}§0
 		
-		To get around this the ¡ (upside down exclamation) character will be deleted when it occurs before any other non-whitespace character, \
-		but only after the indentation is deleted. So any whitespace you put after a ¡ character is safe.
+		Bracket groups allow you to define a common prefix for a region. Such as having all the translations for your blocks \
+		start with §2tile.§0 to increase the readability of your language files.
+		
+		Groups begin with §2trans.late.{§0 and end with a line who's first non-whitespace character is §2}§0. The text before the curly brace \
+		is directly prepended to the translations within, meaning most of the time you will want to add a period after the name and before the brace.
+	]
+	
+	page.3[
+		§lText Blocks§r
+		
+		Text blocks allow you to define multiline blocks of text much more easily then you could with a normal lang file. They begin with a line contianing \
+		§2some.name[§0 and end with a line who's first character is §2]§0. If you want to begin a line with a §2]§0, add a §2¡§0 character somewhere before it.
+		
+		Any whitespace you put after a §2¡§0 (upside down exclamation mark) character is safe.
 		
 		You can wrap lines in a text block without adding newlines by putting a backslash at the end of a line.
+		
+		§2trans.late[
+		¡    Here is a line.
+		¡    Here is another line. \ 
+		¡    This is on the same line.
+		¡    
+		¡    Here is a paragraph.
+		¡    ¡    This is indented.
+		¡    ¡] Brackets are cool!
+		¡]§0
 	]
 }
 

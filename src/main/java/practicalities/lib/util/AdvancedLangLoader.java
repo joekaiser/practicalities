@@ -34,7 +34,7 @@ public class AdvancedLangLoader {
 			for (String line : IOUtils.readLines(stream, Charsets.UTF_8)) {
 				lineNum++;
 				
-				line = line.replaceFirst("^\\s+", "").replaceAll("^¡", "");
+				line = line.replaceFirst("^\\s+", "");
 				if(line.length() == 0) {
 					if(isInBlock)
 						currentBlock.append("\n");
@@ -49,6 +49,9 @@ public class AdvancedLangLoader {
 					currentBlock = new StringBuilder();
 					continue;
 				}
+				
+				line = line.replaceAll("^¡", "");
+				
 				if(isInBlock) {
 					if(line.endsWith("\\"))
 						currentBlock.append(line.substring(0, line.length()-1));
