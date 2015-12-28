@@ -247,7 +247,7 @@ guide.entry.netherbane.{
     list.text=Netherbane
     list.iconStack=practicalities:netherbane
     
-    page.0.type=recipe
-    page.0=[][][] [][][] [][][] [practicalities:netherbane|1|0|{display:{Lore:["It glimmers like a black diamond"]}}]
-    page.0.text=The Netherbane's existence is disputed. Some say it is "creative only", but some players have found a way to legitimately get it in survival.
+    page.0.type=display
+    page.0=The Netherbane's existence is disputed. Some say it is "creative only", but some players have found a way to legitimately get it in survival.
+    page.0.item=practicalities:netherbane|1|0|{display:{Lore:["It glimmers like a black diamond"]}}
 }
