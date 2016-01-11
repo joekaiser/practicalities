@@ -20,7 +20,7 @@ import practicalities.registers.ItemRegister;
 public class PracticalitiesMod {
 	public static final String MODID = "practicalities";
 	public static final String MODNAME = "Practicalities";
-	public static final String VERSION = "2.0.0-b4";
+	public static final String VERSION = "2.0.0-b5";
 	public static final String TEXTURE_BASE = MODID + ":";
 
 	@Instance(PracticalitiesMod.MODID)

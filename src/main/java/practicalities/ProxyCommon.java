@@ -10,6 +10,7 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import practicalities.items.netherbane.EntityNetherbane;
+import practicalities.registers.BlockRegister;
 import practicalities.registers.ItemRegister;
 import practicalities.registers.RecipeRegister;
 
@@ -17,6 +18,7 @@ public class ProxyCommon {
 
 	public void preInit() {
 		ItemRegister.init();
+		BlockRegister.init();
 		
 	}
 

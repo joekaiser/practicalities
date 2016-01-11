@@ -10,6 +10,9 @@ import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringTranslate;
 import practicalities.lib.util.AdvancedLangLoader;
+import org.apache.commons.io.Charsets;
+import org.apache.commons.io.IOUtils;
+import practicalities.registers.BlockRegister;
 import practicalities.registers.GuideRegister;
 import practicalities.registers.ItemRegister;
 
@@ -26,11 +29,11 @@ public class ProxyClient extends ProxyCommon implements IResourceManagerReloadLi
 	@Override
 	public void registerRenders() {
 		ItemRegister.registerRenders();
+		BlockRegister.registerRenders();
 	}
 
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {
-//		mergeAdvancedLangFile("en_US");
 		String lang = Minecraft.getMinecraft().gameSettings.language;
 		InputStream stream = stream(PracticalitiesMod.TEXTURE_BASE + "guides/"+lang+".lang");
 		if(stream == null) stream = stream(PracticalitiesMod.TEXTURE_BASE + "guides/en_US.lang");
