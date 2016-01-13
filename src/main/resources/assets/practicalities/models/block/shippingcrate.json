@@ -1,0 +1,9 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "practicalities:blocks/shippingcrate/shippingcrate_side",
+        "up": "practicalities:blocks/shippingcrate/shippingcrate_top"
+	}
+}
+
+

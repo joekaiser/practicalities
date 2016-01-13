@@ -41,7 +41,6 @@ public class ProxyCommon {
 	
 	public void registerTickHandlers() {
 		MinecraftForge.EVENT_BUS.register(this);
-		FMLCommonHandler.instance().bus().register(this);
 	}
 	
 	/*Events*/
