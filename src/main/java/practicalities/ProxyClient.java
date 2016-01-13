@@ -19,9 +19,14 @@ import practicalities.registers.ItemRegister;
 public class ProxyClient extends ProxyCommon implements IResourceManagerReloadListener {
 
 	@Override
+	public void preInit() {
+		super.preInit();
+		registerRenders();
+	}
+	
+	@Override
 	public void init() {
 		super.init();
-		registerRenders();
 		GuideRegister.init();
 		( (IReloadableResourceManager)Minecraft.getMinecraft().getResourceManager() ).registerReloadListener(this);
 	}

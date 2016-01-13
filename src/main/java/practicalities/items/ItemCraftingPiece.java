@@ -5,11 +5,15 @@ import java.util.List;
 
 import gnu.trove.map.TMap;
 import gnu.trove.map.hash.THashMap;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.oredict.OreDictionary;
+import practicalities.Logger;
+import practicalities.PracticalitiesMod;
 
 public class ItemCraftingPiece extends ItemBase {
 	public TMap<String, SubItem> subItemMap = new THashMap<String, SubItem>();
@@ -31,6 +35,16 @@ public class ItemCraftingPiece extends ItemBase {
 		super("craftingPiece");
 		this.setHasSubtypes(true);
 	}
+	
+	@Override
+	public void initModel() {
+		
+		for(SubItem item : subItemList){
+			Logger.info("    Registering model for %s",item.name);
+			ModelLoader.setCustomModelResourceLocation(this, item.meta, new ModelResourceLocation(PracticalitiesMod.TEXTURE_BASE+item.name, "inventory"));
+		}
+	}
+	
 
 	public ItemStack addItem(String name, boolean oreDict) {
 

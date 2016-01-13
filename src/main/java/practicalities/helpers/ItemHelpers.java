@@ -32,10 +32,10 @@ public final class ItemHelpers {
 		}
 	}
 
-	@SideOnly(Side.CLIENT)
-	public static ModelResourceLocation getModelLocation(ItemStack stack) {
-		return new ModelResourceLocation(PracticalitiesMod.TEXTURE_BASE + stack.getUnlocalizedName().substring(5),"inventory");
-	}
+//	@SideOnly(Side.CLIENT)
+//	public static ModelResourceLocation getModelLocation(ItemStack stack) {
+//		return new ModelResourceLocation(PracticalitiesMod.TEXTURE_BASE + stack.getUnlocalizedName().substring(5),"inventory");
+//	}
 	
 	public static ItemStack parseItemStack(String str) {
 		String[] parts = str.split("\\|");

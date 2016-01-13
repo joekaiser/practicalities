@@ -12,9 +12,11 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import practicalities.Logger;
 import practicalities.PracticalitiesMod;
 import practicalities.helpers.ItemHelpers;
 import practicalities.registers.ItemRegister;
@@ -29,6 +31,12 @@ public class ItemImbuedTool extends ItemPickaxe {
 		setCreativeTab(PracticalitiesMod.tab);
 		setMaxStackSize(1);
 	}
+	
+	@SideOnly(Side.CLIENT)
+    public void initModel() {
+    	Logger.info("    Registering model for imbuedTool");
+        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
