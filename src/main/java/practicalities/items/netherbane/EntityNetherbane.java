@@ -1,5 +1,6 @@
 package practicalities.items.netherbane;
 
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.item.ItemStack;
@@ -51,7 +52,7 @@ public class EntityNetherbane extends EntityItem {
 		switch (step) {
 		case 0:
 			if (onGround) {
-				if (timer.hasDelayPassed(worldObj, 70)) {
+				if (timer.hasDelayPassed(worldObj, 100)) {
 					nextStep();
 				}
 			}
@@ -59,6 +60,10 @@ public class EntityNetherbane extends EntityItem {
 		case 1:
 			if (timer.hasDelayPassed(worldObj, 6 + rand.nextInt(6))) {
 				worldObj.createExplosion(this, posX + rand.nextDouble(), posY, posZ + rand.nextDouble(), .1f, false);
+				EntityLightningBolt lightning = new EntityLightningBolt(worldObj, posX+rand.nextDouble(), posY, posZ+rand.nextDouble());
+				lightning.dimension = this.dimension;
+				worldObj.addWeatherEffect(lightning);
+				
 
 				EntitySkeleton skele = new EntitySkeleton(worldObj);
 				skele.dimension = this.dimension;
@@ -73,6 +78,7 @@ public class EntityNetherbane extends EntityItem {
 				skele.playLivingSound();
 
 				worldObj.spawnEntityInWorld(skele);
+				
 
 				subStep++;
 				if (subStep > 6) {

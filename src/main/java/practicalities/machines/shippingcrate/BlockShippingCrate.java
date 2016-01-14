@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import practicalities.PracticalitiesMod;
 import practicalities.blocks.BlockBase;
 
-public class BlockShippingCrate extends BlockBase {
+public class BlockShippingCrate extends BlockBase implements ITileEntityProvider {
 
 
 	public BlockShippingCrate() {
@@ -19,7 +19,13 @@ public class BlockShippingCrate extends BlockBase {
 
 	@Override
 	public boolean hasTileEntity() {
-		return false;
+		return true;
+	}
+
+
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		return new TileShippingCrate();
 	}
 
 
