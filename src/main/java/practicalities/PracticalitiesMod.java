@@ -23,6 +23,7 @@ public class PracticalitiesMod {
 	public static final String VERSION = "2.0.0-b6";
 	public static final String TEXTURE_BASE = MODID + ":";
 
+
 	@Instance(PracticalitiesMod.MODID)
 	public static PracticalitiesMod instance;
 	

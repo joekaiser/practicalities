@@ -10,8 +10,15 @@ import net.minecraft.world.World;
  *
  */
 public class TimeTracker {
-
+	
+	public static final int TIME_PART = 32;
+	public static final int TIME_PART_HALF = 16;
+	public static final int TIME_PART_QUARTER = 8;
+	public static final int TIME_PART_EIGHTH = 4;
+	
+	
 	private long lastMark = Long.MIN_VALUE;
+	
 
 	public boolean hasDelayPassed(World world, int delay) {
 
@@ -30,6 +37,9 @@ public class TimeTracker {
 	public void markTime(World world) {
 
 		lastMark = world.getTotalWorldTime();
+	}
+	public boolean hasTimePartPassed(World world, int part){
+		return world.getTotalWorldTime() % part == 0;
 	}
 
 }
