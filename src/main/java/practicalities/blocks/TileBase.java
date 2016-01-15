@@ -1,4 +1,4 @@
-package practicalities.base;
+package practicalities.blocks;
 
 import net.minecraft.tileentity.TileEntity;
 import practicalities.lib.server.ITileGui;

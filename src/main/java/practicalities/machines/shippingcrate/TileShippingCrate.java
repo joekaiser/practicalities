@@ -8,7 +8,7 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import practicalities.Logger;
-import practicalities.base.TileSimpleInventory;
+import practicalities.blocks.TileSimpleInventory;
 
 public class TileShippingCrate extends TileSimpleInventory {
 
